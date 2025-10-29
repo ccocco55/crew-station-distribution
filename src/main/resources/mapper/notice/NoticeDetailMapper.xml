@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.crewstation.mapper.notice.NoticeDetailMapper">
+
+    <resultMap id="NoticeDetailMap" type="com.example.crewstation.domain.notice.NoticeDetailVO">
+        <id     property="id"               column="id"/>
+        <result property="noticeTitle"      column="notice_title"/>
+        <result property="noticeContent"    column="notice_content"/>
+        <result property="memberId"         column="member_id"/>
+        <result property="createdDatetime"  column="created_datetime"/>
+        <result property="updatedDatetime"  column="updated_datetime"/>
+    </resultMap>
+
+    <select id="findById" parameterType="long" resultMap="NoticeDetailMap">
+        SELECT
+            n.id,
+            n.notice_title,
+            n.notice_content,
+            n.member_id,
+            to_char(n.created_datetime, 'YYYY-MM-DD HH24:MI:SS.US') AS created_datetime,
+            to_char(n.updated_datetime, 'YYYY-MM-DD HH24:MI:SS.US') AS updated_datetime
+        FROM tbl_notice n
+        WHERE n.id = #{id}
+    </select>
+</mapper>

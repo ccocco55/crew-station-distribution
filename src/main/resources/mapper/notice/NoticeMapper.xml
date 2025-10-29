@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.notice.NoticeMapper">
+    <select id="selectAllNotice">
+        select *
+        from tbl_notice
+        order by id desc
+        limit #{rowCount} offset #{offset}
+    </select>
+    <select id="selectCountAll">
+        select count(*) from tbl_notice
+    </select>
+
+    <select id="selectNoticeCriteria">
+        select
+            n.id,
+            n.notice_title   AS title,
+            n.member_id      AS memberId,
+            n.created_datetime AS createdDatetime,
+            to_char(n.created_datetime, 'MM-DD') AS createdMd,
+            m.member_name    AS writerName
+        from tbl_notice n
+                 left join tbl_member m on m.id = n.member_id
+        order by n.id desc
+        limit #{rowCount} offset #{offset}
+
+    </select>
+
+    <insert id="insertNotice">
+        insert into tbl_notice
+        (notice_title, notice_content, member_id, created_datetime, updated_datetime)
+            values
+                (#{noticeTitle}, #{noticeContent}, #{memberId}, now(), now())
+                returning id
+    </insert>
+
+
+
+
+
+</mapper>

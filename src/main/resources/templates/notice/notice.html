@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+
+    <link rel="stylesheet" th:href="@{/css/font.css}">
+    <link rel="shortcut icon" th:href="@{/images/crew-station-favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/notice/notice.css}">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <style>
+        a { text-decoration: none; color: inherit; }
+    </style>
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+<div class="notice-list">
+    <div class="myhome-nav">
+        <nav class="myhome-nav__owner">
+            <ul>
+                <li class="page-navigation__item">
+                    <a th:href="@{/ask/register}" th:classappend="${page=='ask'} ? 'active'">문의하기</a>
+                </li>
+                <li class="page-navigation__item">
+                    <a th:href="@{/notice/notice}" th:classappend="${page=='notice'} ? 'active'">공지사항</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="notice-list__content">
+        <h1 class="notice-list__title">공지사항</h1>
+
+        <!-- ✅ 공지사항 목록 -->
+        <ul class="notice-list__items"
+            th:if="${noticeCriteriaDTO != null and noticeCriteriaDTO.noticeLists != null}">
+            <li class="notice-list__list-item" th:each="n : ${noticeCriteriaDTO.noticeLists}">
+                <!-- 상세 페이지 이동 경로: /notice/detail/{id} -->
+                <a class="feed-item" th:href="@{/notice/detail/{id}(id=${n.id})}">
+                    <article class="notice-feed-item__content">
+                        <h2 class="notice-feed-item__title" th:text="${n.noticeTitle}">공지 제목</h2>
+
+                        <!-- createdDatetime 은 String → 앞 10자리만 출력 -->
+                        <time class="notice-feed-item__date"
+                              th:text="${#strings.substring(n.createdDatetime,0,10)}">
+                            2025-07-21
+                        </time>
+                    </article>
+                </a>
+            </li>
+        </ul>
+
+        <!-- 공지 없을 때 -->
+        <div class="notice-list__empty"
+             th:if="${noticeCriteriaDTO == null or #lists.isEmpty(noticeCriteriaDTO.noticeLists)}">
+            등록된 공지사항이 없습니다.
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+</html>

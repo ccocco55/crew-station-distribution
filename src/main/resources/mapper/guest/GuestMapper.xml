@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.guest.GuestMapper">
+    <insert id="insert">
+        insert into tbl_guest(member_id, guest_phone, guest_password, guest_order_number, address_zip_code, address_detail, address)
+        values (#{memberId},#{guestPhone}, #{guestPassword}, #{guestOrderNumber},#{addressZipCode},#{addressDetail},#{address})
+    </insert>
+    <select id="select">
+        select id, member_id, guest_phone, guest_order_number, address_zip_code, address_detail, address
+        from tbl_guest
+        where guest_phone = #{guestPhone} and guest_order_number = #{guestOrderNumber}
+    </select>
+
+    <!-- 게스트 정보 단순 조회-->
+    <select id="selectById">
+        SELECT id, member_id AS memberId, guest_phone AS guestPhone,
+               guest_order_number AS guestOrderNumber, address_zip_code AS addressZipCode,
+               address_detail AS addressDetail, address
+        FROM tbl_guest
+        WHERE id = #{guestId}
+    </select>
+
+    <!-- 게스트 주문 상세 조회 -->
+    <select id="selectOrderDetails">
+        SELECT
+            g.id                            AS guest_id,
+            guest.member_name               AS guest_name,
+            g.guest_phone                   AS guest_phone,
+            g.address_zip_code              AS address_zip_code,
+            g.address                       AS guest_address,
+            g.address_detail                AS guest_address_detail,
+            g.guest_order_number            AS guest_order_number,
+
+            ps.id                           AS payment_status_id,
+            ps.payment_phase                AS payment_status,
+            ps.created_datetime             AS created_datetime,
+            ps.updated_datetime             AS updated_datetime,
+
+            p.id                            AS post_id,
+            p.post_title                    AS post_title,
+
+            pu.post_id                      AS purchase_id,
+            pu.purchase_product_price       AS purchase_product_price,
+            pu.purchase_country             AS purchase_country,
+            pu.purchase_delivery_method     AS purchase_delivery_method,
+
+            seller.id                       AS seller_id,
+            seller.member_name              AS seller_name,
+            seller.member_phone             AS seller_phone,
+            guest.id                        AS buyer_member_id,
+
+            -- 대표 이미지 (경로 중복 제거)
+            (
+                SELECT f2.file_path
+                FROM tbl_post_section s2
+                         JOIN tbl_post_section_file sf2 ON s2.id = sf2.post_section_id
+                         JOIN tbl_file f2 ON sf2.file_id = f2.id
+                WHERE s2.post_id = p.id
+                  AND sf2.image_type = 'main'
+                LIMIT 1
+            ) AS main_image
+
+        FROM tbl_guest g
+                 JOIN tbl_payment_status ps ON ps.member_id = g.member_id
+                 JOIN tbl_purchase pu ON ps.purchase_id = pu.post_id
+                 JOIN tbl_post p ON pu.post_id = p.id
+                 JOIN tbl_member seller ON p.member_id = seller.id
+                 JOIN tbl_member guest ON g.member_id = guest.id
+        WHERE g.guest_order_number = #{guestOrderNumber}
+    </select>
+
+    <select id="selectGuestByOrderName">
+        select id, member_id, guest_phone, guest_order_number, guest_password, address_zip_code, address_detail, address
+        from tbl_guest
+        where guest_order_number = #{guestOrderNumber}
+    </select>
+
+</mapper>

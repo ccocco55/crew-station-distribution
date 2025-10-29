@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/mypage/my-activities/reply.css">
+    <link rel="stylesheet" href="/css/mypage/my-activities/like.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+
+<div class="all">
+    <!-- 좌측 네비 -->
+    <div class="myhome-nav">
+        <nav class="page-navigation">
+            <ul>
+                <li class="page-navigation__item"><a href="/mypage/diary-list">나의 다이어리</a></li>
+                <li class="page-navigation__item"><a href="/mypage/findMyCrew">나의 크루 구하기</a></li>
+                <li class="page-navigation__item"><a href="/mypage/crew-list">나의 크루 목록</a></li>
+                <li class="page-navigation__item"><a href="/mypage/my-activities" class="active">나의 활동</a></li>
+                <li class="page-navigation__item"><a href="/mypage/purchase-list">나의 구매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/sale-list">나의 판매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/inquiries">나의 문의</a></li>
+                <li class="page-navigation__item"><a href="/mypage/modify">나의 프로필</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 메인 -->
+    <main class="main">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="title">
+                <p class="title-p">나의 활동</p>
+            </div>
+            <div class="profile-wrap">
+                <a href="">
+                    <img class="profile-img" src="/images/crew-station-icon-profile.png">
+                    <span class="profile-name">CREW_STATION</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 탭 버튼 -->
+        <div class="m-sticky-container">
+            <div class="nav-wrap">
+                <nav>
+                    <a href="javascript:void(0)" class="nav-button active" data-target="reply-section">
+                        <div class="p-wrap"><p class="tag-name">댓글(0)</p></div>
+                    </a>
+                    <a href="javascript:void(0)" class="nav-button" data-target="liked-section">
+                        <div class="p-wrap"><p class="tag-name">좋아요(0)</p></div>
+                    </a>
+                </nav>
+                <hr class="nav-hr">
+            </div>
+        </div>
+
+        <!-- 콘텐츠 영역 -->
+        <section id="reply-section" class="tab-section active">
+            <section id="reply-diary-list" class="inquiry-container"></section>
+        </section>
+
+        <section id="liked-section" class="tab-section">
+            <div id="liked-diary-list" class="liked-diary-list"></div>
+        </section>
+    </main>
+</div>
+
+<!-- 로딩 -->
+<div id="loading" style="display:none;">
+    <div class="spinner"></div>
+</div>
+
+<!-- 토스트 메시지 -->
+<div class="toast hide" style="display:none;">
+    <div class="toast-wrap">
+        <p class="toast-text">클립보드에 복사되었습니다.</p>
+    </div>
+</div>
+<footer th:replace="~{fixed/web/footer :: footer}"></footer>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/js/mypage/my-activities/module/service.js"></script>
+<script src="/js/mypage/my-activities/module/layout.js"></script>
+<script src="/js/mypage/my-activities/event.js"></script>
+</html>

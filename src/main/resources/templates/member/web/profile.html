@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/member/web/profile.css">
+    <link rel="stylesheet" href="/css/member/web/profile/profile-add.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+<div class="all">
+    <div class="main" style="padding: 0px;">
+        <div class="main-wrap" style="flex-wrap: nowrap;">
+            <div id="profileWarp" class="main-profile" style=" margin-right: 52px;">
+
+            </div>
+            <div class="t-list" style="width: 839px;">
+                <div class="sticky-container" style="z-index: 0;">
+                    <div style="position: relative;">
+                        <div class="nav-wrap">
+                            <nav>
+                                <button class="nav-button active">
+                                    <div class="p-wrap">
+                                        <p class="tag-name">다이어리(0)</p>
+                                    </div>
+                                </button>
+                                <button class="nav-button">
+                                    <div class="p-wrap">
+                                        <p class="tag-name">크루 다이어리(0)</p>
+                                    </div>
+                                </button>
+                            </nav>
+                            <hr class="nav-hr">
+                        </div>
+                    </div>
+                </div>
+                <div id="diaryWarp" class="t-list-container active" style="max-width: 100%;width: 839px; padding: 130px 0 0;">
+                    <section id="diaryContent" style="display: flex; gap: 16px; flex-wrap: wrap;">
+
+                    </section>
+                </div>
+                <div id="crewDiaryWarp" class="t-list-container" style="max-width: 100%;width: 839px; padding: 130px 0 0;">
+                    <section id="crewDiaryContent" style="display: flex; gap: 16px; flex-wrap: wrap;">
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast hide" style="display: none;">
+    <div class="toast-wrap">
+        <p class="toast-text">클립보드에 복사되었습니다.</p>
+    </div>
+</div>
+<footer th:replace="~{fixed/web/footer :: footer}"></footer>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/js/member/web/profile/module/service.js"></script>
+<script src="/js/member/web/profile/module/layout.js"></script>
+<script src="/js/member/web/profile/event.js"></script>
+</html>

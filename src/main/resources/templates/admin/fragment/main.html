@@ -1,0 +1,78 @@
+<div th:fragment="main-page" id="section-home">
+    <div class="page ana-user-index wide-page">
+        <div class="page-header">
+            <div class="page-title">HOME</div>
+            <div class="page-subtitle"></div>
+        </div>
+
+        <div class="page-body">
+            <div class="tab-box">
+                <div class="tab-row white-panel">
+                    <div class="row">
+                        <div class="col col-auto">
+                            <ul class="tab-name-list list-unstyled list-inline">
+                                <li class="tab-name active">회원 분석</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-body">
+                    <div class="tab-wrapper user-tab">
+                        <!--  그래프 영역 -->
+                        <div id="join_chart" class="echarts-for-react boot-chart height-300" style="width:100%; min-height:250px;"></div>
+
+                        <!--  통계 데이터 -->
+                        <div class="chart-box access-data-list">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-3 statics-graph">
+                                    <div class="access-data data-member-page">
+                                        <div class="title">오늘 가입자 수</div>
+                                        <div class="value">
+                                            <span class="icon"></span>
+                                            <span id="todayJoin" style="font-size: 30px">-</span>
+                                            <span class="unit">명</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-3 statics-graph">
+                                    <div class="access-data data-member-page">
+                                        <div class="title">월별 가입자 수</div>
+                                        <div class="value">
+                                            <span id="monthlyJoins" style="font-size: 30px"></span>
+                                            <span class="unit">명</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="access-data data-member-page">
+                                        <div class="title">총 크루 수</div>
+                                        <div class="value">
+                                            <span id="totalCrew" style="font-size: 30px">-</span>
+                                            <span class="unit">개</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="access-data data-member-page">
+                                        <div class="title">총 회원 수</div>
+                                        <div class="value">
+                                            <span id="totalMember" style="font-size: 30px">-</span>
+                                            <span class="unit">명</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 인기 여행지 차트 -->
+                        <div id="piechart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/mypage/modify.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+
+<div class="all">
+    <div class="myhome-nav">
+        <nav class="page-navigation">
+            <ul>
+                <li class="page-navigation__item"><a href="/mypage/diary-list">나의 다이어리</a></li>
+                <li class="page-navigation__item"><a href="/mypage/findMyCrew">나의 크루 구하기</a></li>
+                <li class="page-navigation__item"><a href="/mypage/crew-list">나의 크루 목록</a></li>
+                <li class="page-navigation__item"><a href="/mypage/my-activities">나의 활동</a></li>
+                <li class="page-navigation__item"><a href="/mypage/purchase-list">나의 구매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/sale-list">나의 판매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/inquiries">나의 문의</a></li>
+                <li class="page-navigation__item"><a href="/mypage/modify" class="active">나의 프로필</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main">
+        <form class="modify-form">
+            <!-- 프로필 이미지 -->
+            <div class="modify">
+                <label for="profile" class="modify-label">
+                    <img class="profile-img"
+                         src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=144&h=144&c=c"
+                         alt="프로필 이미지">
+                    <div class="photo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" fill="#FFFFFF" viewBox="0 0 12 12">
+                            <path fill-rule="evenodd"
+                                  d="M2 2.86h1.67l.569-1.091a.5.5 0 0 1 .443-.269h2.587a.5.5 0 0 1 .44.262l.593 1.098H10a1 1 0 0 1 1 1v5.173a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3.86a1 1 0 0 1 1-1M7.166 6.3a1.18 1.18 0 1 1-2.36 0 1.18 1.18 0 0 1 2.36 0m1 0a2.18 2.18 0 1 1-4.36 0 2.18 2.18 0 0 1 4.36 0"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <input type="file" class="img-input" id="profile">
+                </label>
+            </div>
+
+            <!-- 이메일 -->
+            <div class="input-title">
+                <div class="email-input">
+                    <label class="email-label">이메일</label>
+                    <div class="email-div">
+                        <input type="text" class="input-email input-input" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 이름 -->
+            <div class="input-title">
+                <label class="name">이름</label>
+                <div class="name-input">
+                    <input type="text" class="read-name" disabled>
+                </div>
+            </div>
+
+            <!-- 생년월일 -->
+            <div class="input-title">
+                <label class="birth">생년월일</label>
+                <div class="birth-input">
+                    <input type="text" class="birth-name input-input" placeholder="예: 20001202">
+                </div>
+                <div class="error-text-wrap error-text-birth">
+                    <span>필수 입력 항목입니다.</span>
+                </div>
+            </div>
+
+            <hr class="bar">
+
+            <!-- 휴대폰 번호 -->
+            <div class="input-title">
+                <label class="form-label member-phone-label phone">휴대폰 번호</label>
+                <div class="phone-wrap form-wrap">
+                    <div class="input-group phone-input">
+                        <span class="phone-input-local form-input-local">
+                            <div class="phone-number">
+                                <input type="text" name="memberPhone"
+                                       class="form-control essential phone input-input"
+                                       placeholder="휴대폰 번호">
+                            </div>
+                            <button type="button" class="phone-certification" disabled>변경</button>
+                            <div class="phone-check" style="display: none;">
+                                <input type="text" class="form-control essential code input-input" placeholder="인증번호">
+                                <div class="limit-time" style="color:rgb(255, 119, 119)">5:00</div>
+                                <button type="button" class="code-check" disabled>확인</button>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class="error-text-wrap error-text-phone">
+                    <span>필수 입력 항목입니다.</span>
+                </div>
+            </div>
+
+            <!-- 주소 -->
+            <div class="input-title">
+                <label class="birth">주소</label>
+                <div class="address-code">
+                    <input type="text" class="address-code input-input" placeholder="우편번호">
+                    <button type="button" class="certification">주소찾기</button>
+                </div>
+                <div class="address">
+                    <input type="text" class="address input-input" placeholder="주소">
+                </div>
+                <div class="address-detail">
+                    <input type="text" class="address-detail input-input" placeholder="상세주소">
+                </div>
+                <div class="error-text-wrap error-text-phone">
+                    <span>필수 입력 항목입니다.</span>
+                </div>
+            </div>
+
+            <hr class="bar">
+
+            <!-- SNS 링크 -->
+            <div class="input-title">
+                <label class="puls">SNS 링크</label>
+                <div class="password-check-input">
+                    <input type="text" class="password-check" placeholder="https://www.example.com">
+                </div>
+            </div>
+
+            <!-- 탈퇴 버튼 -->
+            <div class="inactive">
+                탈퇴하기
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" fill="currentColor" viewBox="0 0 12 12">
+                    <path fill-rule="evenodd"
+                          d="M3.551 1.151a.6.6 0 0 0 .05.847l4.496 3.996L3.6 9.99a.6.6 0 0 0 .798.897l4.58-4.07a1.1 1.1 0 0 0 0-1.645l-4.58-4.07a.6.6 0 0 0-.848.05"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <button class="submit">완료</button>
+        </form>
+    </main>
+</div>
+
+<footer th:replace="~{fixed/web/footer :: footer}"></footer>
+
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/js/mypage/modify/module/service.js"></script>
+<script src="/js/mypage/modify/module/layout.js"></script>
+<script src="/js/mypage/modify/event.js"></script>
+</body>
+</html>

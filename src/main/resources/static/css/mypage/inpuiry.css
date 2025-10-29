@@ -1,0 +1,350 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+a * {
+    border: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+format("embedded-opentype"),
+url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+format("woff2"),
+url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+format("woff"),
+url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+format("truetype"),
+url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+format("svg");
+}
+
+html{
+    font-family:'Pretendard Variable',sans-serif;
+    letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;
+}
+
+/* 크루 찾기 목록 */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+/* 문의 목록 시작 */
+
+.main-section {
+    max-width: 850px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: auto;
+    flex: 0 0 auto;
+}
+
+.inquiry-container {
+    margin-top: 50px;
+}
+
+.reply-wrap {
+    padding-top: 0px;
+    padding-bottom: 417px;
+    transform: translateY(0px);
+}
+
+.inquiry {
+    padding: 16px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.inquiry-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.status {
+    font-size: 12px;
+    padding: 0px 6px;
+    color: rgb(255, 255, 255);
+    background-color: #505050;
+    display: inline-block;
+    font-weight: 700;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.status.active {
+    background-color: #647FBC;
+}
+
+.date {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(130, 140, 148);
+    margin-left: auto;
+}
+
+.inquiry-content {
+    display: flex;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+    white-space: pre-wrap;
+    margin-bottom: 17px;
+    word-break: break-all;
+}
+
+.q-icon {
+    font-size: 16px;
+    color: #647FBC;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid rgb(234, 237, 239);
+    box-shadow: rgba(63, 71, 77, 0.25) 0px 2px 5px;
+}
+
+.inquiry-title-text {
+    flex: 1 0 0px;
+}
+
+.inquiry-content-text {
+    font-size: 14px;
+    position: relative;
+    left: 39px;
+    width: 785px;
+}
+
+.remove {
+    margin: 12px 0px 0px;
+    background: none;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 32px;
+    border-radius: 4px;
+    padding: 0px 8px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.bar {
+    margin: 0px;
+    padding: 0px;
+    height: 10px;
+    border: none;
+    background-color: rgb(247, 249, 250);
+}
+
+.answer {
+    padding: 16px;
+    border-radius: 4px;
+    background-color: rgb(247, 249, 250);
+    font-size: 16px;
+    line-height: 28px;
+    color: rgb(47, 52, 56);
+    margin-top: 20px;
+}
+
+.answer .answer-container {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 84px;
+}
+
+.answer.active .answer-container {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-height: none;
+}
+
+.answer-more {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+.answer.active .answer-more {
+    display: none;
+}
+
+.more-button {
+    display: inline-block;
+    margin: 0px 0px 0px auto;
+    border: none;
+    background: none;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 6px;
+    color: #647FBC;
+    font-weight: 700;
+}
+
+.down {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.down::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\e96d";
+}
+
+.more-text {
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.more-status {
+    display: none;
+    align-items: center;
+    height: 32px;
+}
+
+.answer.active .more-status {
+    display: flex;
+}
+
+.writer {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(130, 140, 148);
+}
+
+.point {
+    margin: 0px 4px;
+}
+
+.close-button {
+    display: inline-block;
+    margin: 0px 0px 0px 555px;
+    border: none;
+    background: none;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 6px;
+    color: #647FBC;
+    font-weight: 700;
+}
+
+.up {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.up::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\e979";
+}

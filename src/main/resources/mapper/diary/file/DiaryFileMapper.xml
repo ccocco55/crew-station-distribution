@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.diary.file.DiaryFileMapper">
+    <select id="getDiaryFilesByDiaryId">
+        select
+            vpd.id              as diaryId,
+            ps.id               as postSectionId,
+            f.id                as fileId,
+            f.file_path         as filePath,
+            f.file_name         as fileName,
+            f.file_origin_name  as fileOriginName,
+            psf.image_type      as imageType
+        from view_post_diary vpd
+                 join tbl_post_section ps on ps.post_id = vpd.id
+                 join tbl_post_section_file psf on psf.post_section_id = ps.id
+                 join tbl_file f on f.id = psf.file_id
+        where vpd.id = #{diaryId}
+    </select>
+</mapper>

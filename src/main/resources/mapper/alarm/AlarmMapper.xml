@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.alarm.AlarmMapper">
+    <insert id="insertPaymentAlarm">
+        insert into tbl_payment_status_alarm  (payment_status_id)
+        values (#{paymentStatusId})
+    </insert>
+
+    <insert id="insertLikeAlarm">
+        insert into tbl_like_alarm (like_id)
+        values (#{likeId})
+    </insert>
+
+    <delete id="deleteLikeAlarm">
+        delete from tbl_like_alarm
+        where like_id = #{likeId}
+    </delete>
+
+    <insert id="insertReplyAlarm">
+        insert into tbl_diary_alarm(diary_id)
+        values (#{postId})
+    </insert>
+
+    <insert id="insertMemberAlarm">
+        insert into tbl_member_alarm (member_id)
+        values (#{memberId})
+    </insert>
+
+    <select id="selectUnreadCount">
+        select
+            (
+                (select count(*)
+                 from tbl_member_alarm ma
+                 where ma.member_id = #{memberId}
+                   and ma.alarm_status = 'unread')
+                    +
+                (select count(*)
+                 from tbl_diary_alarm da
+                          join tbl_diary d on d.post_id = da.diary_id
+                          join tbl_post  p on p.id = d.post_id
+                 where p.member_id = #{memberId}
+                   and da.alarm_status = 'unread')
+                    +
+                (select count(*)
+                 from tbl_like_alarm la
+                          join tbl_like  l on l.id = la.like_id
+                          join tbl_post  p on p.id = l.post_id
+                 where p.member_id = #{memberId}
+                   and la.alarm_status = 'unread')
+                    +
+                (select count(*)
+                 from tbl_payment_status_alarm psa
+                          join tbl_payment_status ps on ps.id = psa.payment_status_id
+                 where ps.member_id = #{memberId}
+                   and psa.alarm_status = 'unread')
+                ) as unread_count
+    </select>
+
+
+    <select id="selectLatestAlarms">
+        (
+            select
+                ma.id               as alarmId,
+                'MEMBER'            as alarmType,
+                ma.alarm_status     as alarmStatus,
+                ma.created_datetime as createdAt
+            from tbl_member_alarm ma
+            where ma.member_id = #{memberId}
+        )
+        union all
+        (
+            select
+                da.id               as alarmId,
+                'DIARY'             as alarmType,
+                da.alarm_status     as alarmStatus,
+                da.created_datetime as createdAt
+            from tbl_diary_alarm da
+                     join tbl_diary d on d.post_id = da.diary_id
+                     join tbl_post  p on p.id = d.post_id
+            where p.member_id = #{memberId}
+        )
+        union all
+        (
+            select
+                la.id               as alarmId,
+                'LIKE'              as alarmType,
+                la.alarm_status     as alarmStatus,
+                la.created_datetime as createdAt
+            from tbl_like_alarm la
+                     join tbl_like  l on l.id = la.like_id
+                     join tbl_post  p on p.id = l.post_id
+            where p.member_id = #{memberId}
+        )
+        union all
+        (
+            select
+                psa.id              as alarmId,
+                'PAYMENT'           as alarmType,
+                psa.alarm_status    as alarmStatus,
+                psa.created_datetime as createdAt
+            from tbl_payment_status_alarm psa
+                     join tbl_payment_status ps on ps.id = psa.payment_status_id
+            where ps.member_id = #{memberId}
+        )
+        order by createdAt desc
+    </select>
+
+    <update id="markAlarmAsRead">
+        <choose>
+            <when test="alarmType != null and alarmType.equals('member')">
+                update tbl_member_alarm
+                set alarm_status = 'read',
+                updated_datetime = now()
+                where id = #{alarmId}
+                and alarm_status = 'unread'
+            </when>
+
+            <when test="alarmType != null and alarmType.equals('diary')">
+                update tbl_diary_alarm
+                set alarm_status = 'read',
+                updated_datetime = now()
+                where id = #{alarmId}
+                and alarm_status = 'unread'
+            </when>
+
+            <when test="alarmType != null and alarmType.equals('like')">
+                update tbl_like_alarm
+                set alarm_status = 'read',
+                updated_datetime = now()
+                where id = #{alarmId}
+                and alarm_status = 'unread'
+            </when>
+
+            <when test="alarmType != null and alarmType.equals('payment')">
+                update tbl_payment_status_alarm
+                set alarm_status = 'read',
+                updated_datetime = now()
+                where id = #{alarmId}
+                and alarm_status = 'unread'
+            </when>
+
+            <otherwise>
+                update tbl_member_alarm set id = id where 1=0
+            </otherwise>
+        </choose>
+    </update>
+
+
+
+
+</mapper>

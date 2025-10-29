@@ -1,0 +1,303 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+    font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+    src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+    format("embedded-opentype"),
+    url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+    format("woff2"),
+    url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+    format("woff"),
+    url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+    format("truetype"),
+    url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+    format("svg");}
+    html{
+        font-family:'Pretendard Variable',sans-serif;
+        letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;}
+
+
+/* 네비 */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+/* 주문상세 */
+
+.main {
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    background-color: #F7F9FA;
+    height: auto;
+    min-height: 100vh;
+}
+
+.main-wrap {
+    max-width: 500px;
+    height: auto;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main-title {
+    font-size: 16px;
+    line-height: 20px;
+    border-bottom: 1px solid #EAEDEF;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.header {
+    padding: 24px 16px;
+}
+
+.header-wrapper {
+    margin-bottom: 40px;
+    color: #2F3438;
+}
+
+.header-title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.date {
+    color: #647FBC;
+}
+
+.line {
+    padding-left: 44px;
+    position: relative;
+    min-height: 60px;
+    padding-bottom: 16px;
+}
+
+.line:first-of-type::before {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.line.fill::before {
+    background-color: #647FBC;
+}
+
+.line::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    background-color: #EAEDEF;
+}
+
+.status {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    display: flex;
+}
+
+.line::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    left: 10px;
+    top: 6px;
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.now {
+    display: inline-flex;
+    align-items: center;
+    color: #647FBC;
+    justify-content: center;
+    position: absolute;
+    left: -4px;
+    top: -6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid #647FBC;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.line:last-of-type::before {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 20px;
+}
+
+.bar {
+    margin: 0;
+    padding: 0;
+    height: 10px;
+    border: none;
+    background-color: #F7F9FA;
+}
+
+.product {
+    padding: 24px 0px;
+    color: #2F3438;
+}
+
+.address-wrap {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin: 20px 16px;
+}
+
+.address {
+    display: flex;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 6px;
+    margin: 9px 16px;
+}
+
+.address:last-of-type {
+    margin-bottom: 20px;
+}
+
+.address-span {
+    display: inherit;
+    min-width: 68px;
+    color: #828C94;
+}
+
+.product-wrapper {
+    padding-bottom: 20px;
+    cursor: pointer;
+    margin: 0px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-wrapper > img {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.purchase-info {
+    font-size: 14px;
+    line-height: 20px;
+    align-self: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.info-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #2F3438;
+}
+
+.info-detail {
+    font-weight: 400;
+    color: #828C94;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.country.CountryMapper">
+    <select id="selectAll">
+        select id, country_name
+        from tbl_country
+    </select>
+
+    <select id="selectPopularCountries">
+        select
+            tc.country_name as country,
+            count(td.post_id) as count
+        from tbl_diary td
+                 join tbl_diary_country tdc on td.post_id = tdc.post_id
+                 join tbl_country tc on tdc.country_id = tc.id
+        where td.diary_secret = 'public'
+        group by tc.country_name
+        order by count desc
+        limit 5
+
+    </select>
+</mapper>

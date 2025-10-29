@@ -1,0 +1,299 @@
+layout>* {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+
+blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+.css-yvmhua::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+}
+
+
+
+* {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate; 
+}
+
+
+.html {
+    font-family: 'Pretendard Variable',sans-serif;
+    letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.html {
+    color: #070707;
+    background: #fff;
+}
+
+
+
+.postbutton {
+    position: absolute;
+    top: 10px;    /* 위에서 간격 */
+    right: 20px;  /* 오른쪽에서 간격 */
+    padding: 0;   /* 불필요한 여백 제거 */
+    height: auto;
+}
+
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+
+.css-1d9qq2u
+ {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: block;
+    padding-right: 15px;
+    height: 79px;
+ }
+
+
+
+/* 목록  */
+
+.myhome-nav__contents {
+    overflow: visible;
+    font-size: 16px;
+}
+
+
+
+.page-navigation {
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+    overflow: hidden; 
+}
+
+
+.page-navigation {
+    text-align: center;
+    white-space: nowrap;
+    }
+
+
+
+.css-title1  {
+    max-width: 720px;
+    margin: 0 auto;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+
+.css-title2 {
+        padding-top: 30px;
+    }
+
+
+
+
+.css-6f0gu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #E6E6E6;
+    color: #C2C8CC;
+    padding-left: 13px;
+    padding-right: 37px;
+}
+
+
+.post4 css-95os37
+ {  position: relative;
+    margin: 10px 0px;
+ }
+
+
+.css-title3  {
+    margin-top: 40px;
+     position: relative;
+    }
+
+
+
+.title-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 15px 50px 15px 0;
+    border: none;           /* ✅ 테두리 제거 */
+    outline: none;          /* ✅ 클릭 시 파란 라인 제거 */
+    color: #292929;
+    font: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+
+.gift-shop-write-header-icon {
+    flex: 0 0 auto;
+    height: 80px;
+    width: auto;
+    margin-left: 20px; 
+}
+
+
+.indicator {
+
+        margin: -9px 0 0;
+        font-size: 15px;
+        line-height: 19px;
+    }
+
+.indicator  {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    color: #828c94;
+}
+
+.post1 {
+    cursor: text; 
+}
+
+.post2 {
+    padding: 40px 0 30vh;
+    cursor: text;
+}
+
+.post3 {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0;
+    }
+
+.post4 {
+    position: relative;
+    margin: 15px 0px;  
+}
+
+
+.css-1iifh8u  {
+    font-family: inherit;
+    overflow-wrap: break-word;
+    transition: background-color 0.1s;
+    margin: 2px -3px;
+    color: rgb(41, 41, 41);
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 30px;
+    min-height: 500px;
+    border: none;       /* 기본 테두리 제거 */
+    outline: none;      /* 클릭했을 때 파란선 제거 */
+    background: none;   /* 배경도 투명하게 */
+    width: 100%;        /* 입력창 넓게 */
+    padding-left: 15px;          /* 불필요한 패딩 제거 */
+}
+
+
+
+.post4 {
+    margin-left: 0;   /* 내용 영역 왼쪽 여백 제거 */
+    padding-left: 0;
+}
+
+
+
+a, button:enabled {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* 올리기 버튼 서식 */
+.css-postup {
+    border: none;
+    background: #647FBC;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0 16px;
+    font-weight: 500;
+    color: #fff;
+    width: 100px;
+    cursor: pointer;
+    }
+
+    textarea.css-1iifh8u{
+        resize: none;
+    }
+
+
+
+
+
+
+    /*   .css-postup {  
+    display: inline-block;
+    width: 90px;
+    height: 45px;
+    box-sizing: border-box;
+    margin: 0px 5px;
+    padding: 11px 5px 12px;
+    background: rgb(53, 197, 240);
+    border: 1px solid rgb(53, 197, 240);
+    border-radius: 5px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    transition: opacity 0.1s;
+    margin-right: 25px;}  */

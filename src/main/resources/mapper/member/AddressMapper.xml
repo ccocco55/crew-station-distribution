@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.member.AddressMapper">
+    <insert id="insert">
+        insert into tbl_address (address_zip_code, address_detail, address, member_id)
+        values (#{addressZipCode}, #{addressDetail}, #{address}, #{memberId})
+    </insert>
+
+</mapper>

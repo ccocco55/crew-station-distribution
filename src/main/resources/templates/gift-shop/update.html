@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crew Station</title>
+  <link rel="stylesheet" href="/css/gift-shop/update.css">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="icon" type="image/png" href="/images/crew-station-favicon.png">
+</head>
+<body>
+<div class="page">
+  <!-- 폼태그 -->
+  <form th:action="@{/gifts/{id}(id=${purchase.postId})}" method="post" enctype="multipart/form-data" th:object="${purchase}" name="purchase" id="purchase">
+    <input type="hidden" th:field="*{postId}">
+    <div class="page-container">
+      <main class="main-container">
+        <!-- 올리기 메뉴 -->
+        <header>
+          <div class="gift-shop-write-header-container">
+            <div class="gift-shop-write-header-wrapper">
+              <a href="/gifts">
+              <img class="gift-shop-write-header-icon" src="/images/crew-station-favicon.png">
+              </a>
+              <div class="gift-shop-write-header-btn-wrapper">
+                <button type="submit" class="gift-shop-write-header-btn">올리기</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- 서브 헤더 -->
+        <div class="layout-navigation-secondary">
+          <div class="header-container">
+            <nav class="header-wrap">
+              <div class="header-list-wrap">
+                <div class="header-category active">
+                  <div class="category">
+                    <p class="header-name">글 작성하기</p>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="write-content-container">
+          <div class="write-content-wrapper">
+
+            <!-- 제목 -->
+            <input type="text" class="write-content-input" th:field="*{postTitle}" placeholder="제목을 입력해주세요.">
+
+            <!-- 드롭다운 (배송방법) -->
+            <div class="write-content-select-wrap">
+              <input type="text" class="write-content-select" id="purchaseDeliveryMethod" name="purchaseDeliveryMethod" th:value="${purchase.purchaseDeliveryMethod.getValue().equals('direct') ? '직접전달' : '택배거래'}" placeholder="전달 방법을 선택해주세요." readonly>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                   fill="currentColor" viewBox="0 0 24 24"
+                   class="write-content-select-icon">
+                <path d="M17 10H7l5 5z"></path>
+              </svg>
+              <ul class="write-content-select-dropdown">
+                <li data-value="direct">직접전달</li>
+                <li data-value="parcel">택배거래</li>
+              </ul>
+            </div>
+
+            <!-- 드롭다운 (최대 개수) -->
+            <div class="write-content-select-wrap">
+              <input type="text" class="write-content-select" name="purchaseProductCount" id="purchaseProductCount" th:value="*{purchaseProductCount+'개'}" placeholder="판매 가능 수량을 선택해주세요. (최대 10개까지)" readonly>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                   fill="currentColor" viewBox="0 0 24 24"
+                   class="write-content-select-icon">
+                <path d="M17 10H7l5 5z"></path>
+              </svg>
+              <ul class="write-content-select-dropdown">
+                <li data-value="1">1개</li><li data-value="2">2개</li><li data-value="3">3개</li><li data-value="4">4개</li><li data-value="5">5개</li>
+                <li data-value="6">6개</li><li data-value="7">7개</li><li data-value="8">8개</li><li data-value="9">9개</li><li data-value="10">10개</li>
+              </ul>
+            </div>
+
+            <!-- 일반 입력창 -->
+            <div class="unit-input" data-unit="원">
+              <input
+                      type="text"
+
+                      class="write-content-input"
+                      id="price"
+                      name="price"
+                      th:value="*{purchaseProductPrice}"
+                      inputmode="numeric"
+                      pattern="[0-9,]*"
+                      placeholder="판매 가격을 입력해주세요.">
+            </div>
+            <div class="unit-input" data-unit="시간">
+              <input type="number" class="write-content-input" th:field="*{purchaseLimitTime}" max="72"
+                     placeholder="요청 마감까지 남은 시간을 입력해주세요.">
+            </div>
+
+            <!-- 대표 이미지 업로드 -->
+            <div class="write-content-cover-img-wrapper">
+              <div class="write-content-cover-add" id="coverAdd" style="display: none;">
+                <input type="hidden" id="prevMainImg" name="prevMainImg" th:value="${purchase.sections[0].postSectionId}">
+                <input type="hidden" id="nextMainImg" name="thumbnail">
+                <input type="hidden" id="checkPrevNext" name="prev" value="false">
+                <input type="hidden" name="chemistryScore" th:value="${purchase.chemistryScore}">
+                <input type="hidden" name="address" th:value="${purchase.address}">
+                <input type="hidden" name="memberName" th:value="${purchase.memberName}">
+
+
+                <input type="file" id="coverImageInput" name="files" accept="image/*" style="display:none;" multiple>
+                <button type="button" class="write-content-img-add-btn large">+</button>
+                <p class="write-content-add-desc">업로드할 이미지를 최대 8장까지 선택해주세요.<br>(대표 이미지 등록은 필수입니다.)</p>
+              </div>
+              <!-- 미리보기 -->
+              <div id="coverPreview">
+                <div class="write-content-cover-img">
+                  <div class="cover-img-label">대표 이미지</div>
+                  <img th:src="@{${purchase.sections[0].filePath}}" alt="대표 이미지" class="main-image" th:attr="data-section=${purchase.sections[0].postSectionId}">
+                  <div class="write-content-img-btn-wrapper">
+                    <button type="button" class="write-content-img-delete-btn">
+                      <svg class="icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 19V7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM19 4v2H5V4h3.5l1-1h5l1 1H19z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 썸네일 업로드 -->
+            <div class="write-content-thumbnail-container" id="thumbnailContainer">
+              <input type="file" id="thumbnailInput" accept="image/*" multiple style="display: none">
+              <div class="write-content-thumbnail" th:each="section,index : ${purchase.sections}">
+                <img class="write-content-thumbnail-img" th:src="@{${section.filePath}}" th:attr="data-section=${section.postSectionId}">
+              </div>
+              <button type="button" style="display: flex;" class="write-content-img-add-btn" onclick="document.getElementById('thumbnailInput').click()">+</button>
+            </div>
+
+            <!-- 나라명 입력창 -->
+            <div class="write-content-select-wrap autocomplete">
+              <input
+                      type="text"
+                      th:field="*{purchaseCountry}"
+                      class="write-content-select"
+                      placeholder="나라 이름을 입력해주세요.">
+              <ul id="countryDropdown" class="write-content-select-dropdown"></ul>
+            </div>
+
+            <!-- 본문 입력창 -->
+            <div class="write-content-field-text"><textarea id="purchaseContent" name="purchaseContent" th:text="*{sections[0].postContent}" placeholder="내용을 입력해주세요."></textarea></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </form>
+</div>
+<div id="deleteFiles" style="display: none">
+
+</div>
+</body>
+<script th:inline="javascript">
+  const sections = [[${purchase.sections}]]
+</script>
+<script src="/js/gift-shop/update/event.js"></script>
+</html>

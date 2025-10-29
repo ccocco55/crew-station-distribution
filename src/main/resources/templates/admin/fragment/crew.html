@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrewStation</title>
+    <link rel="stylesheet" href="/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/member.css">
+    <link rel="stylesheet" href="/css/admin/font.css">
+    <link rel="shortcut icon" href="../../../static/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+</head>
+<body>
+    <div id= "bootpay">
+        <div class="boot-notify-container"></div>
+        <div class="popup-manager" style="width: 0px;"></div>
+        <aside id="bootpay-side">
+            <div class="d-flex flex-column" id="side-wrapper">
+                <div class="side-header">
+                    <div class="app-wrapper">
+                        <div class="provider-name hover-spin">
+                            <span class="comp-provider-name">
+                                <span class="pn-name">CrewStation</span>
+                            </span>
+                        </div>
+                        <a class="app-name d-flex justify-content-between align-items-center">
+                            <span>CrewStation</span>
+                            <i class="mdi mdi-apps">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-wrapper flex-grow-1">
+                    <ul class="menu-list">
+                        <li class="menu menu-item d-flex flex-column">
+                            <!-- active 적용 -->
+                            <a class="menu-btn d-flex w-100 " data-toggle="collapse" >
+                                <span class="menu-name">HOME</span>
+                                <div class="icon-wrapper flex-grow-1 text-right">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu menu-item d-flex flex-column open">
+                            <a class="menu-btn d-flex w-100" data-toggle="collapse" >
+                                <span class="menu-name">회원관리</span>
+                                <div class="icon-wrapper flex-grow-1 text-right">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu menu-item d-flex flex-column open">
+                            <a class="menu-btn d-flex w-100 active" data-toggle="collapse" >
+                                <span class="menu-name">크루관리</span>
+                                <div class="icon-wrapper flex-grow-1 text-right">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu menu-item d-flex flex-column">
+                            <!-- 클릭 이벤트 -->
+                            <!-- 회원 목록 클릭 시 collipse 열고 닫기 이벤트 -->
+                            <a class="menu-btn d-flex w-100 " data-toggle="collapse" >
+                                <span class="menu-name">신고</span>
+                                <div class="icon-wrapper flex-grow-1 text-right">
+                                </div>
+                            </a>
+                            <ul class="menu-sub-list collapse" >
+                                <li class="submenu menu-item ">
+                                    <!-- boot-link 뒤에 active로 적용 -->
+                                    <a class="boot-link " data-param="0">
+                                        
+                                        다이어리
+                                    </a>
+                                </li>
+                                <li class="submenu menu-item ">
+                                    <a class="boot-link" data-param="0">
+                                        
+                                        기프트
+                                    </a>
+                                </li>
+                                <li class="submenu menu-item ">
+                                    <a class="boot-link" data-param="0">
+                                        
+                                        크루
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu menu-item d-flex flex-column">
+                            <a class="boot-link menu-btn">
+                                <span class="menu-name">결제관리</span>
+                            </a>
+                            <ul class="menu-sub-list collapse " id="menu-60934308367997007c4c3d2c"></ul>
+                        </li>
+                        
+                        <li class="menu menu-item d-flex flex-column">
+                            <a class="menu-btn d-flex w-100"data-toggle="collapse">
+                                <span class="menu-name">문의</span>
+                                <div class="icon-wrapper flex-grow-1 text-right"></div>
+                            </a>  
+                        </li>
+                        <li class="menu menu-item d-flex flex-column">
+                            <a class="menu-btn d-flex w-100 "data-toggle="collapse">
+                                <span class="menu-name">배너관리</span>
+                                <div class="icon-wrapper flex-grow-1 text-right"></div>
+                            </a>  
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <div id="bootpay-main" class="has-menu">
+            <div id="header-wrapper">
+                <div id="bootpay-header" class="d-flex trial-mode">
+                    <div class="flex-grow-1"></div>
+                    <div>
+                        <div class="header-menu-group d-flex">
+                            <a class="boot-link mr-3" href="">
+                                <div class="header-menu-btn " data-for="8598bfd3-1b35-4de3-a48f-9d6654dc0268" data-toggle="tooltip" data-custom-class title="공지사항">
+                                    <i class="mdi mdi-bullhorn-variant-outline">
+    
+                                    </i>
+    
+                                </div>
+                            </a>
+                            <div class="user-menu">
+                                <!-- 주석 아래에 show 유무로 메뉴가보임 -->
+                                <div id="usermenubtn"class="user-menu-wrapper d-flex align-items-center cursor-pointer" data-toggle="dropdown">
+                                    <div class="user-avatar">T</div>
+                                    <div class="user-menu-email">test@gamil.com</div>
+                                </div>
+                                <div id="usermenu" class="user-menu-content dropdown-menu dropdown-menu-right">
+                                    <ul class="menu-body list-unstyled">
+                                        <li>
+                                            <a class="boot-link d-block text-dark"href="">
+                                                <i class="mdi mdi-bell-outline mr-2 mdi-18px"></i>
+                                                회원가입
+                                                
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block text-dark"href="">
+                                                <i class="mdi mdi-logout-variant mr-2 mdi-18px"></i>
+                                                로그아웃
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+            <div class="page ana-user-index wide-page">
+                <div class="page-header">
+                    <div class="page-title">크루 관리</div>
+                    <div class="page-subtitle"></div>
+                </div>
+                <div class="page-body">
+                    <div class="page-content">
+                        <div class="table-layout white-panel">
+                            <div class="filter-section">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <span class="member-count">총
+                                            <span class="count-amount">n</span>
+                                        </span>
+                                    </div>
+                                    <!-- <div class="col-auto"></div> -->
+                                    <div class="col-auto"></div>
+                                    <div class="col-auto"></div>
+                                    <div class="col-auto"></div>
+                                    <div class="col text-right"></div>
+                                    <div class="col-auto">
+                                        <div class="filter-wrapper filter-search ml-1">
+                                            <div class="input-group">
+                                                <input class="form-control flex-grow-1" type="text" placeholder="이름/ID" value="">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-search">
+                                                        <span class="comp-icon icon-magnify" id="icons/ico-search.svg">
+                                                            <svg class="icon-img" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path class="icon-color fill" d="m13.523 12.463 3.212 3.211-1.06 1.061-3.212-3.212A6.72 6.72 0 0 1 8.25 15 6.752 6.752 0 0 1 1.5 8.25 6.752 6.752 0 0 1 8.25 1.5 6.752 6.752 0 0 1 15 8.25a6.72 6.72 0 0 1-1.477 4.213zm-1.504-.557A5.233 5.233 0 0 0 13.5 8.25C13.5 5.349 11.15 3 8.25 3A5.248 5.248 0 0 0 3 8.25c0 2.9 2.349 5.25 5.25 5.25a5.233 5.233 0 0 0 3.656-1.481l.113-.113z" fill="#292929"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fill-table-layout">
+                                <table class="table grey-header-table w-100 member-table">
+                                    <thead>
+                                      <tr>
+                                        <th class="td-name">크루이름</th>
+                                        <th class="td-amount text-right pr-4">크루장 이름</th>
+                                        <th class="td-email">대표 이메일</th>
+                                        <th class="td-phone">대표 전화번호</th>
+                                        <th class="td-start">크루 가입일</th>
+                                        <th class="td-recent">최근 접속</th>
+                                        <th class="td-action">회원 상세</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="membersTbody">
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-name">
+                                          <div class="member-name">Test01
+                                          </div>
+                                        </td>
+                                        <td class="td-amount text-right pr-4 font-weight-bold">테스트01<span class="amount-unit"> 님</span></td>
+                                        <td class="td-email">test01@gmail.com</td>
+                                        <td class="td-phone">010-1234-5678</td>
+                                        <td class="td-start">2025-06-12</td>
+                                        <td class="td-recent">2025-07-29</td>
+                                        <td class="td-action text-center">
+                                          <button type="button" class="action-btn"><i class="mdi mdi-chevron-right"></i></button>
+                                        </td>
+                                      </tr>
+                                      <!-- 행 반복 -->
+                                    </tbody>
+                                  </table>
+                                  
+                            </div>
+                            <!-- 페이지 번호 -->
+                            <nav class="bootpay-pagination-wrapper mt-5 mb-4">
+                                <ul class="pagination bootpay-pagination">
+                                    <!-- 현재 페이지는 active 클래스 추가된다. -->
+                                    <li class="page-item page-num active">
+                                        <!-- class명 앞에 bootpay-link를 사이드바 이벤트로 인해 배제했습니다. -->
+                                        <a href="" class="page-item-link page-item-num">1</a>
+                                    </li>
+                                    <li class="page-item page-num">
+                                        <a href="" class="page-item-link page-item-num">2</a>
+                                    </li>
+                                    <li class="page-item page-num">
+                                        <a href="" class="page-item-link page-item-num">3</a>
+                                    </li>
+                                    <li class="page-item page-num">
+                                        <a href="" class="page-item-link page-item-num">4</a>
+                                    </li>
+                                    <li class="page-item page-num">
+                                        <a href="" class="page-item-link page-item-num">5</a>
+                                    </li>
+                                </ul>
+                                <div class="pagination-desc">
+                                    <!-- 회원이 1페이지(10명 미만)일 때 -->
+                                    <!-- <div class="des text-ignore">
+                                        <span>
+                                            <span class="highlight">last</span>
+                                            of
+                                            1
+                                        </span>
+                                        results
+                                    </div> -->
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- 일반회원 상세 모달 창 -->
+                <!-- 모달 창이 떠 있을 때 -->
+                <!-- <div class="modal fade member-modal show" style="display: block;" role="dialog"> -->
+                <!-- 모달 창이 뜨지 않을 때 -->
+                <div class="modal fade member-modal" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title">
+                                    (TestId01) Test01
+                                </div>
+                                <button class="close">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="divider">
+                                    <div class="tab-view">
+                                        <div class="tab-view-header"></div>
+                                        <div class="tab-view-body">
+                                            <div style="display: block;">
+                                                <div class="tab-inner tab-detail">
+                                                    <!-- 크루원 상세정보 -->
+                                                    <div class="info-layout detail-info">
+                                                        <div class="info-title justify-content-between">
+                                                            <div class="flex-left d-flex">
+                                                                <span class="approval-status status-badge status-pending">크루장</span>
+                                                            </div>
+                                                            <div class="flex-right"></div>
+                                                        </div>
+                                                        <div class="d-table w-100">
+                                                            <!-- 테이블 왼쪽 -->
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>이름</th>
+                                                                            <td>테스트01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>핸드폰 번호</th>
+                                                                            <td>010-1234-5678</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>mbti</th>
+                                                                            <td>INFP</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>생년월일</th>
+                                                                            <td>010803</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>가입일</th>
+                                                                            <td>2025-06-12</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- 테이블 오른쪽 -->                                                        
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>회원ID</th>
+                                                                            <td>TestId01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>이메일</th>
+                                                                            <td>test01@gmail.com</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>최근 접속</th>
+                                                                            <td>2025-07-29</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>성별</th>
+                                                                            <td>남</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>주소</th>
+                                                                            <td>서울시 강남구</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="info-layout detail-info">
+                                                        <div class="info-title justify-content-between">
+                                                            <div class="flex-left d-flex">
+                                                                <span class="title">크루원</span>
+                                                            </div>
+                                                            <div class="flex-right"></div>
+                                                        </div>
+                                                        <div class="d-table w-100">
+                                                            <!-- 테이블 왼쪽 -->
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>이름</th>
+                                                                            <td>테스트01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>핸드폰 번호</th>
+                                                                            <td>010-1234-5678</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>mbti</th>
+                                                                            <td>INFP</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>생년월일</th>
+                                                                            <td>010803</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>가입일</th>
+                                                                            <td>2025-06-12</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- 테이블 오른쪽 -->                                                        
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>회원ID</th>
+                                                                            <td>TestId01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>이메일</th>
+                                                                            <td>test01@gmail.com</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>최근 접속</th>
+                                                                            <td>2025-07-29</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>성별</th>
+                                                                            <td>남</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>주소</th>
+                                                                            <td>서울시 강남구</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-layout detail-info">
+                                                        <div class="info-title justify-content-between">
+                                                            <div class="flex-left d-flex">
+                                                                <span class="title">크루원</span>
+                                                            </div>
+                                                            <div class="flex-right"></div>
+                                                        </div>
+                                                        <div class="d-table w-100">
+                                                            <!-- 테이블 왼쪽 -->
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>이름</th>
+                                                                            <td>테스트01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>핸드폰 번호</th>
+                                                                            <td>010-1234-5678</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>mbti</th>
+                                                                            <td>INFP</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>생년월일</th>
+                                                                            <td>010803</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>가입일</th>
+                                                                            <td>2025-06-12</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- 테이블 오른쪽 -->                                                        
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>회원ID</th>
+                                                                            <td>TestId01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>이메일</th>
+                                                                            <td>test01@gmail.com</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>최근 접속</th>
+                                                                            <td>2025-07-29</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>성별</th>
+                                                                            <td>남</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>주소</th>
+                                                                            <td>서울시 강남구</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-layout detail-info">
+                                                        <div class="info-title justify-content-between">
+                                                            <div class="flex-left d-flex">
+                                                                <span class="title">크루원</span>
+                                                            </div>
+                                                            <div class="flex-right"></div>
+                                                        </div>
+                                                        <div class="d-table w-100">
+                                                            <!-- 테이블 왼쪽 -->
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>이름</th>
+                                                                            <td>테스트01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>핸드폰 번호</th>
+                                                                            <td>010-1234-5678</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>mbti</th>
+                                                                            <td>INFP</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>생년월일</th>
+                                                                            <td>010803</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>가입일</th>
+                                                                            <td>2025-06-12</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- 테이블 오른쪽 -->                                                        
+                                                            <div class="d-table-cell">
+                                                                <table class="info-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>회원ID</th>
+                                                                            <td>TestId01</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>이메일</th>
+                                                                            <td>test01@gmail.com</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>최근 접속</th>
+                                                                            <td>2025-07-29</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>성별</th>
+                                                                            <td>남</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>주소</th>
+                                                                            <td>서울시 강남구</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-close btn btn-outline-filter">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+<script src="/static/js/admin/member/event.js"></script>
+</html>

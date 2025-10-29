@@ -1,0 +1,62 @@
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-cyrillic-ext-700-normal-be4d02458ce53887dc37.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-cyrillic-700-normal-d010f1f324e111a22e53.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-greek-ext-700-normal-bd9854c751441ccc1a70.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+
+
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-greek-700-normal-50e795c1345353b0e996.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-vietnamese-700-normal-3425a701027d0699e369.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-latin-ext-700-normal-ed67ad54b1a8f5d21150.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/roboto-latin-700-normal-227c93190fe7f82de3f8.woff2) format("woff2"),url(roboto-all-700-normal-a457fde362a540fcadff.woff) format("woff");
+}
+
+@font-face {
+    font-family: Material Design Icons;
+    src: url(/fonts/materialdesignicons-webfont-d5cba82059f88bfa469e.woff2) format("woff2");
+}

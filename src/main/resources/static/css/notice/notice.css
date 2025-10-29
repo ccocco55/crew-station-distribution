@@ -1,0 +1,91 @@
+/* Base */
+html {
+    font-family: 'Pretendard Variable', sans-serif;
+    letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    color: #070707;
+    background: #fff;
+}
+body {
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Nav (공통) */
+.myhome-nav {
+    text-align: center;
+    margin: 20px 0;
+}
+.myhome-nav__owner ul {
+    /* 하나로 통일: flex 중심 정렬 */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.page-navigation__item { display: inline-block; }
+.page-navigation__item > a {
+    padding: 0 10px;
+    font-weight: 700;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+}
+.myhome-nav__owner a:hover { color: #007bff; }
+
+.page-navigation {
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* List layout */
+.notice-list__content {
+    margin: 60px auto 20px;
+    width: 100%;
+    max-width: 750px;
+}
+.notice-list__title {
+    display: block;
+    margin: 0 0 20px;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    color: #292929;
+}
+
+/* List items */
+.feed-item {
+    display: block;
+    margin: 0 -15px;
+    padding: 26px 15px;
+    border-bottom: 1px solid #dbdbdb;
+    transition: opacity .1s;
+}
+.notice-feed-item__title {
+    margin: 0 0 8px;
+    color: #000;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.notice-feed-item__date {
+    display: block;
+    color: #828c94;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrewStation</title>
+
+    <link rel="stylesheet" href="/css/admin/font.css"/>
+    <link rel="stylesheet" href="/css/admin/sidebar.css"/>
+    <link rel="stylesheet" href="/css/admin/notification.css">
+    <link rel="stylesheet" href="/css/admin/notification-detail.css">
+    <link rel="stylesheet" href="/css/admin/diary-report.css">
+    <link rel="stylesheet" href="/css/admin/banner.css">
+    <link rel="stylesheet" href="/css/admin/main.css"/>
+    <link rel="stylesheet" href="/css/admin/member.css"/>
+    <link rel="stylesheet" href="/css/admin/payment.css"/>
+    <link rel="stylesheet" href="/css/admin/inquiry.css">
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
+</head>
+<body>
+<div id="bootpay">
+    <div class="boot-notify-container"></div>
+    <div class="popup-manager" style="width: 0px;"></div>
+
+    <!-- 사이드바 -->
+    <aside id="bootpay-side">
+        <div class="d-flex flex-column" id="side-wrapper">
+            <div class="side-header">
+                <div class="app-wrapper">
+                    <div class="provider-name hover-spin">
+            <span class="comp-provider-name">
+              <span class="pn-name">CrewStation</span>
+            </span>
+                    </div>
+                    <a class="app-name d-flex justify-content-between align-items-center">
+                        <span>CrewStation</span>
+                        <i class="mdi mdi-apps"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu-wrapper flex-grow-1">
+                <ul class="menu-list">
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="menu-btn d-flex w-100 active" data-toggle="collapse" data-section="home">
+                            <span class="menu-name">HOME</span>
+                            <div class="icon-wrapper flex-grow-1 text-right"></div>
+                        </a>
+                    </li>
+
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="menu-btn d-flex w-100" data-toggle="collapse" data-section="member">
+                            <span class="menu-name">회원관리</span>
+                            <div class="icon-wrapper flex-grow-1 text-right"></div>
+                        </a>
+                    </li>
+
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="menu-btn d-flex w-100" data-toggle="collapse">
+                            <span class="menu-name">신고</span>
+                            <div class="icon-wrapper flex-grow-1 text-right"></div>
+                        </a>
+                        <ul class="menu-sub-list collapse" id="menu-6109064136799700f1ebced6">
+                            <li class="submenu menu-item">
+                                <a class="boot-link" data-section="diary-report">다이어리</a>
+                            </li>
+                            <li class="submenu menu-item">
+                                <a class="boot-link" data-section="gift-report">기프트</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="boot-link menu-btn" data-toggle="collapse" data-section="payment">
+                            <span class="menu-name">결제관리</span>
+                        </a>
+                    </li>
+
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="menu-btn d-flex w-100 collapsed" data-toggle="collapse" data-section="inquiry">
+                            <span class="menu-name">문의</span>
+                            <div class="icon-wrapper flex-grow-1 text-right"></div>
+                        </a>
+                    </li>
+
+                    <li class="menu menu-item d-flex flex-column">
+                        <a class="menu-btn d-flex w-100 collapsed" data-toggle="collapse" data-section="banner">
+                            <span class="menu-name">배너관리</span>
+                            <div class="icon-wrapper flex-grow-1 text-right"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 메인 -->
+    <div id="bootpay-main" class="has-menu">
+        <div id="header-wrapper">
+            <div id="bootpay-header" class="d-flex false">
+                <div class="flex-grow-1"></div>
+                <div>
+                    <div class="header-menu-group d-flex">
+                        <a class="boot-link mr-3" href="#notice" data-section="notice" title="공지사항">
+                            <div class="header-menu-btn">
+                                <i class="mdi mdi-bullhorn-variant-outline"></i>
+                            </div>
+                        </a>
+
+                        <div class="user-menu">
+                            <div id="userMenuBtn" class="user-menu-wrapper d-flex align-items-center cursor-pointer" data-toggle="dropdown">
+                                <div class="user-avatar">C</div>
+                                <div class="user-menu-email">관리자</div>
+                            </div>
+                            <div id="userMenu" class="user-menu-content dropdown-menu dropdown-menu-right">
+                                <ul class="menu-body list-unstyled">
+                                    <li>
+                                        <a class="boot-link d-block text-dark" href="/admin/join">
+                                            <i class="mdi mdi-bell-outline mr-2 mdi-18px"></i>등록
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="logout-link" class="d-block text-dark" href="">
+                                            <i class="mdi mdi-logout-variant mr-2 mdi-18px"></i>로그아웃
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-container">
+            <div id="section-home" th:replace="~{admin/fragment/main :: main-page}"></div>
+            <div th:replace="~{admin/fragment/member :: member-page}"></div>
+            <div th:replace="~{admin/fragment/notification :: notice-page}"></div>
+            <div th:replace="~{admin/fragment/notificationDetail :: noticesDetail}"></div>
+            <div th:replace="~{admin/fragment/diary-report :: diary-report-page}"></div>
+            <div th:replace="~{admin/fragment/gift-report :: gift-report-page}"></div>
+            <div th:replace="~{admin/fragment/payment :: payment}"></div>
+            <div th:replace="~{admin/fragment/inquiry :: inquiry-page}"></div>
+            <div th:replace="~{admin/fragment/banner :: banner-page}"></div>
+
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/js/admin/main/module/service.js" ></script>
+<script src="/js/admin/main/module/layout.js" ></script>
+
+<script src="/js/admin/member/module/service.js"></script>
+<script src="/js/admin/member/module/layout.js"></script>
+<script src="/js/admin/member/event.js"></script>
+
+<script src="/js/admin/notification/module/service.js"></script>
+<script src="/js/admin/notification/module/layout.js"></script>
+<script src="/js/admin/notification/event.js"></script>
+
+<script src="/js/admin/diary-report/module/layout.js"></script>
+<script src="/js/admin/diary-report/module/service.js"></script>
+<script src="/js/admin/diary-report/event.js"></script>
+
+<script src="/js/admin/gift-report/module/layout.js"></script>
+<script src="/js/admin/gift-report/module/service.js"></script>
+<script src="/js/admin/gift-report/event.js"></script>
+
+<script src="/js/admin/payment/module/layout.js"></script>
+<script src="/js/admin/payment/module/service.js"></script>
+<script src="/js/admin/payment/event.js"></script>
+
+<script src="/js/admin/inquiry/module/layout.js"></script>
+<script src="/js/admin/inquiry/module/service.js"></script>
+<script src="/js/admin/inquiry/event.js"></script>
+
+<script src="/js/admin/banner/module/service.js"></script>
+<script src="/js/admin/banner/module/layout.js"></script>
+<script src="/js/admin/banner/event.js"></script>
+
+<script src="/js/admin/main/event.js" ></script>
+</body>
+</html>

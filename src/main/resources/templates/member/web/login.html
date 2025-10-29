@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/member/web/login.css">
+</head>
+<body>
+    <div class="page">
+        <main class="main-login-container">
+            <div class="main-login-wrap">
+                <div class="login-container">
+                    <a class="home-logo" th:href="@{/}">
+                        <img src="/images/crew-station-favicon.png"  width="147" height="100" style="object-fit: cover;">
+                    </a>
+                    <div class="login-error"></div>
+                    <div class="login-part-btn">
+                        <button class="normal active">일반</button>
+                        <button class="guest">게스트</button>
+                    </div>
+                    <form class="member-login" name="member" th:object="${memberDTO}">
+                        <div class="member-email-input-wrap input-wrap">
+                            <input type="email" th:field="*{memberEmail}" class="member-email" name="memberEmail" placeholder="이메일"/>
+                        </div>
+                        <div class="member-password-input-wrap input-wrap">
+                            <input type="password" th:field="*{memberPassword}" class="member-password" name="memberPassword" placeholder="비밀번호"/>
+                        </div>
+                        <button class="login-member-btn login-btn" type="button">로그인</button>
+                        <section class="login-option-action">
+                            <a class="password-find" th:href="@{/member/forgot-password}">비밀번호 찾기</a>
+                            <a class="join" th:href="@{/member/join}">회원가입</a>
+                        </section>
+                    </form>
+                    <form class="guest-login" name="guest" style="display: none;" th:object="${guestDTO}" >
+                        <div class="guest-id-input-wrap input-wrap">
+                            <input type="text" th:field="*{guestOrderNumber}" class="guest-id" name="guestOrderNumber" placeholder="주문번호"/>
+                        </div>
+                        <div class="guest-phone-input-wrap input-wrap">
+                            <input type="text" th:field="*{guestPhone}" class="guest-phone" name="guestPhone" placeholder="휴대전화"/>
+                        </div>
+                        <button type="button" class="login-guest-btn login-btn">주문 조회</button>
+                        <section class="login-option-action">
+                            <a class="password-find" th:href="@{/member/password}">비밀번호 찾기</a>
+                            <a class="join" th:href="@{/member/join}">회원가입</a>
+                        </section>
+                    </form>
+                    <section class="social-login-wrap">
+                        <button class="google icon">
+                            <img src="/images/google.png" width="48" height="48" alt="">
+                        </button>
+                        <button class="kakao icon">
+                            <img src="/images/kakao.png" width="48" height="48" alt="">
+                        </button>
+                        <button class="naver icon">
+                            <img src="/images/naver.png" width="48" height="48" alt="">
+                        </button>
+                    </section>
+                </div>
+            </div>
+            <footer class="login-footer">
+                © &nbsp;
+                <a href="/">bucketplace, Co., Ltd.</a>
+                . All Rights Reserved
+            </footer>
+        </main>
+
+    </div>
+</body>
+<script src="/js/member/web/login/module/service.js"></script>
+<script src="/js/member/web/login/event.js"></script>
+</html>

@@ -1,0 +1,407 @@
+/* 사이드바 */
+
+:root {
+  --sidebar-w: 240px;
+  --sidebar-bg: #fff;
+  --sidebar-text: #292929;
+  --sidebar-muted: #56626a;
+  --sidebar-border: #edeff0;
+  --hover-bg: #eef2fe;
+  --active-grad: linear-gradient(90deg, #507cf3, rgba(139, 170, 255, .5));
+  --shadow: 0 0 15px rgba(0, 0, 0, .06);
+  --primary: #507cf3;
+}
+
+/* 컨테이너 */
+#bootpay-side {
+  width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  min-height: 100vh;
+  box-shadow: var(--shadow);
+}
+
+#side-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 헤더 */
+#bootpay-side .side-header .app-wrapper {
+  position: relative;
+  padding: 14px 18px 24px;
+}
+
+#bootpay-side .side-header .provider-name {
+  color: #8b9298;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+#bootpay-side .side-header .app-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(80, 124, 243, .07);
+  color: var(--primary);
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+/* 메뉴 */
+#bootpay-side .menu-wrapper {
+  padding: 20px;
+}
+
+#bootpay-side .menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#bootpay-side .menu-list > li {
+  margin: 0;
+}
+
+#bootpay-side .menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: .7rem .5rem;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  transition: background-color .2s, color .2s;
+}
+
+#bootpay-side .menu-btn:hover {
+  background: var(--hover-bg);
+}
+
+#bootpay-side .menu-btn.active {
+  background: var(--active-grad);
+  color: #fff;
+}
+
+#bootpay-side .menu-btn .mdi {
+  font-size: 17px;
+}
+
+#bootpay-side .menu-btn .menu-name {
+  margin-left: 12px;
+  line-height: 26px;
+}
+
+/* 서브메뉴 (부트스트랩 collapse 대체/보조) */
+
+.menu-sub-list { 
+    display: none; 
+}
+
+.menu-sub-list.show { 
+    display: block; 
+}
+
+#bootpay-side .menu-sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#bootpay-side .collapse {
+  display: none;
+}
+
+#bootpay-side .collapse.show {
+  display: block;
+}
+
+#bootpay-side .menu-sub-list > li {
+  margin-left: 1.1rem;
+}
+
+#bootpay-side .menu-sub-list > li > a {
+  display: block;
+  padding: 8px 0 8px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sidebar-muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+#bootpay-side .menu-sub-list > li > a:hover {
+  color: var(--primary);
+}
+
+#bootpay-side .menu-sub-list > li > a.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* 화살표 회전(열림 상태) */
+#bootpay-side li.open > .menu-btn .mdi-chevron-right {
+  transform: rotate(90deg);
+  transition: transform .2s;
+}
+
+/* ====== 레이아웃 뼈대: 사이드바 옆에 본문 붙이기 ====== */
+#bootpay {
+    display: flex;           /* 핵심 */
+    align-items: stretch;
+    min-height: 100vh;
+  }
+  
+  /* 왼쪽 사이드바 */
+  #bootpay-side {
+    width: 240px;
+    flex-shrink: 0;
+    background: #fff;
+    border-right: 1px solid #eee;
+  }
+  
+  /* 오른쪽 본문 */
+  #bootpay-main {
+    flex: 1 1 auto;          /* 남은 공간 전부 */
+    min-width: 0;            /* 긴 테이블/코드로 넘침 방지 */
+    overflow: auto;
+  }
+  
+  .boot-notify-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 340px;
+    padding: 20px 20px 0 0;
+    z-index: 1051;
+  }
+  
+  .popup-manager{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    z-index: 1041;
+  }
+
+  /* ===== 사용자 메뉴 (오른쪽 상단) ===== */
+.user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-menu .user-menu-wrapper {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: box-shadow .2s;
+  }
+  
+  .user-menu .user-avatar {
+    background-color: var(--primary);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-right: 8px;
+  }
+  
+  .user-menu .user-menu-email {
+    font-size: 0.9rem;
+    color: #4e5d6c;
+  }
+  
+  .user-menu .user-menu-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 160px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(89, 102, 122, .15);
+    display: none;
+    z-index: 1000;
+  }
+  
+  .user-menu .user-menu-content.show {
+    display: block;
+  }
+  
+  .user-menu .user-menu-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user-menu .user-menu-content ul li {
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .user-menu .user-menu-content ul li a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: #4e5d6c;
+  }
+  
+  .user-menu .user-menu-content ul li a:hover {
+    background-color: #f7f7f7;
+    color: var(--primary);
+  }
+  
+  #bootpay-header .header-menu-group {
+    /* padding: 20px 30px 0 0; */
+}
+
+#bootpay-header .header-menu-btn {
+    background-color: #fff;
+    border-radius: 50%;
+    color: #56626a;
+    height: 42px;
+    line-height: 42px;
+    position: relative;
+    text-align: center;
+    width: 42px;
+}
+
+#bootpay-header .header-menu-btn:hover {
+    box-shadow: 0 0 8px rgb(89, 102, 122, .15);
+    color: #507cf3;
+    cursor: pointer;
+}
+
+#bootpay-header .header-menu-btn i {
+    font-size: 22px;
+}
+
+.user-menu .user-menu-wrapper {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    position: relative;
+    transition: box-shadow .2s;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+.user-menu .user-menu-wrapper:hover {
+    box-shadow: 0 0 8px rgb(89, 102, 122, .15);
+}
+
+.user-menu .user-menu-wrapper .user-avatar {
+    background-color: #507cf3;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 32px;
+}
+
+.user-menu .user-menu-wrapper .user-menu-email {
+    font-size: .9rem;
+    letter-spacing: .2px;
+    padding: 0 12px;
+}
+
+/* 관리자 상단 이메일 클릭 시 */
+/* 기준 잡기 위해 넣어둠 */
+.user-menu {
+  position: relative; 
+}
+
+.user-menu .user-menu-content {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(89, 102, 122, .15);
+    color: #4e5d6c;
+    font-size: .9rem;
+    min-width: 180px;
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+    color: #212529;
+    display: none;
+    float: left;
+    font-size: 1rem;
+    left: 0;
+    list-style: none;
+    margin: .125rem 0 0;
+    min-width: 10rem;
+    padding: .5rem 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu[x-placement^=bottom] {
+    bottom: auto;
+    right: auto;
+}
+
+.user-menu .user-menu-content ul.menu-body {
+    margin-bottom: 0;
+}
+
+.user-menu .user-menu-content ul.menu-body li {
+    align-items: center;
+    border-bottom: 1px solid #f9f9f9;
+    display: flex;
+    font-weight: 500;
+    padding: 0;
+    position: relative;
+}
+
+.user-menu .user-menu-content ul.menu-body li a {
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.user-menu .user-menu-content ul.menu-body li:hover a {
+    color: #507cf3 !important;
+}
+
+
+#bootpay-side .menu-sub-list > li > a.active {
+    color: var(--primary) !important;
+    font-weight: 700;
+    background: var(--hover-bg);
+    border-radius: 6px;
+  }
+
+  
+  

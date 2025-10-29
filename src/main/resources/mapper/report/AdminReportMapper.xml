@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.report.ReportMapper">
+<!-- 신고 다이어리 목록 -->
+    <select id="selectAllReportDiaries">
+        select r.created_datetime as createdDatetime,
+               r.report_content as reportContent,
+               r.report_process_status as processStatus,
+               p.post_title as postTitle,
+               p.id as postId,
+               r.id as reportId,
+               reporter.member_email        as reporterEmail,
+               reporter.member_social_email as reporterSocialEmail,
+               writer.member_email          as writerEmail,
+               writer.member_social_email   as writerSocialEmail
+        from view_report_post_report r
+        join view_post_diary p on p.id = r.post_id
+        join tbl_member reporter on reporter.id = r.member_id
+        join tbl_member writer on writer.id = p.member_id
+        order by r.created_datetime desc
+            limit #{size} offset #{offset}
+    </select>
+
+<!-- 신고 다이어리 갯수 -->
+    <select id="selectReportDiariesCount">
+        select count(*)
+        from view_report_post_report r
+            left join view_post_diary p on p.id = r.post_id
+            left join tbl_member reporter on reporter.id = r.member_id
+            left join tbl_member writer on writer.id = p.member_id
+    </select>
+
+<!-- 신고 게시글 숨김 -->
+    <update id="updatePostStatus">
+        update tbl_post
+        set post_status = #{status}::status
+        where id = #{postId}
+    </update>
+
+<!-- 신고 처리 상태 변경 -->
+    <update id="updateReportProcessStatus">
+        update tbl_report
+        set report_process_status = #{status}::process_status,
+            updated_datetime = now()
+        where id = #{reportId}
+    </update>
+
+<!-- 신고 기프트 목록 -->
+    <select id="selectAllReportGifts">
+        select r.created_datetime as createdDatetime,
+               r.report_content as reportContent,
+               r.report_process_status as processStatus,
+               p.post_title as postTitle,
+               p.id as postId,
+               r.id as reportId,
+               reporter.member_email        as reporterEmail,
+               reporter.member_social_email as reporterSocialEmail,
+               writer.member_email          as writerEmail,
+               writer.member_social_email   as writerSocialEmail
+        from view_report_post_report r
+                 join view_post_purchase p on p.id = r.post_id
+                 join tbl_member reporter on reporter.id = r.member_id
+                 join tbl_member writer on writer.id = p.member_id
+        order by r.created_datetime desc
+        limit #{size} offset #{offset}
+    </select>
+
+<!-- 신고 기프트 갯수 -->
+    <select id="selectReportGiftsCount">
+        select count(*)
+        from view_report_post_report r
+                 left join view_post_purchase p on p.id = r.post_id
+                 left join tbl_member reporter on reporter.id = r.member_id
+                 left join tbl_member writer on writer.id = p.member_id
+    </select>
+</mapper>

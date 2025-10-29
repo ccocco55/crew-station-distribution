@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+    <link rel="stylesheet" href="/css/mypage/sale-list.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+
+<div class="all">
+    <div class="myhome-nav">
+        <nav class="page-navigation">
+            <ul>
+                <li class="page-navigation__item"><a href="/mypage/diary-list">나의 다이어리</a></li>
+                <li class="page-navigation__item"><a href="/mypage/findMyCrew">나의 크루 구하기</a></li>
+                <li class="page-navigation__item"><a href="/mypage/crew-list">나의 크루 목록</a></li>
+                <li class="page-navigation__item"><a href="/mypage/my-activities">나의 활동</a></li>
+                <li class="page-navigation__item"><a href="/mypage/purchase-list">나의 구매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/sale-list" class="active">나의 판매 내역</a></li>
+                <li class="page-navigation__item"><a href="/mypage/inquiries">나의 문의</a></li>
+                <li class="page-navigation__item"><a href="/mypage/modify">나의 프로필</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- 검색창 -->
+        <div class="m-search">
+            <div class="m-search-bar">
+                <div class="m-search-bar-wraper">
+                    <div class="m-search-bar-wrap">
+                        <div class="input-wrapper">
+                            <input id="keywordInput" size="32" placeholder="검색" class="m-search-input"
+                                   th:value="${param.keyword}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="foreground" viewBox="0 0 24 24"
+                                 class="input-icon" id="searchBtn"
+                                 style="vertical-align: middle; margin: auto 6px auto auto; cursor: pointer;">
+                                <path fill-rule="evenodd"
+                                      d="M15.129 16.402a7.5 7.5 0 1 1 1.273-1.273l5.235 5.235a.9.9 0 1 1-1.273 1.272zM16.2 10.5a5.7 5.7 0 1 1-11.4 0 5.7 5.7 0 0 1 11.4 0"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 판매 내역 리스트 -->
+        <div class="list">
+            <div class="purchase-list">
+                <!-- 판매 내역이 없을 경우 -->
+                <div th:if="${#lists.isEmpty(saleList)}" class="no-result">
+                    <p>판매 내역이 없습니다.</p>
+                </div>
+
+                <!-- 판매 내역이 있을 경우 -->
+                <div th:each="sale : ${saleList}" class="purchase-list-wrapper">
+                    <div class="purchase-list-title">
+                        <div class="title-text">
+                            <span class="title-span" th:text="${sale.formattedCreatedDatetime}">2025.09.16</span>
+                            <hr class="bar">
+                        </div>
+                        <a th:href="@{/mypage/sale-detail/{paymentStatusId}(paymentStatusId=${sale.paymentStatusId})}" class="detail">
+                            주문상세
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" fill="currentColor" viewBox="0 0 12 12">
+                                <path fill-rule="evenodd"
+                                      d="M3.551 1.151a.6.6 0 0 0 .05.847l4.496 3.996L3.6 9.99a.6.6 0 0 0 .798.897l4.58-4.07a1.1 1.1 0 0 0 0-1.645l-4.58-4.07a.6.6 0 0 0-.848.05"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- 상품 카드 -->
+                    <div class="order">
+                        <div class="order-card">
+                            <!-- REFUND 상태 오버레이 -->
+                            <div class="cancel-overlay"
+                                 th:if="${#strings.equalsIgnoreCase(sale.status, 'REFUND')}"></div>
+
+                            <a th:href="@{/mypage/sale-detail/{paymentStatusId}(paymentStatusId=${sale.paymentStatusId})}" class="product-link">
+                                <div class="order-title">
+                                    <div class="order-title-inner">
+                                        <b class="title-status"
+                                           th:switch="${#strings.toUpperCase(#strings.trim(sale.status))}">
+                                            <span th:case="'REQUEST'">구매 요청</span>
+                                            <span th:case="'PENDING'">결제 대기</span>
+                                            <span th:case="'SUCCESS'">결제 완료</span>
+                                            <span th:case="'DELIVERED'">전달 완료</span>
+                                            <span th:case="'REVIEWED'">리뷰 완료</span>
+                                            <span th:case="'REFUND'">주문 취소</span>
+                                            <span th:case="*">알 수 없음</span>
+                                        </b>
+                                    </div>
+                                </div>
+
+                                <div class="order-content">
+                                    <div class="product-wrapper">
+                                        <!-- 상품 정보 -->
+                                        <div class="product">
+                                            <div class="product-img">
+                                                <div class="product-image">
+                                                    <img th:src="${sale.filePath}" alt="상품이미지">
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <p class="product-info-title" th:text="${sale.postTitle}">상품명</p>
+                                                <p class="product-info-price">
+                                                    <span th:text="${#numbers.formatInteger(sale.purchaseProductPrice, 3, 'COMMA')} + '원'">10,000원</span>
+                                                    <span> · 1개</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!-- 버튼 영역 -->
+                                        <div class="button-wrap"
+                                             th:if="${#strings.equalsIgnoreCase(sale.status.name(), 'REQUEST')}">
+                                            <button type="button" class="button1 purchase-cancel"
+                                                    th:data-payment-status-id="${sale.paymentStatusId}">
+                                                거절하기
+                                            </button>
+                                            <button type="button" class="button2 accept"
+                                                    th:data-payment-status-id="${sale.paymentStatusId}">
+                                                수락하기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer th:replace="~{fixed/web/footer :: footer}"></footer>
+
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/js/mypage/sale/event.js"></script>
+</body>
+</html>

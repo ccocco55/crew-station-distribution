@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrewStation</title>
+  <link rel="stylesheet" href="/static/css/crew/long-crew-write.css" />
+  <link rel="stylesheet" href="/static/css/font.css" />
+  <link rel="shortcut icon" href="../../../static/images/crew-station-favicon.png" type="image/x-icon">
+</head>
+<body>
+  <div class="page">
+    <div class="crew-write-page">
+      <div class="crew-write-page-wrapper">
+        <div class="sticky-container" style="height: 80px;">
+          <div class="sticky-child" style="position: fixed; transition: top 0.1s; top: 0px; width: 1920px;">
+            <div class="top-bar-container">
+              <a class="crew-station" href="/">
+                <!-- 로고 홈 추가 -->
+                <img src="/static/images/crew-station-favicon.png" alt="" width="71">
+                <!-- <svg class="icon" width="74" height="30" viewBox="0 0 74 30" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path fill="#000" d="M14.2 25.17H9.28V20.7a1.45 1.45 0 0 0-2.9 0v4.47H1.44a1.45 1.45 0 1 0 0 2.9H14.2a1.45 1.45 0 0 0 0-2.9M4.5 9.15c0-4.6 2.08-5.28 3.33-5.28 1.24 0 3.33.69 3.33 5.28v.36c0 4.6-2.09 5.28-3.33 5.28-1.25 0-3.34-.69-3.34-5.28v-.36zm3.33 8.54c3.84 0 6.23-3.13 6.23-8.18v-.36c0-5.05-2.39-8.18-6.23-8.18-3.85 0-6.24 3.13-6.24 8.18v.36c0 5.05 2.39 8.19 6.24 8.19zm25.54-7.34H17.81a1.45 1.45 0 0 0 0 2.9h15.56a1.45 1.45 0 1 0 0-2.9m-1.55 15.5c-7.08 1.83-9.45.79-10.14.25-.45-.35-.65-.8-.65-1.48v-.87h10.25c.8 0 1.46-.65 1.46-1.45v-5.08c0-.8-.66-1.45-1.46-1.45h-11.7a1.45 1.45 0 1 0 0 2.9h10.25v2.18H19.57c-.8 0-1.45.65-1.45 1.45v2.32a4.6 4.6 0 0 0 1.78 3.78c1.2.93 2.94 1.39 5.21 1.39 2.05 0 4.54-.38 7.44-1.13a1.45 1.45 0 1 0-.73-2.82M20.3 7.83h10.8a1.45 1.45 0 1 0 0-2.9h-9.35V1.45a1.45 1.45 0 1 0-2.9 0v4.93c0 .8.65 1.45 1.45 1.45"></path><rect width="3" height="15" x="70" fill="#000" rx="1.5"></rect><path fill="#000" d="M64.5 13.28a1.45 1.45 0 0 0 2.73-1c-.05-.13-1-2.68-3.38-4.5l3.7-4.1a1.45 1.45 0 0 0-1.09-2.42h-9.05a1.45 1.45 0 1 0 0 2.9h5.8l-6.88 7.64a1.45 1.45 0 1 0 2.16 1.95l3.41-3.8a8 8 0 0 1 2.6 3.33M69.56 26.52h-7.01a.82.82 0 0 1-.82-.82v-1.95h8.65v1.95c0 .45-.37.82-.82.82m2.27-9.37c-.8 0-1.45.65-1.45 1.45v2.25h-8.65V18.6a1.45 1.45 0 1 0-2.9 0v7.1a3.73 3.73 0 0 0 3.72 3.72h7.01a3.73 3.73 0 0 0 3.72-3.72v-7.1c0-.8-.65-1.45-1.45-1.45M42.46 3.87c2.22 0 2.33 4.24 2.33 5.08 0 .85-.11 5.09-2.33 5.09-2.21 0-2.32-4.24-2.32-5.08 0-.86.11-5.09 2.32-5.09m0 13.07c1.76 0 3.23-.93 4.14-2.62.71-1.34 1.1-3.2 1.1-5.36s-.39-4.02-1.1-5.37A4.6 4.6 0 0 0 42.46.97c-1.76 0-3.22.93-4.13 2.62-.72 1.35-1.1 3.2-1.1 5.37s.38 4.01 1.1 5.36a4.59 4.59 0 0 0 4.13 2.62"></path><path fill="#000" d="M51.4.49c-.8 0-1.45.65-1.45 1.45v17.78c-1.93.6-5.75 1.13-10.38 1.13h-2.2a1.45 1.45 0 0 0 0 2.9h2.2c2.64 0 7.21-.23 10.38-1.02v4.84a1.45 1.45 0 0 0 2.9 0V1.94c0-.8-.65-1.45-1.45-1.45"></path></g></svg> -->
+              </a>
+              <div class="complete-btn-container">
+                <button type="button" class="complete-btn">작성</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- 경로 입력 -->
+        <div class="tag-container">
+          <div class="input-tag">
+            <form class="input-tag-container" action="">
+              <div class="input-tag-wrapper">
+                <input placeholder="여행 경로 태그입력" class="input-tag-wrap" />
+                <button type="submit" class="input-tag-btn tag0 tag1 tag-btn">입력</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- 제목 작성 -->
+        <div class="title-row">
+          <div class="input-tag">
+            <div class="input-tag-container">
+              <div class="input-tag-wrapper">
+                <input type="text" class="input-tag-wrap" placeholder="제목을 입력해주세요" />
+                <!-- 여행 태그의 '입력' 버튼 폭과 동일한 스페이서 -->
+                <button type="button" class="input-tag-btn title-spacer" tabindex="-1" aria-hidden="true">입력</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 드롭다운 (나이대 선택) -->
+        <div class="write-content-select-wrap">
+          <input type="text" class="write-content-select" placeholder="크루 나이대를 입력해주세요." readonly>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="currentColor" viewBox="0 0 24 24"
+              class="write-content-select-icon">
+            <path d="M17 10H7l5 5z"></path>
+          </svg>
+          <ul class="write-content-select-dropdown">
+            <li>20</li>
+            <li>30</li>
+            <li>40</li>
+            <li>50</li>
+          </ul>
+        </div>
+
+        <div class="post-container">
+          <div class="post-wrapper">
+            <div class="post-wrap">
+                <!-- 좌측 이미지 추가 -->
+                    <!-- 초기화면 -->
+                <ol class="left-img-add-container">
+                    <li class="post-sub-img add">
+                    </li>
+                </ol>
+            </div>
+
+            <!-- 이미지 + 게시글 내용 -->
+            <ol class="post-img-content-container">
+                <li class="post-img-content-wrapper">
+                  <div class="post-img-content">
+                    <div class="post-img">
+                      <div class="img-add-container" style="position:relative; padding-bottom:100%;">
+                        <!-- 초기 드롭존 -->
+                        <div class="dropzone">
+                          <!-- <div class="dz-title">사진을 드래그해서 놓으세요</div>
+                          <div class="dz-sub">10장까지 올릴 수 있어요.</div> -->
+                          <button type="button" class="pc-upload-btn">사진 불러오기</button>
+                        </div>
+                        <!-- 하단 오버레이/파란+ 는 처음엔 hidden -->
+                        <div class="post-img-bottom" hidden>
+                            <button class="return-img" type="button" title="다시 올리기" aria-label="다시 올리기">
+                              <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+                                <path d="M17.9 10a6.4 6.4 0 0 0-6-4.5c-3.6 0-6.4 2.9-6.4 6.5s2.8 6.5 6.3 6.5c2.2 0 4.1-1 5.3-2.9a.7.7 0 1 1 1.2.8 7.8 7.8 0 0 1-6.5 3.6C7.5 20 4 16.4 4 12s3.5-8 7.8-8c3.4 0 6.3 2.2 7.4 5.3l.7-1.4a.7.7 0 1 1 1.3.7l-1.8 3.1a.7.7 0 0 1-1 .3l-3-1.8a.7.7 0 1 1 .7-1.3l1.8 1z"></path>
+                              </svg>
+                            </button>
+                          
+                            <button class="delete-img" type="button" title="삭제" aria-label="삭제">
+                              <svg class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+                                <path d="M6 19V7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM19 4v2H5V4h3.5l1-1h5l1 1H19z"></path>
+                              </svg>
+                            </button>
+                          
+                            <button class="edit-button" type="button">맨션 편집 완료</button>
+                          </div>
+                          <div class="tags-container">
+                            <div class="img-tag-container tag" hidden>
+                              <button class="tag-add-btn" type="button">
+                                <svg width="18" height="18" viewBox="0 0 24 24" class="plus-img">
+                                  <circle cx="12" cy="12" r="12" fill="#647FBC"></circle>
+                                  <path stroke="#FFF" stroke-width="2" d="M12 16V8m-4 4h8"></path>
+                                </svg>
+                              </button>
+                              <div class="mention-window">
+                                <div class="triangle"></div>
+                                <div class="mention-profile">
+                                    <a class="profile-a">
+                                        <div class="mention-profile-img">
+                                            <img src="/static/images/crew-station-icon-profile.png">
+                                        </div>
+                                        <span id="mention-name">CREW2</span>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="img-tag-container tag" hidden>
+                              <button class="tag-add-btn" type="button">
+                                <svg width="18" height="18" viewBox="0 0 24 24" class="plus-img">
+                                  <circle cx="12" cy="12" r="12" fill="#647FBC"></circle>
+                                  <path stroke="#FFF" stroke-width="2" d="M12 16V8m-4 4h8"></path>
+                                </svg>
+                              </button>
+                              <div class="mention-window">
+                                <div class="triangle"></div>
+                                <div class="mention-profile">
+                                    <a class="profile-a">
+                                        <div class="mention-profile-img">
+                                            <img src="/static/images/crew-station-icon-profile.png">
+                                        </div>
+                                        <span id="mention-name">CREW2</span>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="img-tag-container tag" hidden>
+                              <button class="tag-add-btn" type="button">
+                                <svg width="18" height="18" viewBox="0 0 24 24" class="plus-img">
+                                  <circle cx="12" cy="12" r="12" fill="#647FBC"></circle>
+                                  <path stroke="#FFF" stroke-width="2" d="M12 16V8m-4 4h8"></path>
+                                </svg>
+                              </button>
+                              <div class="mention-window">
+                                <div class="triangle"></div>
+                                <div class="mention-profile">
+                                    <a class="profile-a">
+                                        <div class="mention-profile-img">
+                                            <img src="/static/images/crew-station-icon-profile.png">
+                                        </div>
+                                        <span id="mention-name">CREW2</span>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                          </div>
+                          <div class="img-container"></div>
+                      </div>
+                    </div>
+                    <div class="img-post-term">
+                      <div class="post-write-container">
+                        <div class="post-write-wrapper">
+                          <textarea placeholder="크루 소개글를 작성해 주세요." rows="6" class="post-input"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+            </ol>
+        </div>
+        <button type="button" class="sub-img-plus-btn-container">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모달 화면 -->
+  <div class="modal-popout" data-popout="true" style="display: none;">
+    <div class="modal open open-active">
+      <div class="modal-view">
+        <div class="modal-view-container">
+          <div class="modal-view-wrapper">
+            <div class="modal-tag-input-container">
+              <span class="modal-tag-input-wrapper">
+                <input class="tag-input" placeholder="이메일 입력" />
+              </span>
+              <button class="close-btn" type="button">취소</button>
+            </div>
+          </div>
+          <div class="modal-content">
+            <div style="padding-top: 0; padding-bottom: 2960px; transform: translateX(0);">
+              <div>
+                <!-- 크루원 태그 이메일 검색 후 크루원 프로필 -->
+                <button class="tag-profile-container" type="button">
+                  <div class="member-profile">
+                    <picture>
+                      <img class="ymDK1" src="https://prs.ohousecdn.com/apne2/any/uploads/productions/v1-356976242864128.jpg?c=c&w=320&h=320"
+                           srcset="https://prs.ohousecdn.com/apne2/any/uploads/productions/v1-356976242864128.jpg?c=c&w=320&h=320 1.5x,https://prs.ohousecdn.com/apne2/any/uploads/productions/v1-356976242864128.jpg?c=c&w=320&h=320 2x,https://prs.ohousecdn.com/apne2/any/uploads/productions/v1-356976242864128.jpg?c=c&w=320&h=320 3x">
+                    </picture>
+                  </div>
+                  <div class="member-info-container">
+                    <div class="member-name">크루원 이름</div>
+                    <div class="member-email">크루원 이메일</div>
+                  </div>
+                  <div class="tag-select-btn">
+                    <div class="tag-select-btn-text">선택</div>
+                  </div>
+                </button>
+                <button class="tag-profile-container" type="button">
+                  <div class="member-profile">
+                    <picture>
+                      <img class="ymDK1" src="/static/images/banner.jpg">
+                    </picture>
+                  </div>
+                  <div class="member-info-container">
+                    <div class="member-name">크루원 이름2</div>
+                    <div class="member-email">크루원 이메일</div>
+                  </div>
+                  <div class="tag-select-btn">
+                    <div class="tag-select-btn-text">선택</div>
+                  </div>
+                </button>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 썸네일 미리보기 -->
+    <template id="thumb-tpl">
+        <li class="post-sub-img">
+        <div class="sub-img-wrapper">
+            <div class="sub-img-wrap">
+            <div class="sub-img"><img class="img-view" alt=""></div>
+            <button type="button" class="delete-sub-img" title="삭제" aria-label="삭제">
+                <svg class="icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+                  <path d="M6 19V7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM19 4v2H5V4h3.5l1-1h5l1 1H19z"></path>
+                </svg>
+              </button>
+              
+            </div>
+        </div>
+        </li>
+    </template>
+
+</body>
+<script src="/static/js/crew/crew-write/event.js"></script>
+</html>

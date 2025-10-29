@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${noticeDetail.noticeTitle}">공지사항</title>
+    <link rel="stylesheet" th:href="@{/css/font.css}">
+    <link rel="shortcut icon" th:href="@{/images/crew-station-favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/notice/notice-detail.css}">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+<div class="notice-detail">
+
+    <!-- 상단 메뉴 -->
+    <div class="myhome-nav">
+        <nav class="myhome-nav__owner">
+            <ul>
+                <li class="page-navigation__item">
+                    <a th:href="@{/ask/register}" th:classappend="${page=='ask'} ? 'active'">문의하기</a>
+                </li>
+                <li class="page-navigation__item">
+                    <a th:href="@{/notice/list}" th:classappend="${page=='notice'} ? 'active'">공지사항</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 공지 상세 -->
+    <div class="notice-detail__wrap">
+        <h1 class="notice-detail__title" th:text="${noticeDetail.noticeTitle}">공지 제목</h1>
+
+        <!-- createdDatetime 은 String이므로 앞 10자리만 -->
+        <time class="notice-detail__date"
+              th:text="${#strings.substring(noticeDetail.createdDatetime,0,10)}">
+            2025-10-01
+        </time>
+
+        <!-- noticeContent가 HTML 포함이면 utext, 텍스트만이면 text -->
+        <div class="notice-detail__content" th:utext="${noticeDetail.noticeContent}">
+            공지 내용이 표시됩니다.
+        </div>
+
+        <button class="notice-detail__back" type="button"
+                onclick="location.href='/notice/list'">
+            목록으로 돌아가기
+        </button>
+    </div>
+
+</div>
+<script th:src="@{/js/notice/notice-detail/event.js}"></script>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/static/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/mypage/inpuiry.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+     <div class="all">
+        <div class="myhome-nav">
+            <nav class="page-navigation">
+                <ul>
+                    <li class="page-navigation__item"><a href="/mypage/diary-list">나의 다이어리</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/findMyCrew">나의 크루 구하기</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/crew-list">나의 크루 목록</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/my-activities">나의 활동</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/purchase-list">나의 구매 내역</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/sale-list">나의 판매 내역</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/inquiries" class="active">나의 문의</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/modify">나의 프로필</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main class="main">
+            <section class="main-section">
+                <section class="inquiry-container">
+                    <div class="inquiry-wrap">
+                        <!-- 반복 시작 -->
+                        <article class="inquiry">
+                            <div class="inquiry-header">
+                                <span class="status">답변중</span>
+                                <span class="date"></span>
+                            </div>
+                            <h1 class="inquiry-content">
+                                <span class="q-icon">Q</span>
+                                <div class="inquiry-title-text">게시물 작성이 안되는데 이거 왜 이런건가요?</div>
+                            </h1>
+                            <div class="inquiry-content-text">게시물 작성이 안돼요. 어쩌구 저쩌구 어랜ㄹ눙ㄹ머룿모리ㅏ모취모ㅑㅗㅍ미ㅏㅊ히ㅣㅏㅓㅗ디투ㅗㄹㅎㅍㄹㅎㄴ대헤ㅜㅐㄴ샿푸ㅐㅔㄷ객ㄷ쉐ㅐㅁㅍ갯풰ㅐㄱ세ㅐ돞세ㅐㄱ데샢 덱샤댜ㅓㄱㅅ페ㅐㅑㄷ겟ㅍ데ㅐㅔㄴㄷ풰ㅐ스ㅔ낻ㅊ거ㅊㄹ ㅕ뇌ㅗ</div>
+                            <button class="remove">삭제</button>
+                        </article>
+                        <hr class="bar">
+                        <!-- 반복 끝 -->
+                        <!-- 답변 있을 때 -->
+                        <!-- 답변 길 때 -->
+                        <article class="inquiry">
+                            <div class="inquiry-header">
+                                <span class="status active">답변완료</span>
+                                <span class="date"></span>
+                            </div>
+                            <h1 class="inquiry-content">
+                                <span class="q-icon">Q</span>
+                                <div class="inquiry-title-text">게시물 작성이 안되는데 이거 왜 이런건가요?</div>
+                            </h1>
+                            <div class="inquiry-content-text">게시물 작성이 안돼요. 어쩌구 저쩌구 어랜ㄹ눙ㄹ머룿모리ㅏ모취모ㅑㅗㅍ미ㅏㅊ히ㅣㅏㅓㅗ디투ㅗㄹㅎㅍㄹㅎㄴ대헤ㅜㅐㄴ샿푸ㅐㅔㄷ객ㄷ쉐ㅐㅁㅍ갯풰ㅐㄱ세ㅐ돞세ㅐㄱ데샢 덱샤댜ㅓㄱㅅ페ㅐㅑㄷ겟ㅍ데ㅐㅔㄴㄷ풰ㅐ스ㅔ낻ㅊ거ㅊㄹ ㅕ뇌ㅗ</div>
+                            <div class="answer">
+                                <div class="answer-container">sdkfnslgn
+sdflksnksf
+dlsnflksdf
+sdfgdfgdfg
+sgdfgdfgfsdgfdg
+ㅁㅇㄴㄹㄴㅇㄹㄴㅇㄹ
+                                </div>
+                                <div class="answer-more">
+                                    <button type="button" class="more-button">
+                                        <span class="down"></span>
+                                        <span class="more-text">답변 전체보기</span>
+                                    </button>
+                                </div>
+                                <div class="more-status">
+                                    <span class="writer">크루스테이션</span>
+                                    <span class="point">·</span>
+                                    <span class="writer">2025.03.31</span>
+                                    <button type="button" class="close-button">
+                                        <span class="up"></span>
+                                        <span class="more-text">접기</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="remove">삭제</button>
+                        </article>
+                        <hr class="bar">
+                        <!-- 답변 길 때 끝 -->
+                        <!-- 답변 짧을 때 -->
+                        <article class="inquiry">
+                            <div class="inquiry-header">
+                                <span class="status active">답변완료</span>
+                                <span class="date"></span>
+                            </div>
+                            <h1 class="inquiry-content">
+                                <span class="q-icon">Q</span>
+                                <div class="inquiry-title-text">게시물 작성이 안되는데 이거 왜 이런건가요?</div>
+                            </h1>
+                            <div class="inquiry-content-text">게시물 작성이 안돼요. 어쩌구 저쩌구 어랜ㄹ눙ㄹ머룿모리ㅏ모취모ㅑㅗㅍ미ㅏㅊ히ㅣㅏㅓㅗ디투ㅗㄹㅎㅍㄹㅎㄴ대헤ㅜㅐㄴ샿푸ㅐㅔㄷ객ㄷ쉐ㅐㅁㅍ갯풰ㅐㄱ세ㅐ돞세ㅐㄱ데샢 덱샤댜ㅓㄱㅅ페ㅐㅑㄷ겟ㅍ데ㅐㅔㄴㄷ풰ㅐ스ㅔ낻ㅊ거ㅊㄹ ㅕ뇌ㅗ</div>
+                            <div class="answer active">
+                                <div class="answer-container">sdkfnslgn
+sdflksnksf
+                                </div>
+                            
+                                <div class="more-status">
+                                    <span class="writer">크루스테이션</span>
+                                    <span class="point">·</span>
+                                    <span class="writer">2025.03.31</span>
+                                </div>
+                            </div>
+                            <button class="remove">삭제</button>
+                        </article>
+                        <hr class="bar">
+                        <!-- 답변 짧을 때 끝 -->
+                        <!-- 답변 있을 때 끝 -->
+                    </div>
+                </section>
+            </section>
+            
+        </main>
+    </div>
+    <div class="toast hide" style="display: none;">
+        <div class="toast-wrap">
+            <p class="toast-text">클립보드에 복사되었습니다.</p>
+        </div>
+    </div>
+     <footer th:replace="~{fixed/web/footer :: footer}"></footer>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/static/js/mypage/inquiry/event.js"></script>
+</html>

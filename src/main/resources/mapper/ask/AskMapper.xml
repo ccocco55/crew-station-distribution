@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.ask.AskMapper">
+    <!--    추가-->
+    <insert id="insert">
+        insert into tbl_inquiry(inquiry_title, inquiry_content, member_id)
+        values (#{inquiryTitle}, #{inquiryContent}, #{memberId})
+    </insert>
+    <update id="update">
+        update tbl_inquiry
+        set inquiry_title = #{inquiryTitle}, inquiry_content = #{inquiryContent}, member_id = #{memberId}
+        where id = #{id}
+    </update>
+    <delete id="delete">
+        delete from tbl_inquiry
+        where id = #{id}
+    </delete>
+
+    <select id="selectInquiryList">
+        select
+        i.id,
+        i.inquiry_title as inquiryTitle,
+        i.inquiry_content as inquiryContent,
+        m.member_name as memberName,
+
+        to_char(i.created_datetime, 'YYYY-MM-DD HH24:MI:SS') as createdDatetime,
+        to_char(r.created_datetime, 'YYYY-MM-DD HH24:MI:SS') as replyDatetime,
+
+        case when r.id is not null then 'ANSWERED' else 'UNANSWERED' end as inquiryStatus
+        from tbl_inquiry i
+        join tbl_member m on m.id = i.member_id
+        left join lateral (
+        select r1.*
+        from tbl_inquiry_reply r1
+        where r1.inquiry_id = i.id
+        order by r1.created_datetime desc
+        limit 1
+        ) r on true
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and (
+                i.inquiry_title ilike concat('%', #{keyword}, '%')
+                or i.inquiry_content ilike concat('%', #{keyword}, '%')
+                or m.member_name ilike concat('%', #{keyword}, '%')
+                )
+            </if>
+            <if test="category != null and category != ''">
+                <choose>
+                    <when test="category == 'ANSWERED'">and r.id is not null</when>
+                    <when test="category == 'UNANSWERED'">and r.id is null</when>
+                </choose>
+            </if>
+        </where>
+        order by i.created_datetime desc
+    </select>
+
+
+    <select id="selectInquiryById">
+        select
+            i.id,
+            i.inquiry_title  as inquiryTitle,
+            i.inquiry_content as inquiryContent,
+            i.member_id      as memberId,
+            m.member_name    as memberName,
+            to_char(i.created_datetime, 'YYYY-MM-DD HH24:MI:SS') as createdDatetime,
+            r.id             as replyId,
+            r.inquiry_reply_content as replyContent,
+            to_char(r.created_datetime, 'YYYY-MM-DD HH24:MI:SS') as replyDatetime,
+            case when r.id is not null then 'ANSWERED' else 'UNANSWERED' end as inquiryStatus
+        from tbl_inquiry i
+                 join tbl_member m on m.id = i.member_id
+                 left join lateral (
+            select r1.*
+            from tbl_inquiry_reply r1
+            where r1.inquiry_id = i.id
+            order by r1.created_datetime desc
+            limit 1
+            ) r on true
+        where i.id = #{id}
+    </select>
+
+    <insert id="insertReply" parameterType="com.example.crewstation.dto.ask.AskDTO">
+        insert into tbl_inquiry_reply (inquiry_reply_content, member_id, inquiry_id)
+        values (#{replyContent}, #{memberId}, #{id})
+    </insert>
+
+</mapper>

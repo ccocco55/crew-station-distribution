@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/member/web/join.css">
+</head>
+<body>
+    <div class="page">
+        <section class="page-container">
+            <div class="main-container">
+                <a class="home-logo" th:href="@{/}">
+                    <img src="/images/crew-station-favicon.png"  width="147" height="100" style="object-fit: cover;">
+                </a>
+                <h1 class="join-title">회원가입</h1>
+                <form action="/member/join" method="post" id="signupForm" th:object="${memberDTO}" enctype="multipart/form-data">
+                    <div class="modify">
+                        <label for="profile" class="modify-label">
+                            <img class="profile-img" src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=144&h=144&c=c">
+                            <div class="photo-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" fill="#FFFFFF" viewBox="0 0 12 12">
+                                    <path fill-rule="evenodd" d="M2 2.86h1.67l.569-1.091a.5.5 0 0 1 .443-.269h2.587a.5.5 0 0 1 .44.262l.593 1.098H10a1 1 0 0 1 1 1v5.173a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3.86a1 1 0 0 1 1-1M7.166 6.3a1.18 1.18 0 1 1-2.36 0 1.18 1.18 0 0 1 2.36 0m1 0a2.18 2.18 0 1 1-4.36 0 2.18 2.18 0 0 1 4.36 0" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input type="file" class="img-input" id="profile" name="file">
+                        </label>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-name-label form-label essential">이름</label>
+                        <div class="name-wrap form-wrap">
+                            <div class="input-group name-input">
+                                <span class="name-input-local form-input-local">
+                                    <input type="text" name="memberName" class="form-control essential name" size="1" placeholder="이름" th:field="*{memberName}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-name">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <label class="form-label member-gender-label essential">성별</label>
+                        <div class="gender-wrap form-wrap">
+                            <div class="input-group gender-input">
+                                <label for="male" class="gender-label">
+                                    <div class="gender-male">
+                                        <input type="radio" th:field="*{memberGender}" name="gender" class="gender-radio  essential" value="male" id="male">
+                                    </div>
+                                    <span class="gender-title">남성</span>
+                                </label>
+                                <label for="female" class="gender-label">
+                                    <div class="gender-female">
+                                        <input type="radio" th:field="*{memberGender}" name="gender" class="gender-radio  essential" value="female" id="female">
+                                    </div>
+                                    <span class="gender-title">여성</span>
+                                </label>
+                                <div class="error-text-wrap error-text-gender">
+                                    <span>필수 입력 항목입니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="form-label member-phone-label essential">휴대전화</label>
+                        <div class="phone-wrap form-wrap">
+                            <div class="input-group phone-input">
+                                <span class="phone-input-local form-input-local">
+                                    <input type="text" name="memberPhone" class="form-control essential phone" size="1" placeholder="휴대전화" th:field="*{memberPhone}">
+                                    <button type="button" class="phone-certification" disabled>전송</button>
+                                    <br>
+                                    <div class="phone-check" style="display: none;">
+                                        <input type="text" class="form-control essential code" size="1" placeholder="인증번호">
+                                        <div class="limit-time" style="color:rgb(255, 119, 119)">5:00</div>
+                                        <button type="button" class="code-check" disabled>확인</button>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-phone">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="form-label member-email-label essential">이메일</label>
+                        <div class="email-wrap form-wrap">
+                            <div class="input-group email-input">
+                                <span class="email-input-local form-input-local">
+                                    <input type="email" name="memberEmail" class="form-control essential email" size="1" placeholder="이메일" th:field="*{memberEmail}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-email">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-password-label form-label essential">비밀번호</label>
+                        <div class="password-info">
+                            영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.
+                        </div>
+                        <div class="password-wrap form-wrap">
+                            <div class="input-group password-input">
+                                <span class="password-input-local form-input-local">
+                                    <input type="password" name="memberPassword" class="form-control essential password" size="1" placeholder="비밀번호" th:field="*{memberPassword}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-password">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-password-check-label form-label essential">비밀번호 확인</label>
+                        <div class="password-check-wrap form-wrap">
+                            <div class="input-group password-check-input">
+                                <span class="password-check-input-local form-input-local">
+                                    <input type="password" class="form-control essential password-check" size="1" placeholder="비밀번호 확인">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-password-check">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-birth-label form-label essential">생년월일</label>
+                    
+                        <div class="birth-wrap form-wrap">
+                            <div class="input-group birth-input">
+                                <span class="birth-input-local form-input-local">
+                                    <input type="text" name="memberBirth" class="form-control essential birth" size="1" placeholder="생년월일 8자리 ex)20000101" th:field="*{memberBirth}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-birth">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="form-label member-address-label essential">주소</label>
+                        <div class="address-wrap form-wrap">
+                            <div class="input-group address-input">
+                                <span class="address-input-local form-input-local">
+                                    <input type="text" name="addressZipCode" class="form-control essential address memberZipCode" size="1" placeholder="우편번호" readonly th:field="*{addressDTO.addressZipCode}">
+                                    <button type="button" class="phone-certification" id="addressBtn">주소찾기</button>
+                                    <br>
+                                    <input type="text" name="address" class="form-control essential memberAddress" size="1" placeholder="주소" readonly th:field="*{addressDTO.address}">
+                                    <br>
+                                    <input type="text" name="addressDetail" class="form-control essential memberAddressDetail" size="1" placeholder="상세주소" th:field="*{addressDTO.addressDetail}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-phone">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-social-label form-label">소셜 링크</label>
+                        <div class="social-wrap form-wrap">
+                            <div class="input-group social-input">
+                                <span class="social-input-local form-input-local">
+                                    <input type="text" name="memberUrl" class="form-control social" size="1" placeholder="소셜 링크" th:field="*{memberSocialUrl}">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label class="member-mbti-label form-label">mbti</label>
+                        
+                        <div class="mbti-wrap form-wrap">
+                            <div class="input-group mbti-input">
+                                <span class="mbti-input-local form-input-local">
+                                    <input type="text" name="memberMbti" class="form-control mbti" size="1" placeholder="mbti" th:field="*{memberMbti}">
+                                </span>
+                            </div>
+                            <div class="error-text-wrap error-text-mbti">
+                                <span>필수 입력 항목입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="submit-btn">
+                        회원가입
+                    </button>
+                </form>
+                <p class="login-mv-btn">이미 아이디가 있으신가요?<a href="/member/login">로그인</a></p>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/js/member/web/join/module/service.js"></script>
+<script src="/js/member/web/join/event.js"></script>
+</html>

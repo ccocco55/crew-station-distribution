@@ -1,0 +1,588 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+    font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+    src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+    format("embedded-opentype"),
+    url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+    format("woff2"),
+    url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+    format("woff"),
+    url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+    format("truetype"),
+    url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+    format("svg");}
+    html{
+        font-family:'Pretendard Variable',sans-serif;
+        letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;}
+
+
+/* 네비 */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+
+
+/* 나의 다이어리 */
+.main {
+    width: 100%;
+    max-width: 1136px;
+    margin: 0px auto;
+}
+
+.header {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 16px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.share-button {
+    top: 16px;
+    position: relative;
+    flex-shrink: 0;
+    height: 0px;
+    margin-left: 16px;
+    transform: translateY(-50%);
+}
+
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+
+.share-button-style {
+    margin: 0px 0px 0px 6px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+    vertical-align: middle;
+    transform: translateY(-50%);
+}
+
+.share-button-style:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.share-icon {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.share-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\ef03";
+    font-size: 18px;
+    line-height: 1;
+}
+
+.share-text {
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.profile-wrap {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    
+    font-size: 20px;
+    line-height: 28px;
+    display: block;
+    margin-top: 8px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.m-sticky-container {
+    position: sticky;
+    top: 81px;
+    transition: top 0.1s;
+    z-index: 1;
+}
+
+.nav-wrap {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0px -5px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    justify-content: center
+}
+
+.nav-a {
+    margin: 0px 5px;
+}
+
+.nav-button {
+    margin: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 6px;
+}
+
+.p-wrap {
+    font-weight: 700;
+    padding: 4px;
+    margin: -4px;
+}
+
+.nav-button.active .p-wrap::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #647FBC;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.tag-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+}
+
+.active.nav-button .tag-name{
+    color: #647FBC;
+}
+
+.nav-hr {
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    border: none;
+    background-color: rgb(234, 237, 239);
+}
+
+.nav-footer {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 2px 0px 0px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(255, 255, 255);
+    height: 30px;
+    margin: 2px 0px 0px;
+    padding: 10px 16px;
+}
+
+.update {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.total {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    display: none;
+}
+
+.check-number {
+    color: #647FBC;
+}
+
+.button-wrap {
+    margin-left: auto;
+    position: absolute;
+    right: 0px;
+}
+
+.update-button {
+    display: inline-block;
+    margin-top: 0px;
+    border: none;
+    background: none;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 6px;
+    color: #647FBC;
+    font-weight: 700;
+}
+
+.update-button:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.update-div {
+    display: none;
+}
+
+.remove {
+    display: inline-block;
+    margin: 0px 0px 0px 6px;
+    background: none transparent;
+    border: none;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 6px;
+    color: rgb(194, 200, 204);
+    font-weight: 700;
+
+}
+
+.cancle {
+    display: inline-block;
+    margin: 0px 0px 0px 6px;
+    border: none;
+    background: none;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 6px;
+    font-weight: 700;
+    color: rgb(130, 140, 148);
+}
+
+.cancle:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.remove.active {
+    color: rgb(130, 140, 148);
+}
+
+.remove.active:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+/* 댓글 */
+
+
+.main-section {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: auto;
+    flex: 0 0 auto;
+}
+
+.inquiry-container {
+    margin-top: 20px;
+}
+
+.reply-wrap {
+    padding-top: 0px;
+    padding-bottom: 417px;
+    transform: translateY(0px);
+    display: flex;
+    padding: 16px;
+}
+
+.reply-wrap > img {
+    margin-left: 20px;
+    width: 215px;
+    height: 215px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.inquiry {
+    margin-left: auto;
+    margin-bottom: 16px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.inquiry-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.status {
+    font-size: 12px;
+    padding: 0px 6px;
+    color: rgb(255, 255, 255);
+    background-color: #505050;
+    display: inline-block;
+    font-weight: 700;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.status.active {
+    background-color: #647FBC;
+}
+
+.date {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(130, 140, 148);
+    margin-left: auto;
+}
+
+.inquiry-content {
+    display: flex;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+    white-space: pre-wrap;
+    margin-bottom: 17px;
+    word-break: break-all;
+}
+
+.inquiry-title-text {
+    flex: 1 0 0px;
+}
+
+.inquiry-content-text {
+    font-size: 14px;
+    position: relative;
+    width: 785px;
+    height: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;        
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;            
+}
+
+.writer {
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(130, 140, 148);
+    display: block;
+    flex-shrink: 0;
+    max-width: 150px;
+}
+
+.bar {
+    margin: 0px;
+    padding: 0px;
+    height: 10px;
+    border: none;
+    background-color: rgb(247, 249, 250);
+}
+
+.reply-content {
+    padding: 16px;
+    border-radius: 7px;
+    background-color: rgb(247, 249, 250);
+    font-size: 14px;
+    line-height: 28px;
+    color: rgb(118 128 136);
+    margin-top: 20px;
+    height: 74px;
+    position: relative;
+}
+
+.answer {
+    display: flex;
+    
+}
+
+.reply-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\e996";
+
+}
+
+.answer .answer-container {
+    padding-left: 10px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 62px;
+}
+
+.answer.active .answer-container {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-height: none;
+}
+
+.answer-more {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+.answer.active .answer-more {
+    display: none;
+}
+
+.answer {
+    display: flex;
+    justify-content: space-between; /* 좌/우 배치 */
+    align-items: flex-start;        /* 위쪽에 맞추기 */
+    width: 100%;
+}
+
+.answer-container {
+    display: flex;
+    align-items: flex-start;  /* 아이콘 + 텍스트 위쪽 정렬 */
+    gap: 6px;                 /* 아이콘과 텍스트 사이 간격 */
+    flex: 1;                  /* 남는 공간 차지해서 writer 밀어냄 */
+}
+
+.writer {
+    white-space: nowrap;   /* 시간은 줄바꿈 없이 */
+    font-size: 0.85rem;    /* 글자 크기 조금 줄이기 (선택) */
+    color: rgb(118 128 136);        /* 색상은 예시 */
+}

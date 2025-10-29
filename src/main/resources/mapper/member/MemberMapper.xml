@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.member.MemberMapper">
+
+    <sql id="purchaseSearch">
+        <if test="search.keyword != null and search.keyword != ''">
+            AND (
+            vpp.post_title LIKE CONCAT('%', #{search.keyword}, '%')
+            OR vpp.purchase_country LIKE CONCAT('%', #{search.keyword}, '%')
+            )
+        </if>
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_member (member_name, member_phone, member_email, member_social_url, member_birth, member_gender, member_mbti, member_password)
+        values (#{memberName}, #{memberPhone}, #{memberEmail}, #{memberSocialUrl}, #{memberBirth}, #{memberGender}, #{memberMbti}, #{memberPassword})
+    </insert>
+    <select id="selectEmail">
+        select count(*) > 0
+        from tbl_member
+        where member_email = #{memberEmail}
+    </select>
+<!--  내가 추가한 부분 -->
+    <select id="selectMemberByMemberEmail">
+        select *
+        from tbl_member
+        where member_email = #{memberEmail} and member_status = 'active'
+    </select>
+
+<!-- 게스트 관련 부분 -->
+    <insert id="insertGuest" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_member (member_name)
+        values ('guest')
+    </insert>
+    <!--  내가 추가한 부분 -->
+    <select id="selectForLogin">
+        select id, member_name, member_email, member_social_url, member_gender, member_mbti, member_password, member_status, member_provider, social_img_url, member_social_email, member_description, member_role, created_datetime, updated_datetime, chemistry_score
+        from tbl_member
+        where member_email = #{memberEmail} and member_password = #{memberPassword} and member_status = 'active'
+    </select>
+<!--  social  -->
+    <insert id="insertSns" keyProperty="id" useGeneratedKeys="true">
+        insert into tbl_member (member_name, member_phone, member_social_url, member_gender, member_birth, member_mbti, member_provider, social_img_url, member_social_email)
+        values (#{memberName}, #{memberPhone}, #{memberSocialUrl}, #{memberGender}, #{memberBirth}, #{memberMbti}, #{memberProvider}, #{socialImgUrl}, #{memberSocialEmail})
+    </insert>
+
+    <select id="selectMemberBySnsEmail">
+        select id, member_name, member_phone, member_social_url, member_birth, member_gender, member_mbti, member_provider, social_img_url, member_social_email, member_description, chemistry_score
+        from tbl_member
+        where member_social_email = #{memberSocialEmail} and member_status = 'active'
+    </select>
+    <!-- 멤버 프로필 조회용 -->
+    <select id="selectProfileById">
+        SELECT m.id   AS memberId,
+               member_name AS memberName,
+               social_img_url AS socialImgUrl,
+               vmf.file_path as filePath
+        FROM tbl_member m
+                 left join view_file_member_file vmf on m.id = vmf.member_id
+        WHERE m.id = #{memberId}
+
+    </select>
+
+<!--    비밀번호 변경-->
+    <update id="updatePassword">
+        update tbl_member
+        set member_password = #{memberPassword}
+        where member_email = #{memberEmail}
+    </update>
+
+    <!-- 별점 등록 시 케미지수 업데이트 -->
+    <update id="updateChemistryScore">
+        UPDATE tbl_member
+        SET chemistry_score = LEAST(
+                100,
+                GREATEST(
+                        0,
+                        chemistry_score +
+                        CASE #{rating}
+                            WHEN 5 THEN 2
+                            WHEN 4 THEN 1
+                            WHEN 3 THEN 0
+                            WHEN 2 THEN -1
+                            WHEN 1 THEN -2
+                            ELSE 0
+                            END
+                )
+                              ),
+            updated_datetime = NOW()
+        WHERE id = #{sellerId}
+    </update>
+
+<!-- 회원 검색-->
+    <select id="selectSearchMember">
+        select tm.id as id,
+               tm.member_name,
+               tm.member_email,
+               tm.member_social_email,
+               tm.social_img_url,
+               vfmf.file_path
+        from tbl_member tm left outer join view_file_member_file vfmf on tm.id = vfmf.member_id and member_status = 'active' and member_role = 'member'
+        where tm.member_email like '%' || #{search} || '%'
+        or tm.member_name like '%' || #{search} || '%'
+    </select>
+
+    <select id="findAdminMembers">
+        select
+        tm.id,
+        tm.member_name,
+        tm.member_phone,
+        tm.member_email,
+        tm.member_social_url,
+        tm.member_birth,
+        tm.member_gender,
+        tm.member_mbti,
+        tm.member_status,
+        tm.member_provider,
+        tm.social_img_url,
+        tm.member_social_email,
+        tm.member_description,
+        tm.member_role,
+        tm.created_datetime,
+        tm.updated_datetime,
+        tm.chemistry_score
+        from tbl_member tm
+        <where>
+            <if test="search.keyword != null || search.keyword != ''">
+                (tm.member_name ilike '%' || #{search.keyword} || '%'
+                or tm.member_email ilike '%' || #{search.keyword} || '%')
+            </if>
+        </where>
+        order by tm.id desc
+        limit #{limit} offset #{offset}
+
+
+    </select>
+
+    <select id="countAdminMembers">
+        select count(*)
+        from tbl_member tm
+        <where>
+            <if test="search.keyword != null and search.keyword != ''">
+                (tm.member_name ilike '%' || #{search.keyword} || '%'
+                or tm.member_email ilike '%' || #{search.keyword} || '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="findAdminMemberDetail">
+        select
+            tm.id,
+            tm.member_name,
+            tm.member_phone,
+            tm.member_email,
+            tm.member_social_url,
+            tm.member_birth,
+            tm.member_gender,
+            tm.member_mbti,
+            tm.member_password,
+            tm.member_status,
+            tm.member_provider,
+            tm.social_img_url,
+            tm.member_social_email,
+            tm.member_description,
+            tm.member_role,
+            tm.created_datetime,
+            tm.updated_datetime,
+            tm.chemistry_score
+        from tbl_member tm
+        where tm.id = #{memberId}
+    </select>
+
+    <!-- 멤버아이디로 판매내역 목록 조회 (중복 허용 버전) -->
+    <select id="selectSaleList">
+        SELECT
+        vpp.id AS post_id,
+        vpp.post_title,
+        vpp.purchase_product_price,
+        tps.id AS payment_status_id,
+        tps.payment_phase AS status,
+        tps.member_id AS buyer_id,
+        tps.created_datetime,
+        vfps.file_path
+        FROM tbl_payment_status tps
+        JOIN view_post_purchase vpp
+        ON tps.purchase_id = vpp.id
+        LEFT JOIN (
+        SELECT tps.post_id, MIN(vf.file_path) AS file_path
+        FROM tbl_post_section tps
+        JOIN view_file_post_section_file vf
+        ON tps.id = vf.post_section_id
+        GROUP BY tps.post_id
+        ) vfps ON vpp.id = vfps.post_id
+        WHERE vpp.post_status = 'active'
+        AND vpp.member_id = #{memberId}
+        <include refid="purchaseSearch"/>
+        ORDER BY tps.created_datetime DESC
+        LIMIT #{criteria.rowCount}
+        OFFSET #{criteria.offset}
+    </select>
+
+    <!-- 전체 개수 조회 (판매내역 페이징용) -->
+    <select id="selectSaleTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM view_post_purchase vpp
+        JOIN tbl_member tm ON tm.id = vpp.member_id
+        WHERE vpp.post_status = 'active'
+        AND vpp.member_id = #{memberId}
+        <include refid="purchaseSearch"/>
+    </select>
+
+    <!-- 판매 주문 상세 조회 -->
+    <select id="selectSellerOrderDetails">
+        SELECT
+            buyer.id                    AS buyer_member_id,
+            buyer.member_name           AS member_name,
+            buyer.member_phone          AS member_phone,
+            addr.address_zip_code       AS address_zip_code,
+            addr.address                AS address,
+            addr.address_detail         AS address_detail,
+
+            ps.id                       AS payment_status_id,
+            ps.payment_phase            AS payment_phase,
+            ps.created_datetime         AS created_datetime,
+            ps.updated_datetime         AS updated_datetime,
+
+            p.id                        AS post_id,
+            p.post_title                AS post_title,
+            pu.purchase_product_price   AS purchase_product_price,
+
+            (
+                SELECT f2.file_path
+                FROM tbl_post_section s2
+                         JOIN tbl_post_section_file sf2 ON s2.id = sf2.post_section_id
+                         JOIN tbl_file f2 ON sf2.file_id = f2.id
+                WHERE s2.post_id = p.id
+                  AND sf2.image_type = 'main'
+                LIMIT 1
+            ) AS main_image,
+
+            seller.id                   AS seller_id
+        FROM tbl_purchase pu
+                 JOIN tbl_payment_status ps
+                      ON ps.purchase_id = pu.post_id
+                 JOIN tbl_member buyer
+                      ON ps.member_id = buyer.id
+                 LEFT JOIN tbl_address addr
+                           ON buyer.id = addr.member_id
+                 JOIN tbl_post p
+                      ON pu.post_id = p.id
+                 JOIN tbl_member seller
+                      ON p.member_id = seller.id
+        WHERE p.member_id = #{sellerId}
+          AND ps.id = #{paymentStatusId}
+    </select>
+
+    <select id="selectMonthlyJoin">
+        select
+            TO_CHAR(
+                    date_trunc('month', created_datetime AT TIME ZONE 'Asia/Seoul'),
+                    'YYYY-MM'
+            ) AS date,
+            COUNT(id) AS count
+        from tbl_member
+        where (created_datetime AT TIME ZONE 'Asia/Seoul')
+                  >= date_trunc('month', (now() AT TIME ZONE 'Asia/Seoul')) - INTERVAL '2 months'
+        group by 1
+        order by 1;
+
+
+    </select>
+
+    <select id="selectCountTodayJoin">
+        SELECT COUNT(id)
+        FROM tbl_member
+        WHERE (created_datetime AT TIME ZONE 'Asia/Seoul')::date
+          = (now() AT TIME ZONE 'Asia/Seoul')::date
+    </select>
+
+    <select id="selectTotalMemberCount">
+        select count(*)
+        from tbl_member
+    </select>
+
+    <insert id="insertAdmin" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_member (member_name, member_email, member_password, member_role)
+        values (#{memberName}, #{memberEmail}, #{memberPassword}, #{memberRole})
+    </insert>
+
+
+    <!-- 내 정보 수정 정보 조회-->
+    <select id="selectMyInfo">
+    SELECT
+        m.id                    AS memberId,
+        m.member_name           AS memberName,
+        m.member_email          AS memberEmail,
+        m.member_phone          AS memberPhone,
+        m.member_birth          AS memberBirth,
+        m.member_social_url     AS memberSocialUrl,
+        m.social_img_url        AS socialImgUrl,
+        a.address_zip_code      AS zipCode,
+        a.address               AS address,
+        a.address_detail        AS addressDetail,
+        f.file_path             AS filePath,
+        f.file_name             AS fileName
+    FROM tbl_member m
+             LEFT JOIN tbl_address a
+                       ON m.id = a.member_id
+             LEFT JOIN tbl_member_file mf
+                       ON m.id = mf.member_id
+             LEFT JOIN tbl_file f
+                       ON mf.file_id = f.id
+    WHERE m.id = #{memberId}
+    </select>
+
+    <select id="selectMemberById">
+        select
+            m.id,
+            m.member_name,
+            m.member_email,
+            m.member_social_url,
+            m.social_img_url,
+            m.member_social_email,
+            m.member_role,
+            m.chemistry_score,
+            vm.file_path
+        from tbl_member m left join view_file_member_file vm
+        on m.id = vm.member_id
+        where m.id = #{memberId} and m.member_role = 'member' and m.member_status = 'active'
+    </select>
+
+
+</mapper>

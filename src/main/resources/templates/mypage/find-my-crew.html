@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/static/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/mypage/find-my-crew.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+    <div class="all">
+        <div class="myhome-nav">
+            <nav class="page-navigation">
+                <ul>
+                    <li class="page-navigation__item"><a href="/mypage/diary-list">나의 다이어리</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/findMyCrew" class="active">나의 크루 구하기</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/crew-list">나의 크루 목록</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/my-activities">나의 활동</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/purchase-list">나의 구매 내역</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/sale-list">나의 판매 내역</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/inquiries">나의 문의</a></li>
+                    <li class="page-navigation__item"><a href="/mypage/modify">나의 프로필</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="header">
+            <div class="title">
+                <p class="title-p">나의 크루 찾기</p>
+            </div>
+            <div class="profile-wrap">
+                <a href="">
+                    <img class="profile-img" src="/static/images/crew-station-icon-profile.png">
+                    <span class="profile-name">CREW_STATION</span>
+                </a>
+            </div>
+        </div>
+        <div class="sticky-container">
+            <div style="position: relative;">
+                <div class="nav-wrap">
+                    <nav>
+                        <button class="nav-button active">
+                            <div class="p-wrap">
+                                <p class="tag-name">모두(26)</p>
+                            </div>
+                        </button>
+                        <button class="nav-button">
+                            <div class="p-wrap">
+                                <p class="tag-name">롱크루(16)</p>
+                            </div>
+                        </button>
+                        <button class="nav-button">
+                            <div class="p-wrap">
+                                <p class="tag-name">숏크루(10)</p>
+                            </div>
+                        </button>
+                    </nav>
+                    <hr class="nav-hr">
+                    <div class="margin"></div>
+                </div>
+            </div>
+        </div>
+        <div class="together-post-container">
+            <div class="together-post-wrap">
+                <div class="together-post-item-wrap">
+                    <div class="together-post-item">
+                        <div class="together-post">
+                            <a>
+                                <div class="together-post-content">
+                                    <div>
+                                        <div class="together-category-wrap">
+                                            <div class="together-category-post long">
+                                                <span class="category-name long">
+                                                    롱 크루
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="together-content-info">
+                                            <div class="together-info-section">
+                                                <div class="together-post-title"><span>미닉스 식세기!!!</span></div>
+                                                <div class="together-body-content"><span>미닉스 식세기 쓰시는분 계세요~~!?  어때요?!! 삶의 질이 달라지나요!? 궁금해요 !!</span></div>
+                                                <div class="together-date">
+                                                    <span style="margin-right: 460px;">25.08.15</span>
+                                                    <span>25.08.19</span>
+                                                </div>
+                                                <div class="trip-path-wrap">
+                                                    <div class="trip-path">
+                                                        <div class="marker-circle last"></div>
+                                                        <div class="marker">
+                                                            <div class="marker-circle first"></div>
+                                                            <div class="marker-country">프랑스</div>
+                                                        </div>
+                                                        <div class="marker">    
+                                                            <div class="marker-circle"></div>
+                                                            <div class="marker-country">캄보디아</div>
+                                                        </div>    
+                                                        <div class="marker">    
+                                                            <div class="marker-circle"></div>
+                                                            <div class="marker-country">오스트레일리아</div>
+                                                        </div>    
+                                                        <div class="marker">    
+                                                            <div class="marker-circle"></div>
+                                                            <div class="marker-country">뉴욕</div>
+                                                        </div>    
+                                                    </div>
+                                                </div>
+                                                <div class="together-action-button">
+                                                    <div class="together-post-writer-info">
+                                                        <span class="info info-name">에스프레소말차라떼</span>
+                                                        <span class="info-split"></span>
+                                                        <span class="info info-date">15분 전</span>
+                                                        <span class="info-split"></span>
+                                                        <span class="info info-cnt">7</span>
+                                                        <span class="info-split"></span>
+                                                    </div>
+                                                    <div class="reply-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" class="ey1aqhe0 css-bsbdow"><path fill="#2F3438" fill-rule="evenodd" d="m11.942 10.521.26-.516a4.948 4.948 0 1 0-2.145 2.17l.523-.27 1.886.519zm-1.193 2.986a6.448 6.448 0 1 1 2.794-2.827l.767 2.789a.65.65 0 0 1-.8.798z" clip-rule="evenodd"></path></svg>
+                                                        <span class="reply-cnt">7</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="together-post-img">
+                                                <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/productions/160082304124619462.jpg?w=144" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <hr class="horizon">
+                </div>
+                <div class="together-post-item-wrap">
+                    <div class="together-post-item">
+                        <div class="together-post">
+                            <a>
+                                <div class="together-post-content">
+                                    <div>
+                                        <div class="together-category-wrap">
+                                            <div class="together-category-post">
+                                                <span class="category-name">
+                                                    숏 크루
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="together-content-info">
+                                            <div class="together-info-section">
+                                                <div class="together-post-title"><span>미닉스 식세기!!!</span></div>
+                                                <div class="together-body-content"><span>미닉스 식세기 쓰시는분 계세요~~!?  어때요?!! 삶의 질이 달라지나요!? 궁금해요 !!</span></div>
+                                                <div class="together-date">
+                            <span>25.08.15</span>
+                            <span>25.08.19</span>
+                    </div>
+                    <div class="trip-path-wrap">
+                        <div class="trip-path">
+                            <div class="marker-circle last"></div>
+                            <div class="marker">
+                                <div class="marker-circle first"></div>
+                                <div class="marker-country">프랑스</div>
+                            </div>
+                            <div class="marker">    
+                                <div class="marker-circle"></div>
+                                <div class="marker-country">캄보디아</div>
+                            </div>    
+                            <div class="marker">    
+                                <div class="marker-circle"></div>
+                                <div class="marker-country">오스트레일리아</div>
+                            </div>    
+                            <div class="marker">    
+                                <div class="marker-circle"></div>
+                                <div class="marker-country">뉴욕</div>
+                            </div>    
+                        </div>
+                    </div>
+                                                <div class="together-action-button">
+                                                    <div class="together-post-writer-info">
+                                                        <span class="info info-name">에스프레소말차라떼</span>
+                                                        <span class="info-split"></span>
+                                                        <span class="info info-date">15분 전</span>
+                                                        <span class="info-split"></span>
+                                                        <span class="info info-cnt">7</span>
+                                                        <span class="info-split"></span>
+                                                    </div>
+                                                    <div class="reply-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" class="ey1aqhe0 css-bsbdow"><path fill="#2F3438" fill-rule="evenodd" d="m11.942 10.521.26-.516a4.948 4.948 0 1 0-2.145 2.17l.523-.27 1.886.519zm-1.193 2.986a6.448 6.448 0 1 1 2.794-2.827l.767 2.789a.65.65 0 0 1-.8.798z" clip-rule="evenodd"></path></svg>
+                                                        <span class="reply-cnt">7</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="together-post-img">
+                                                <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/productions/160082304124619462.jpg?w=144" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <hr class="horizon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="toast">
+        <div class="toast-wrap">
+            <p class="toast-text">클립보드에 복사되었습니다.</p>
+        </div>
+    </div> -->
+        <footer th:replace="~{fixed/web/footer :: footer}"></footer>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/static/js/mypage/find-my-crew/event.js"></script>
+</html>

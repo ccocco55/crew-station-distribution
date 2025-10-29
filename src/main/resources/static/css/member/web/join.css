@@ -1,0 +1,450 @@
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";@font-face {
+                        font-family: OhouseIcon;
+                        src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+                        src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) format("embedded-opentype"),url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) format("woff2"),url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) format("woff"),url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) format("truetype"),url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) format("svg");
+                    }
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input:focus {outline: none;}
+textarea:focus {outline: none;}
+
+button, input, select, textarea {
+    font-size: inherit;
+}
+
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+a *{
+    border: none;
+}
+
+[role=button], a, button, input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+
+a, button, input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+ol,ul{
+    list-style: none;
+}
+body, html {
+    line-height: 1;
+    font-family: Pretendard Variable, Noto Sans KR, Apple SD Gothic Neo, 맑은 고딕, Malgun Gothic, sans-serif;
+    font-size: 13px;
+}
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+
+html {
+    font-family: 'Pretendard Variable', sans-serif;
+    letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    color: #424242;
+    background: #fff;
+}
+
+.layout, .page, body, html {
+    height: 100%;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+section.page-container{
+    padding-top: 40px;
+    width: calc(100% - 30px);
+    margin: auto;
+}
+
+a.home-logo{
+    margin-bottom: 30px;
+}
+
+div.main-container{
+    width: 360px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0px;
+}
+h1.join-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+label.form-label{
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #2F3438;
+    letter-spacing: -0.3px;
+    word-break: keep-all;
+}
+
+div.input-group{
+    display: flex;
+}
+
+span.form-input-local{
+    position: relative;
+    flex: 1 1 0px;
+}
+
+input.form-control{
+    font-size: 15px;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    color: #424242;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+div.error-text-wrap{
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+    display: none;
+    color: rgb(255, 119, 119);
+}
+input.form-control.essential.error{
+    border-color: rgb(255, 119, 119);
+}
+div.form-wrap{
+    position: relative;
+}
+
+div.form-section{
+    margin-bottom: 40px;
+}
+div.form-section:first-child{
+    margin-top: 20px;
+}
+
+input:hover{
+    background-color: #fafafa;
+    border-color: #bdbdbd;
+}
+div.password-info{
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #828C94;
+    letter-spacing: -0.3px;
+}
+
+input.form-control.phone{
+    width: 84%;
+}
+input.form-control.address{
+    width: 70%;
+}
+button.phone-certification{
+    white-space: pre;
+    height: 38px;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    background-color: #647FBC;
+    color: white;
+    border: 1px solid transparent;
+    font-family: Pretendard Variable;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s, background-color .1s, border-color .1s;
+    border-radius: 4px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+button.phone-certification:disabled, button.code-check:disabled{
+    opacity: 0.6;
+}
+div.phone-input{
+    position: relative;
+}
+div.limit-time{
+    position: absolute;
+    bottom: 12px;
+    right: 50px;
+    font-size: 16px;
+}
+button.code-check{
+    position: absolute;
+    border: none;
+    background: none;
+    bottom: 9px;
+    right: 5px;
+    font-size: 16px;
+    color:#647FBC;
+}
+div.gender-wrap{
+    display: flex;
+}
+
+button.gender{
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
+    background: none;
+    border: 1px solid #647ebc60;
+    
+    width: 180px;
+    height: 50px;
+}
+
+button.gender:first-child{
+    border-top-left-radius:5px ;
+    border-bottom-left-radius:5px ;
+}
+
+button.gender.gender-female{
+    border-top-right-radius:5px ;
+    border-bottom-right-radius:5px ;
+}
+
+button.gender.active{
+    background-color: #647ebcca;
+    color: white;
+}
+
+button.submit-btn:disabled{
+    opacity: 0.6;
+}
+
+button.submit-btn{
+    width: 100%;
+    font-size: 17px;
+    line-height: 26px;
+    padding: 11px 10px;
+    background-color: #647FBC;
+    border-color: #647FBC;
+    color: #fff;
+    user-select: none;
+    display: inline-block;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    font-family: Pretendard Variable;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s, background-color .1s, border-color .1s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+p.login-mv-btn{
+    color: #424242;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+p.login-mv-btn a{
+    text-decoration: underline;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 10px;
+}
+label.form-label.essential::after{
+    position: absolute;
+    content: "*";
+    color: rgb(255, 119, 119);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+div.gender{
+    display: flex;
+    gap: 24px;
+}
+
+label.gender-label{
+    display: inline-block;
+}
+span.gender-title{
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-left: 6px;
+    color: rgb(47, 52, 56);
+}
+
+div.gender-male{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(194, 200, 204);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+
+div.gender-male::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform 0.4s 
+cubic-bezier(0.5, 2, 0.5, 0.5);
+    background-color: rgb(255, 255, 255);
+}
+
+input.gender-radio{
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+div.gender-female{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(194, 200, 204);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+div.gender-female::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform 0.4s 
+cubic-bezier(0.5, 2, 0.5, 0.5);
+    background-color: rgb(255, 255, 255);
+}
+
+div.gender-input{
+    width: 100%;
+    gap: 24px;
+}
+div.error-text-gender{
+    display: block;
+}
+
+label.gender-label.active div.gender-female, label.gender-label.active div.gender-male {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(10, 165, 255);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(10, 165, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+
+
+label.gender-label.active div.gender-female::before, label.gender-label.active div.gender-male::before {
+    transform: scale(1);
+}
+
+/* 이미지 첨부 */
+
+
+.modify {
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.modify-label {
+    position: relative;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modify-label > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 50%;
+    border: 0;
+}
+
+.photo-icon {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: black;
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    box-sizing: content-box;
+}
+
+.img-input {
+    display: none;
+}
+
+.input-title {
+    width: 100%;
+    padding: 0px;
+}

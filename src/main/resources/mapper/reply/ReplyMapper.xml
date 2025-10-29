@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.reply.ReplyMapper">
+
+    <select id="selectAllByPostId">
+        select tr.id,
+               reply_content,
+               diary_id,
+               tr.member_id,
+               tm.member_name,
+               tr.created_datetime,
+               tr.updated_datetime,
+               tm.social_img_url,
+               vfmf.file_path
+        from tbl_member tm
+                 join tbl_reply tr on tm.id = tr.member_id and tr.reply_status = 'active'
+                 left join view_file_member_file vfmf on vfmf.member_id = tm.id and tm.member_status = 'active'
+        where diary_id = #{postId}
+        order by tr.id desc
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectAllCountByPostId">
+        select count(id)
+        from tbl_reply
+        where diary_id =#{postId} and reply_status = 'active'
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_reply (reply_content, diary_id, member_id)
+        values (#{replyContent}, #{postId},#{memberId})
+    </insert>
+
+    <update id="update">
+        update tbl_reply
+        set reply_content = #{replyContent}, updated_datetime = now()
+        where id = #{id}
+    </update>
+
+    <update id="softDelete">
+        update tbl_reply
+        set reply_status = 'inactive'
+        where id =#{id}
+    </update>
+</mapper>

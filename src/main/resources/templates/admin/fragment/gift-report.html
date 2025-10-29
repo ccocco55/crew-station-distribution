@@ -1,0 +1,92 @@
+<div th:fragment="gift-report-page"
+     id="section-gift-report"
+     class="project-setting-index page"
+     style="display:none;">
+
+    <div class="page-header">
+        <div class="page-title">기프트 신고목록</div>
+    </div>
+
+    <div class="page-body">
+        <div class="tab-view">
+            <div class="tab-view-header">
+                <ul class="tab-switch-row list-unstyled">
+                    <li class="tab-switch tab-project active">기프트</li>
+                </ul>
+            </div>
+
+            <div class="tab-view-body">
+                <div class="tab-wrapper tab-project-setting-member">
+                    <div class="tab-body">
+                        <table class="table-roles table-reports w-100">
+                            <thead>
+                            <tr>
+                                <th>게시글 / 작성자</th>
+                                <th class="text-center">신고사유</th>
+                                <th>신고자</th>
+                                <th class="text-center">신고일시</th>
+                                <th class="text-right">관리</th>
+                            </tr>
+                            </thead>
+                            <tbody><!-- 기프트 신고 목록 --></tbody>
+                        </table>
+                    </div>
+
+                    <!-- 신고 상세 모달 -->
+                    <div class="modal fade report-modal" style="display:none;" aria-hidden="true" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="modal-title">신고 상세</div>
+                                    <button class="close"><i class="mdi mdi-close"></i></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="report-preview">
+                                        <div class="preview-title" data-bind="title">제목</div>
+                                        <div class="preview-author text-muted">
+                                            작성자: <span data-bind="author">-</span> · postId: <span data-bind="postId">-</span>
+                                        </div>
+                                        <div class="preview-body" data-bind="excerpt"></div>
+                                    </div>
+
+                                    <table class="info-table">
+                                        <tbody>
+                                        <tr>
+                                            <th>신고사유</th>
+                                            <td><span data-bind="reason">욕설이나 비방이 심해요</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>신고자</th>
+                                            <td><span data-bind="reporterName"></span> (<span data-bind="reporterEmail"></span>)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>신고일시</th>
+                                            <td><span data-bind="reportedAt"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>현재상태</th>
+                                            <td><span class="status-badge" data-bind="statusBadge">대기중</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="admin-actions">
+                                        <label><input type="checkbox" class="cb-hide-post"> 게시글 숨김</label>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer report-footer">
+                                    <button class="btn outline btn-approve">처리</button>
+                                    <button class="btn soft btn-close">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /모달 -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

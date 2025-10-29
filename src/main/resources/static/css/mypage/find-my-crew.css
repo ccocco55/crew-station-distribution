@@ -1,0 +1,635 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+a * {
+    border: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+format("embedded-opentype"),
+url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+format("woff2"),
+url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+format("woff"),
+url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+format("truetype"),
+url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+format("svg");
+}
+
+html{
+    font-family:'Pretendard Variable',sans-serif;
+    letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;
+}
+
+/* 크루 찾기 목록 */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+.main {
+    width: 100%;
+    max-width: 1136px;
+    margin: 0px auto;
+}
+
+.header {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 16px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.share-button {
+    top: 16px;
+    position: relative;
+    flex-shrink: 0;
+    height: 0px;
+    margin-left: 16px;
+    transform: translateY(-50%);
+}
+
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+
+.share-button-style {
+    margin: 0px 0px 0px 6px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+    vertical-align: middle;
+    transform: translateY(-50%);
+}
+
+.share-button-style:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.share-icon {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.share-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\ef03";
+    font-size: 18px;
+    line-height: 1;
+}
+
+.share-text {
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.profile-wrap {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    
+    font-size: 20px;
+    line-height: 28px;
+    display: block;
+    margin-top: 8px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.sticky-container {
+    position: sticky;
+    top: 81px;
+    transition: top 0.1s;
+    z-index: 1;
+}
+
+.nav-wrap {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0px -5px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    justify-content: center
+}
+
+.nav-a {
+    margin: 0px 5px;
+}
+
+.nav-button {
+    margin: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 6px;
+}
+
+.p-wrap {
+    font-weight: 700;
+    padding: 4px;
+    margin: -4px;
+}
+
+.nav-button.active .p-wrap::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #647FBC;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.tag-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+}
+
+.active.nav-button .tag-name{
+    color: #647FBC;
+}
+
+.nav-hr {
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    border: none;
+    background-color: rgb(234, 237, 239);
+}
+
+.nav-footer {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 2px 0px 0px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(255, 255, 255);
+    height: 30px;
+    margin: 2px 0px 0px;
+    padding: 10px 16px;
+}
+
+.margin {
+    height: 20px;
+}
+
+/* 목록 시작 */
+
+div.together-post-container{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+div.together-post-wrap{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+div.together-post-item-wrap{
+    box-sizing: border-box;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+div.together-post-item{
+    overflow-anchor: none;
+}
+div.together-post{
+    width: 100%;
+    display: flex;
+}
+
+
+div.together-post-content{
+    margin-bottom: 24px;
+}
+
+div.together-category-wrap{
+    gap: 6px;
+    margin-bottom: 12px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+div.together-category-post{
+    height: 24px;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+    background: #8ec5ff;
+    border-radius: 4px;
+    padding: 0px 6px;
+    display: flex;
+    flex-direction: row;
+}
+
+div.together-category-post.long{
+background-color: #647FBC;
+}
+
+span.category-name{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+
+div.together-content-info{
+    gap: 4px;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    display: flex;
+}
+
+div.together-info-section{
+    flex: 1;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+div.together-post-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 48px;
+    -webkit-line-clamp: 2;
+}
+
+div.together-post > *{
+    width: 100%;
+}
+
+div.together-post-title > span{
+    font-size: 18px;
+    line-height: 24px;
+    color: #2F3438;
+    font-weight: 600;
+}
+
+div.together-body-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 48px;
+    -webkit-line-clamp: 2;
+}
+
+div.together-body-content > span{
+    font-size: 15px;
+    line-height: 24px;
+    color: #2F3438;
+    font-weight: 400;
+}
+
+div.together-post-img{
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+}
+
+div.together-post-img > img{
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+div.together-action-button{
+    margin-top: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+div.together-post-writer-info{
+    align-items: center;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+}
+span.info {
+    font-size: 15px;
+    line-height: 24px;
+    color: #828C94;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 140px;
+}
+span.info-split{
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #828C94;
+    margin-right: 4px;
+    width: 2px;
+    height: 2px;
+}
+
+div.reply-wrap{
+    align-items: center;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+}
+div.reply-wrap > svg{
+    color: #828C94;
+}
+span.reply-cnt{
+    font-size: 15px;
+    line-height: 24px;
+    color: #828C94;
+    font-weight: 600;
+}
+
+
+
+
+/* 경로 */
+
+
+/* 여행 경로 부분 */
+
+
+div.marker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    
+}
+
+.trip-path-wrap {
+    position: relative;
+    top: -8px;
+}
+
+div.trip-path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 58%;   /* 원하는 길이 */
+    margin-top: 6px;
+    font-weight: 400;
+
+}
+
+div.trip-path::before {
+    content: "";
+    position: absolute;
+    top: 36%;
+    left: 0;   
+    right: 0;
+    height: 20px;
+    background: #8ec5ff;
+    opacity: 0.6;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    z-index: 0; /* 마커 뒤로 */
+}
+
+
+div.trip-path::after {
+    content: "";
+    position: absolute;
+    top: 36%;
+    left: 15px;   
+    right: 10px;
+    width: 95%;
+    border: 1px dashed #FFFFFF;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    z-index: 0; /* 마커 뒤로 */
+}
+
+
+div.marker-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #FFFFFF;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    margin-bottom: 9px;
+    z-index: 1; /* 막대기 위에 올라오도록 */
+    margin-top: 14px;
+}
+
+@keyframes motion {
+	0% {margin-top: 0px;} /* 처음 위치 */
+	100% {margin-top: 10px;} /* 마지막 위치 */
+}
+
+div.marker-circle.last{
+    position: absolute;
+    left: -2%;
+    top: 10%;
+    background-image: url("../../images/air4.png");
+    background-size: cover ;
+    width: 20px;
+    height: 20px;
+    transition: left 0.5s linear;
+    border-radius: 0;
+    margin-bottom: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 3;
+    animation: motion 0.3s /* 속도 */
+               linear 0s   /* 처음부터 끝까지 일정 속도로 진행 */
+               infinite alternate; /* 무한 반복 */
+}
+
+/* 여행 경로 부분 */
+
+
+
+hr.horizon{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 9px;
+    height: 1px;
+    border: none;
+    background-color: #EAEDEF;
+}
+
+div.together-date{
+    display: flex;
+    font-size: 12px;
+    top: 10px;
+    position: relative;
+}
+

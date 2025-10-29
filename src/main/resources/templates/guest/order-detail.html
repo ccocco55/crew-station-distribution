@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/guest/order-detail.css">
+</head>
+<body>
+<!--<div class="all">-->
+    <div class="main">
+        <div class="main-wrapper">
+            <div class="main-wrap">
+
+            <!--레이아웃 부분-->
+                <div id="order-detail"></div>
+
+            <!--별점 모달 부분-->
+                    <div class="modal-wrapper">
+                        <div class="modal-wrap">
+                            <div class="modal-header">
+                                <span class="header">별점 남기기</span>
+                                <button type="button" class="close-button">
+                                    <span class="close"></span>
+                                </button>
+                            </div>
+                            <div class="modal-content">
+                                <div class="modal-content-wrap">
+                                    <form action="">
+                                        <div class="product-star">
+                                            <div class="star-title">
+                                                <span class="star-title-text"></span>
+                                            </div>
+                                            <div class="star-content">
+                                                <label for="star" class="star" data-point="1">
+                                                    <svg width="48" height="48" class="star" fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                        <defs>
+                                                            <clipPath id="halfStarClip">
+                                                                <rect x="0" y="0" width="18" height="36"></rect>
+                                                            </clipPath>
+                                                            <clipPath id="quarterStarClip">
+                                                                <rect x="0" y="0" width="9" height="36"></rect>
+                                                            </clipPath>
+                                                        </defs>
+                                                        <path fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                        <path class="star-fill" fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                    </svg>
+                                                </label>
+                                                <label for="" class="star" data-point="2">
+                                                    <svg width="48" height="48" class="star" fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                        <defs>
+                                                            <clipPath id="halfStarClip">
+                                                                <rect x="0" y="0" width="18" height="36"></rect>
+                                                            </clipPath>
+                                                            <clipPath id="quarterStarClip">
+                                                                <rect x="0" y="0" width="9" height="36"></rect>
+                                                            </clipPath>
+                                                        </defs>
+                                                        <path fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                        <path class="star-fill" fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                    </svg>
+                                                </label>
+                                                <label for="" class="star" data-point="3">
+                                                    <svg width="48" height="48" class="star" fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                        <defs>
+                                                            <clipPath id="halfStarClip">
+                                                                <rect x="0" y="0" width="18" height="36"></rect>
+                                                            </clipPath>
+                                                            <clipPath id="quarterStarClip">
+                                                                <rect x="0" y="0" width="9" height="36"></rect>
+                                                            </clipPath>
+                                                        </defs>
+                                                        <path fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                        <path class="star-fill" fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                    </svg>
+                                                </label>
+                                                <label for="" class="star" data-point="4">
+                                                    <svg width="48" height="48" class="star" fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                        <defs>
+                                                            <clipPath id="halfStarClip">
+                                                                <rect x="0" y="0" width="18" height="36"></rect>
+                                                            </clipPath>
+                                                            <clipPath id="quarterStarClip">
+                                                                <rect x="0" y="0" width="9" height="36"></rect>
+                                                            </clipPath>
+                                                        </defs>
+                                                        <path fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                        <path class="star-fill" fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                    </svg>
+                                                </label>
+                                                <label for="" class="star"  data-point="5">
+                                                    <svg width="48"   height="48" class="star" fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                        <defs>
+                                                            <clipPath id="halfStarClip">
+                                                                <rect x="0" y="0" width="18" height="36"></rect>
+                                                            </clipPath>
+                                                            <clipPath id="quarterStarClip">
+                                                                <rect x="0" y="0" width="9" height="36"></rect>
+                                                            </clipPath>
+                                                        </defs>
+                                                        <path fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                        <path class="star-fill" fill-rule="evenodd" d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="" id="star" value="0">
+                                        <button class="button-submit">별점 주기</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://js.bootpay.co.kr/bootpay-5.0.2.min.js"></script>
+<script src="/js/guest/order-detail/module/service.js"></script>
+<script src="/js/guest/order-detail/module/layout.js"></script>
+<script src="/js/guest/order-detail/event.js"></script>
+</html>

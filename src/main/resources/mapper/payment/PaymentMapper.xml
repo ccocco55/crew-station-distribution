@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.payment.PaymentMapper">
+
+    <!-- 결제 내역 저장 -->
+    <insert id="insertPayment">
+        INSERT INTO tbl_payment (
+            payment_status_id,
+            receipt_id,
+            payment_amount,
+            created_datetime,
+            updated_datetime
+        ) VALUES (
+                     #{paymentStatusId},
+                     #{receiptId},
+                     #{paymentAmount},
+                     NOW(),
+                     NOW()
+                 )
+    </insert>
+    
+</mapper>

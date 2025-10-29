@@ -1,0 +1,17 @@
+insert into tbl_reply(reply_content, diary_id, member_id)
+values ('test1',53,1),
+       ('test2',53,2),
+       ('test3',53,2),
+       ('test4',53,2),
+       ('test5',53,2),
+       ('test6',53,2),
+       ('test7',53,2),
+       ('test8',53,2),
+       ('test9',53,1),
+       ('test10',53,1),
+       ('test11',53,1),
+       ('test12',53,1),
+       ('test13',53,1),
+       ('test14',53,1),
+       ('test15',53,1),
+       ('test16',53,1);

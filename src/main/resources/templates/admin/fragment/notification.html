@@ -1,0 +1,79 @@
+<div th:fragment="notice-page"
+     id="section-notice"
+     class="page notice-index narrow-center"
+     style="display:none;">
+
+    <div class="page-header">
+        <div class="page-title">
+            공지사항
+            <button type="button" id="notice-save-btn" class="btn-order-save">작성</button>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <div class="page-content white-panel p-5">
+            <div class="notice-list-head">
+                <div>날짜</div>
+                <div>제목</div>
+                <div style="text-align: right">작성자</div>
+            </div>
+            <div id="noticeList" class="notice-list">
+                <div class="empty">공지사항을 불러오는 중...</div>
+            </div>
+
+            <ul class="pagination notice-pagination"
+                style="list-style:none;display:flex;gap:8px;padding:0;margin-top:1rem;"></ul>
+        </div>
+    </div>
+    <div id="notice-modal" class="modal fade receipt-modal" role="dialog" aria-hidden="true" style="display:none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">공지사항 작성</div>
+                    <button id="notice-modal-close" class="close" type="button" aria-label="Close">
+                        <i class="mdi mdi-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="divider"></div>
+                    <div class="tab-view">
+                        <div class="tab-view-header">
+                            <div class="tab-switch-row">
+                                <div class="tab-switch active">공지사항 작성</div>
+                            </div>
+                        </div>
+                        <div class="tab-view-body">
+                            <div style="display:block;">
+                                <div class="tab-inner tab-detail">
+                                    <div class="info-layout payment-info">
+                                        <div class="info-body">
+                                            <div class="table-info row">
+                                                <div class="col-12">
+                                                    <div class="row inner-table" style="margin-bottom:12px;">
+                                                        <div class="col-auto w-120px"
+                                                             style="height:48px;display:flex;justify-content:center;align-items:center;">제목</div>
+                                                        <input type="text" id="notice-title" class="col" placeholder="공지 제목을 입력하세요"
+                                                               style="height:48px;border:1px solid #e5e7eb;border-radius:6px;outline:none;padding:0 12px;">
+                                                    </div>
+                                                    <div class="row inner-table">
+                                                        <div class="col-auto w-120px"
+                                                             style="min-height:48px;display:flex;justify-content:center;align-items:center;">내용</div>
+                                                        <textarea id="notice-content" class="col" placeholder="공지 내용을 입력하세요" rows="8"
+                                                                  style="height:200px;border:1px solid #e5e7eb;border-radius:6px;outline:none;padding:12px;resize:vertical;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="notice-modal-submit" class="btn btn-primary" type="button">완료</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

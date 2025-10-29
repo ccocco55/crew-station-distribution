@@ -1,0 +1,467 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+    font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+    src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+    format("embedded-opentype"),
+    url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+    format("woff2"),
+    url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+    format("woff"),
+    url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+    format("truetype"),
+    url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+    format("svg");}
+    html{
+        font-family:'Pretendard Variable',sans-serif;
+        letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;}
+
+
+/* 네비 */
+
+.all {
+    position: relative;
+    padding: 0px 0px 40px;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+
+.main {
+    width: 100%;
+    max-width: 1136px;
+    margin: 0px auto;
+}
+
+.header {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 16px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.share-button {
+    top: 16px;
+    position: relative;
+    flex-shrink: 0;
+    height: 0px;
+    margin-left: 16px;
+    transform: translateY(-50%);
+}
+
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+
+.share-button-style {
+    margin: 0px 0px 0px 6px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+    vertical-align: middle;
+    transform: translateY(-50%);
+}
+
+.share-button-style:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.share-icon {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.share-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\ef03";
+    font-size: 18px;
+    line-height: 1;
+}
+
+.share-text {
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.profile-wrap {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    
+    font-size: 20px;
+    line-height: 28px;
+    display: block;
+    margin-top: 8px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.sticky-container {
+    position: sticky;
+    top: 81px;
+    transition: top 0.1s;
+    z-index: 1;
+}
+
+.nav-wrap {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0px -5px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    justify-content: center
+}
+
+.nav-a {
+    margin: 0px 5px;
+}
+
+.nav-button {
+    margin: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 6px;
+}
+
+.p-wrap {
+    font-weight: 700;
+    padding: 4px;
+    margin: -4px;
+}
+
+.nav-button.active .p-wrap::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #647FBC;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.tag-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+}
+
+.active.nav-button .tag-name{
+    color: #647FBC;
+}
+
+.nav-hr {
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    border: none;
+    background-color: rgb(234, 237, 239);
+    margin-bottom: 20px;
+}
+
+
+/* 게시글 시작 */
+.page {
+    height: 100%;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    display: block;
+    unicode-bidi: isolate;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    line-height: 1;
+    font-family: Pretendard Variable, Noto Sans KR, Apple SD Gothic Neo, 맑은 고딕, Malgun Gothic, sans-serif;
+    font-size: 13px;
+}
+
+html {
+    letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    color: #424242;
+    background: #fff;
+}
+
+.page-container {
+    height: 100%;
+}
+
+.layout {
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+}
+
+@media (min-width: 1256px) {
+    .post-wrapper {
+        max-width: 1256px;
+        margin: 0 auto;
+    }
+}
+
+.post-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.layout>* {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+/* 게시글 총 갯수 */
+.total-post {
+    font-size: 15px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* 크루 목록 리스트 시작 */
+.post-list-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .post-list-container .item:nth-of-type(3n + 1) {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .post-list-container .item {
+        width: 33.333333333333336%;
+        padding: 0 10px 30px;
+        box-sizing: border-box;
+    }
+}
+
+a{
+    cursor: pointer;
+    touch-action: manipulation;
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-list-wrapper {
+    color: #2F3438;
+    text-align: center;
+    width: 100%;
+}
+
+article {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+a * {
+    border: none;
+}
+
+.post-img-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.66666666666666%;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #ededed;
+}
+
+.crew-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+}
+
+.post-title-container {
+    margin-top: 18px;
+}
+
+.post-title {
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.post-info-container {
+    color: rgb(130, 140, 148);
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 10px;
+}
+
+.post-read {
+    color: rgb(130, 140, 148);
+    display: inline-block;
+    margin: 0px 4px;
+}

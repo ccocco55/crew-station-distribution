@@ -1,0 +1,260 @@
+
+<div th:fragment="inquiry-page">
+    <div id="section-inquiry" class="page wide-page receipt-index" style="display:none;">
+        <div class="page-header">
+            <div class="page-title">문의 내역 조회</div>
+        </div>
+
+        <div class="page-body">
+            <!-- 상단 카운트 -->
+            <div class="pill-row row">
+                <div class="col col-md-6 col-lg-4 col-xl-3">
+                    <div class="pill-box">
+                        <div class="pill-title">
+                            <span class="badge-label text-primary"><i class="mdi mdi-check-all"></i></span>
+                            <span>답변완료</span>
+                        </div>
+                        <div class="pill-value">
+                            <span class="span-amount">0</span>
+                            <span class="amount-unit">건</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-md-6 col-lg-4 col-xl-3">
+                    <div class="pill-box cancel-box">
+                        <div class="pill-title">
+                            <span class="badge-label text-danger"><i class="mdi mdi-clock-alert-outline"></i></span>
+                            <span>미답변</span>
+                        </div>
+                        <div class="pill-value">
+                            <span class="span-amount">0</span>
+                            <span class="amount-unit">건</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="table-layout white-panel">
+                    <!-- 필터/검색 -->
+                    <div class="filter-section">
+                        <div class="row">
+                            <div class="col-auto">
+                                <span class="receipt-count">총 <span class="count-amount">0</span> 건</span>
+                            </div>
+
+                            <!-- 상태 필터 드롭다운 -->
+                            <div class="col-auto">
+                                <div class="filter-wrapper filter-status mr-2">
+                                    <div class="boot-pop-checkbox">
+                                        <button id="button-filter-status" class="boot-pop-checkbox-filter-btn btn btn-outline-filter">
+                                            답변상태 <i class="mdi mdi-menu-down"></i>
+                                        </button>
+
+                                        <div class="bt-pop-menu">
+                                            <div id="pop-menu-bt1" class="bt-pop-menu-back"></div>
+                                            <div id="pop-menu-bt2" class="bt-pop-menu-context exists" style="top:0;left:-64px;">
+                                                <ul class="list-wrapper list-unstyled">
+                                                    <li class="text-center font-weight-bold">발급상태</li>
+
+                                                    <li class="list-item row mb-2">
+                                                        <div class="col col-6">
+                                                            <button id="allchecked1" class="btn btn-outline-default btn-sm">
+                                                                <i class="mdi mdi-checkbox-multiple-marked mr-1"></i> 전체선택
+                                                            </button>
+                                                        </div>
+                                                        <div class="col col-6">
+                                                            <button id="allflasechecked1" class="btn btn-outline-default btn-sm">
+                                                                <i class="mdi mdi-checkbox-multiple-marked-outline mr-1"></i> 선택취소
+                                                            </button>
+                                                        </div>
+                                                    </li>
+
+                                                    <!-- 답변완료 -->
+                                                    <li class="list-item">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="boot-check d-flex align-items-center">
+                                                                    <div id="checkboxactive1" class="boot-check-box" tabindex="0" style="width:20px;height:20px;">
+                                                                        <i class="mdi mdi-check"></i>
+                                                                    </div>
+                                                                    <div class="boot-check-content flex-grow-1">답변완료</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <!-- 미답변(기본 체크) -->
+                                                    <li class="list-item">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="boot-check d-flex align-items-center">
+                                                                    <div id="checkboxactive2" class="boot-check-box" tabindex="0" style="width:20px;height:20px;">
+                                                                        <i class="mdi mdi-check"></i>
+                                                                    </div>
+                                                                    <div class="boot-check-content flex-grow-1">미답변</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="list-item mt-2">
+                                                        <button class="btn btn-outline-primary btn-sm">확인</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- /bt-pop-menu -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 검색 -->
+                            <div class="col text-right"></div>
+                            <div class="col-auto">
+                                <div class="filter-wrapper filter-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control flex-grow-1" placeholder="문의번호/회원">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-search">
+                                                <i class="mdi mdi-magnify"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /row -->
+                    </div><!-- /filter-section -->
+
+                    <!-- 목록 -->
+                    <table class="table grey-header-table w-100 text-center receipt-table">
+                        <colgroup>
+                            <col style="width:15%"><col style="width:15%"><col style="width:17%">
+                            <col style="width:20%"><col style="width:20%"><col style="width:15%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="td-name">문의번호</th>
+                            <th>회원문의</th>
+                            <th class="td-status">문의시간</th>
+                            <th class="td-user">답변상태</th>
+                            <th class="td-at">답변시간</th>
+                            <th class="td-action">상세</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-id="12345678">
+                            <td class="text-list">12345678</td>
+                            <td>안녕하세요</td>
+                            <td>2025-08-03</td>
+                            <td>답변완료</td>
+                            <td>2025-08-04</td>
+                            <td class="td-action text-center">
+                                <div id="modal-open" class="action-btn"><i class="mdi mdi-chevron-right"></i></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--    모달      -->
+        <div id="modal" class="modal fade receipt-modal" role="dialog" style="display:none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            문의내역
+                            <span class="badge-label text-danger font-weight-bold ml-2">미답변</span>
+                        </div>
+                        <button id="close" class="close"><i class="mdi mdi-close"></i></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="divider"></div>
+
+                        <div class="tab-view">
+                            <div class="tab-view-header">
+                                <div class="tab-switch-row">
+                                    <div class="tab-switch active">상세정보</div>
+                                </div>
+                            </div>
+
+                            <div class="tab-view-body" style="display:block;">
+                                <div class="tab-inner tab-detail">
+                                    <!-- 문의정보 -->
+                                    <div class="info-layout detail-info">
+                                        <div class="info-title justify-content-between">
+                                            <div class="flex-left d-flex"><div class="title">문의정보</div></div>
+                                            <div class="flex-right"></div>
+                                        </div>
+                                        <div class="d-table w-100">
+                                            <div class="d-table-cell">
+                                                <table class="info-table">
+                                                    <tbody>
+                                                    <tr><th>문의번호</th><td>12345678</td></tr>
+                                                    <tr><th>문의시간</th><td>2025-08-03</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="d-table-cell">
+                                                <table class="info-table">
+                                                    <tbody>
+                                                    <tr><th>문의 유형</th><td>Test</td></tr>
+                                                    <tr><th>회원ID</th><td>Test</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 문의내용 -->
+                                    <div class="info-layout detail-info">
+                                        <div class="info-title justify-content-between">
+                                            <div class="flex-left d-flex"><div class="title">문의내용</div></div>
+                                        </div>
+                                        <div class="d-table w-100">
+                                            <div class="d-table-cell">
+                                                <table class="info-table" style="height:100px;">
+                                                    <tbody>
+                                                    <tr><th>문의내용</th><td>안녕하세요</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 답변하기 -->
+                                    <div class="info-layout inquiry-reply">
+                                        <div class="info-title justify-content-between">
+<!--                                            <button type="button" data-role="inquiry-reply-submit" class="btn btn-outline-filter">답변하기</button>-->
+                                        </div>
+                                        <div class="info-body">
+                                            <div class="table-info row">
+                                                <div class="col-12">
+                                                    <div class="row inner-table">
+                                                        <div class="col-auto w-120px" style="height:100px;display:flex;align-items:center;justify-content:center;">
+                                                            답변내용
+                                                        </div>
+                                                        <input type="text" class="col" style="height:100px;border:none;outline:none;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-close btn btn-outline-filter">답변하기</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /modal -->
+
+    </div><!-- /section-inquiry -->
+</div>

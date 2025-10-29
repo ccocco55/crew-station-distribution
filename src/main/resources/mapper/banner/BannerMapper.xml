@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.banner.BannerMapper">
+<select id="getBanners">
+    select v.id,
+           v.file_id,
+           v.file_path,
+           v.file_name,
+           v.file_origin_name,
+           v.banner_id,
+           v.created_datetime,
+           v.updated_datetime,
+
+           b.banner_order
+
+    from view_file_banner_file v
+        join tbl_banner b
+            on b.id = v.banner_id
+
+    order by b.banner_order asc, b.created_datetime desc
+    limit 5;
+</select>
+
+    <insert id="insertBanner" keyProperty="bannerId" useGeneratedKeys="true">
+        insert into tbl_banner (banner_order)
+        values (#{bannerOrder})
+    </insert>
+
+    <insert id="insertBannerFile">
+        insert into tbl_banner_file (file_id, banner_id)
+        values (#{fileId}, #{bannerId})
+    </insert>
+
+
+    <update id="updateBannerFile">
+        update tbl_banner
+        set banner_order = #{bannerOrder}
+        where id = #{bannerId}
+    </update>
+
+    <delete id="deleteBanner">
+        delete from tbl_banner where id = #{bannerId}
+    </delete>
+
+    <delete id="deleteBannerFileLink">
+        delete from tbl_banner_file
+        where banner_id = #{bannerId}
+          and file_id   = #{fileId}
+    </delete>
+
+    <delete id="deleteAllBannerFiles">
+        delete from tbl_banner_file
+        where banner_id = #{bannerId}
+    </delete>
+
+    <select id="findFilesByBannerId">
+        select f.id,
+               f.file_path       as filePath,
+               f.file_name       as fileName,
+               f.file_origin_name as fileOriginName,
+               f.file_size       as fileSize
+        from tbl_banner_file bf
+                 join tbl_file f on f.id = bf.file_id
+        where bf.banner_id = #{bannerId}
+    </select>
+
+
+
+
+
+
+</mapper>

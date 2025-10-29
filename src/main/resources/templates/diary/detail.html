@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/diary/detail.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header.html :: header}"></header>
+<div class="content-container">
+    <div class="content">
+        <div class="content-wrap">
+            <div class="crew-label-wrap">
+                <!-- 크루 이름 -->
+                <div class="writer-info">
+                    <div class="country-wrap">
+                    <span class="crew-label" th:each="country:${diary.countries}" th:text="${country.countryName}">프랑스</span>
+                    </div>
+                </div>
+                <div class="update" th:if="${diary.diary.userId !=null}">
+                    <button class="update-button" th:onclick="'location.href=\'/diaries/' + ${diary.diary.postId} + '\''">수정</button>
+                    <span class="bar">|</span>
+                    <button class="remove-button remove-content-button">삭제</button>
+                </div>
+            </div>
+            <!-- 제목 -->
+            <div class="title">
+                <h1 th:text="${diary.diary.postTitle}">어디 어디 갔다온 날</h1>
+            </div>
+            <!-- 프로필 -->
+            <div class="profile-container">
+                <a class="profile-a">
+                    <div class="profile-img">
+                        <th:block th:if="${diary.diary.memberFilePath != null}">
+                            <img class="product-seller-profile-img" th:src="@{${diary.diary.memberFilePath}}">
+                        </th:block>
+                        <th:block th:if="${diary.diary.memberFilePath == null and diary.diary.socialImgUrl !=null}">
+                            <img class="product-seller-profile-img" th:src="@{${diary.diary.socialImgUrl}}">
+                        </th:block>
+                        <th:block th:if="${diary.diary.memberFilePath == null and diary.diary.socialImgUrl ==null}">
+                            <img class="product-seller-profile-img" src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=144&h=144&c=c">
+                        </th:block>
+                    </div>
+                    <span id="name" th:text="${diary.diary.memberName}">CREW_STATION</span>
+                </a>
+                <th:block th:if="${diary.diary.userId !=null}">
+                    <div class="lock" th:classappend="${diary.diary.diarySecret == 'public' ? 'hidden' : ''}">
+                        <img src="/images/lock.png" class="lock-img">
+                        <span class="secret-title">비공개 중</span>
+                    </div>
+                    <div class="unlock" th:classappend="${diary.diary.diarySecret == 'private' ? 'hidden' : ''}">
+                        <img src="/images/unlock.png" class="lock-img">
+                        <span class="secret-title">공개 중</span>
+                    </div>
+                    <div class="secret">
+                        <div class="secret-toggle" th:classappend="${diary.diary.diarySecret == 'private' ? 'active' : ''}">
+                            <input type="checkbox" class="secret-checkbox" th:checked="${diary.diary.diarySecret == 'private'}">
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+            <!-- 내용 -->
+            <div class="diary-content">
+                    <span class="diary-content-text">
+                        <span>
+                            <th:block th:each="section, iterStat : ${diary.sections}">
+                                <div th:id="'target' + ${iterStat.index + 1}"
+                                     class="target"
+                                     th:text="${section.postContent}">
+                                </div>
+                                <br th:if="${!iterStat.last}"/>
+                            </th:block>
+                        </span>
+                    </span>
+            </div>
+            <div class="images-container">
+                <div class="images-wrap">
+                    <div class="images">
+                        <div class="images-inner">
+                            <div class="image-items">
+                                <div class="image-wrap" th:each="section :${diary.sections}"  th:if="${section.filePath !=null}">
+                                    <div class="image">
+                                            <img class="diary-img" th:src="@{${section.filePath}}">
+                                        <div class="mention" th:each="tag :${section.tags}" th:style="'left:' + ${tag.tagLeft} +'%; top:' + ${tag.tagTop}+'%;' ">
+                                            <div class="mention-container">
+                                                <button class="mention-button">
+                                                    <span class="mention-span"></span>
+                                                </button>
+                                            </div>
+                                            <div class="mention-window">
+                                                <div class="triangle"></div>
+                                                <div class="mention-profile">
+                                                    <a class="profile-a" th:attr="data-id=${tag.memberId}">
+                                                        <th:block th:if="${tag.filePath != null}">
+                                                            <img class="product-seller-profile-img" th:src="@{${tag.filePath}}">
+                                                        </th:block>
+                                                        <th:block th:if="${tag.filePath == null and tag.socialImgUrl !=null}">
+                                                            <img class="product-seller-profile-img" th:src="@{${tag.socialImgUrl}}">
+                                                        </th:block>
+                                                        <th:block th:if="${tag.filePath == null and tag.socialImgUrl ==null}">
+                                                            <img class="product-seller-profile-img" src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=144&h=144&c=c">
+                                                        </th:block>
+                                                        <span id="mention-name" th:text="${tag.memberName}"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <div class="image-wrap">-->
+<!--                                    <div class="image">-->
+<!--                                        <a href="">-->
+<!--                                            <img class="diary-img" src="/images/diary-list-ex2.jpg">-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="image-wrap">-->
+<!--                                    <div class="image">-->
+<!--                                        <a href="">-->
+<!--                                            <img class="diary-img" src="/images/diary-list-ex3.jpg">-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+
+                            </div>
+                        </div>
+                        <div class="diary-footer-container">
+                            <div class="view-container">
+                                <span class="view" th:text="${diary.diary.relativeDate}">2시간</span>
+                                <dt class="view" th:text="${'좋아요 ' +diary.diary.diaryLikeCount}">좋아요 30</dt>
+                                <dt class="view" th:text="${'조회 ' + diary.diary.postReadCount}">조회 78</dt>
+                            </div>
+                            <button class="report-button">신고하기</button>
+                        </div>
+                        <section class="reply-container">
+                            <div class="reply-container-header">
+                                <h2 class="reply-container-title">
+                                    댓글
+                                    <span class="total" th:text="${diary.diary.diaryReplyCount}">2</span>
+                                </h2>
+                            </div>
+                            <div class="comment-input-wrap">
+                                <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=256&h=256&c=c">
+                                <div class="comment-input">
+                                    <div class="comment-input-inner">
+                                        <div class="input-inner">
+                                            <input class="input" placeholder="칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다:)" type="text">
+                                            <div class="enter">
+                                                <button class="enter-button">입력</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply" id="replyWrap">
+                                <div class="reply-item">
+
+                                </div>
+                            </div>
+                            <div class="pageing-contianer" id="replyPageWrap">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-menu">
+            <div class="sticky-container-btn">
+                <div style="position: relative;">
+                    <div class="sticky-wrap">
+                        <button id="postId" class="sticky-like-button" th:attr="data-post=${diary.diary.postId}">
+                                <span class="like-icon">
+                                    <span class="like-before" th:classappend="${diary.diary.likeId} ? 'active': ''" ></span>
+                                </span>
+                            <span class="like-total" th:text="${diary.diary.diaryLikeCount}">1</span>
+                        </button>
+                        <hr class="hr">
+                        <button class="go-reply">
+                                <span class="go-reply-icon">
+                                    <span class="go-reply-icon-span"></span>
+                                </span>
+                            <span class="like-total" th:text="${diary.diary.diaryReplyCount}">11</span>
+                        </button>
+                        <button class="sticky-share-button">
+                                <span class="go-share-icon">
+                                    <span class="go-share-icon-span"></span>
+                                </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fixed/web/footer.html :: footer}"></footer>
+<div>
+    <div class="report-modal" id="reportModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                    <span class="modal-title">
+                        신고 사유를 선택해주세요
+                    </span>
+                <button class="close-button">
+                    <span class="close-button-span"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="report-content-container">
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button active">
+                                <input type="radio" name="reason" class="radio" value="주제에 맞지 않아요" checked>
+                            </div>
+                            <span class="content">주제에 맞지 않아요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="정보가 부정확해요">
+                            </div>
+                            <span class="content">정보가 부정확해요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="지나치게 광고를 해요">
+                            </div>
+                            <span class="content">지나치게 광고를 해요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="이 글로 도배가 돼있어요">
+                            </div>
+                            <span class="content">이 글로 도배가 돼있어요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="저작권 침해가 우려돼요">
+                            </div>
+                            <span class="content">저작권 침해가 우려돼요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="명예를 훼손하는 내용이에요">
+                            </div>
+                            <span class="content">명예를 훼손하는 내용이에요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="욕설이나 비방이 심해요">
+                            </div>
+                            <span class="content">욕설이나 비방이 심해요</span>
+                        </label>
+                    </li>
+                    <li class="report-content">
+                        <label for="report" class="content-label">
+                            <div class="radio-button">
+                                <input type="radio" name="reason" class="radio" value="외설적인 내용이 포함돼있어요">
+                            </div>
+                            <span class="content">외설적인 내용이 포함돼있어요</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-button">
+                <div class="modal-button-wrap">
+                    <button class="report-button-send">신고하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="confirmReportModal" class="modal">
+        <div class="modal-content">
+            <h3 style="font-size: 25px;">신고 요청 확인</h3>
+            <p style="margin-top: 12px; font-size: 20px">
+                정말 신고하시겠습니까?
+            </p>
+            <div style="margin-top: 10px; display: flex; gap: 10px; justify-content: center;">
+                <button type="button" id="confirmReportYes" class="confirm-btn yes">확인
+                </button>
+                <button id="confirmReportNo" class="confirm-btn no">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delconfirmModal" class="modal">
+        <div class="modal-content">
+            <p style="margin-top: 12px; font-size: 20px">
+                정말 삭제하시겠습니까?
+            </p>
+            <div style="margin-top: 10px; display: flex; gap: 10px; justify-content: center;">
+                <a class="confirm-btn yes" th:href="@{/gifts/delete/{id}(id=${diary.diary.postId})}">확인
+                </a>
+                <button id="cancelDel" class="confirm-btn no">취소</button>
+            </div>
+        </div>
+    </div>
+    <div class="img-modal" style="display:none;">
+        <div class="img-modal-container">
+            <button class="img-close-button">
+                <span class="close-button-span"></span>
+            </button>
+            <img src="" alt="modal image">
+        </div>
+    </div>
+    <div style="position: relative; z-index: 11;">
+        <div class="remove-modal remove-modal-reply">
+            <div class="remove-modal-win">
+                <div class="remove-head">
+                    <p class="head-text">댓글을 삭제하시겠습니까?<br>삭제한 댓글은 되돌릴 수 없습니다.</p>
+                </div>
+                <div class="remove-buttons-wrap">
+                    <div class="remove-buttons">
+                        <button class="remove-no remove-no-reply modal-reply-button">취소</button>
+                        <button class="remove-ok remove-ok-reply">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: relative; z-index: 11;">
+        <div class="remove-modal remove-modal-content">
+            <div class="remove-modal-win">
+                <div class="remove-head">
+                    <p class="head-text">글을 삭제하시겠습니까?<br>삭제한 글은 되돌릴 수 없습니다.</p>
+                </div>
+                <div class="remove-buttons-wrap">
+                    <div class="remove-buttons">
+                        <button class="remove-no remove-no-content modal-content-button">취소</button>
+                        <button class="remove-ok remove-ok-content">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast">
+    <div class="toast-wrap">
+        <p class="toast-text"></p>
+    </div>
+</div>
+
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="/js/reply/module/service.js"></script>
+<script src="/js/reply/module/layout.js"></script>
+<script src="/js/reply/event.js"></script>
+<script src="/js/diary/detail/module/service.js"></script>
+<script src="/js/diary/detail/module/layout.js"></script>
+<script src="/js/diary/detail/event.js"></script>
+</html>

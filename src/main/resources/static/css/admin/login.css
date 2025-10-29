@@ -1,0 +1,778 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+link {
+    display: none;
+}
+
+meta {
+    display: none;
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #507cf3;
+    --secondary: #bed6d5;
+    --success: #40c8bc;
+    --info: #8baaff;
+    --warning: #f93;
+    --danger: #fe657e;
+    --light: #f8f9fa;
+    --dark: #4e5d6c;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 800px;
+    --breakpoint-md: 992px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-xl: 1700px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body{
+    font-family: Arial, NotoSansKr, Noto Sans, sans-serif;
+    letter-spacing: -.3px;
+    background-color: #f5f5f5;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding: 0;
+    height: 100%;
+    display: block;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: sans-serif;
+    line-height: 1.15;
+    height: 100%;
+    min-height: 100vh;
+    display: block;
+}
+
+body #bootpay {
+    height: 100%;
+}
+
+/*  로고 사이즈 조절  */
+.logint-logo img {
+    width: 128px;
+    height: auto;
+  }
+
+#bootpay {
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+#bootpay #bootpay-main {
+    flex: 1 1;
+    overflow-y: auto;
+}
+
+.full-window {
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.login-container {
+    background-color: #f5f5f5;
+}    
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.boot-notify-container{
+    padding: 20px 20px 0 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 340px;
+    z-index: 1051;
+}
+
+.popup-manager {
+    background-color: gray;
+    height: 0;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 10%;
+    transform: translate(-50%);
+    z-index: 1041;
+}
+.login-container .full-window{
+    background-color: #f5f5f5;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.horizontal-center{
+    height: 100%;
+    margin: 0 auto;
+    max-width: 520px;
+    padding: 2rem 0;
+    box-sizing: border-box;
+}
+
+.login-container .horizontal-center .vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.login-container .login-inner {
+    max-width: 520px;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.comp-icon{
+    display: inline-block;
+}
+
+
+.login-container.login-inner.login-logo.bootpay-logo{
+    margin-bottom: 12px;
+    width: 160px;
+}
+
+.login-container .login-inner .login-logo .bootpay-logo svg {
+    display: inline-block;
+    width: 100%;
+}
+
+
+svg{
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+svg.icon-img {
+    width: 300px;
+    height: 28px;
+    display: block;
+    margin: 0 auto;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+}
+
+.text-center {
+    text-align: left;
+}
+
+.subtitle .text-center .text-grey{
+    text-align: center !important;
+}
+
+
+.login-container .login-inner .login-box{
+    border-radius: 20px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+    margin: 28px auto 0;
+    padding: 50px 40px;
+    width: 520px;
+}
+
+.login-container .login-inner .center-box{
+    border-radius: 20px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+    margin: 28px auto 0;
+    padding: 50px 40px;
+    width: 520px;
+    background-color: #fff;
+}
+
+.login-box .box-title{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.roboto{
+    font-family: Roboto, Arial, NotoSansKr, Noto Sans, sans-serif;
+}
+
+.text-primary{
+    color: #507cf3 !important;
+}
+
+.login-container .login-inner .login-logo .subtitle {
+    color: #8b9298;
+    font-size: 17px;
+}
+
+.login-container .login-inner .login-box .box-subtitle {
+    color: #8b9298;
+    font-size: 15px;
+    margin-bottom: 36px;
+}
+
+
+.box-subtitle{
+    color: #8b9298;
+    font-size: 15px;
+    margin-bottom: 36px;
+}
+
+.form-group{
+    margin-bottom: 1rem;
+}
+
+
+input .form-control h65{
+    font-size: 15px;
+    height: 65px;
+    padding: 22px 20px;
+}
+
+input.form-control{
+    border: 1px solid #ededed;
+}
+
+input.form-control.h65 {
+    font-size: 15px;
+    height: 65px;
+    padding: 22px 20px;
+}
+
+.login-container .login-inner input.form-control.h65 {
+    border-radius: 10px;
+}
+
+.form-control{
+    background-clip: padding-box;
+    background-color: #fff;
+    color: #495057;
+    display: block;
+    font-weight: 400;
+    line-height: 5.5;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+}
+
+input{
+    font-family: inherit;
+    margin: 0;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+.login-container .login-inner .login-box .form-boot-check {
+    margin: 20px 0;
+}
+
+.login-container .login-inner .login-box .boot-check {
+    color: #afb7ba;
+    font-size: 13px;
+}
+
+element.style {
+    width: 20px;
+    height: 20px;
+}
+
+.login-container .login-inner .login-box .boot-check .boot-check-box {
+    background-color: rgba(80, 124, 243, .07);
+    border-color: #dcdfe2;
+}
+
+.login-container .login-inner .login-box .boot-check {
+    color: #afb7ba;
+    font-size: 13px;
+}
+.align-items-center {
+    align-items: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+.boot-check .boot-check-box {
+    border: 1px solid #edeff0;
+    border-radius: 3px;
+    margin-right: 6px;
+    position: relative;
+    text-align: center;
+}
+
+.boot-check .boot-check-box i {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.boot-check-box i {
+    transition: opacity 0.3s ease;
+    font-size: 18px;
+    color: #afb7ba;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  i {
+    font-style: italic;
+}
+
+
+.flex-grow-1 {
+    flex-grow: 1 !important;
+}
+
+.login-container .login-inner button.btn {
+    font-weight: 700;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+button.btn.h65 {
+    border-radius: 10px;
+    font-size: 16px;
+    height: 65px;
+}
+
+button.btn{
+    vertical-align: middle;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #507cf3;
+    border-color: #507cf3;
+    color: #fff;
+}
+
+.btn{
+    border: 1px solid transparent;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    text-align: center;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+button{
+    appearance: auto;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+.login-container .login-inner .link-wrapper {
+    color: #8b9298;
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.login-container .login-inner a.boot-link {
+    color: #8b9298;
+    font-size: 13px;
+    padding: 5px 10px;
+
+}
+
+a{
+    background-color: transparent;
+    text-decoration: none !important;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+
+.login-container .login-inner .divider {
+    border-bottom: 1px solid #ededed;
+    margin: 40px 0;
+}
+
+.login-box .trial-title {
+    color: #292929;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.login-container .login-inner button.btn {
+    font-weight: 700;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+button.btn.btn-dark {
+    background-color: #1e2b33;
+    border-color: #1e2b33;
+}
+
+button.btn{
+    vertical-align: middle;
+}
+
+.btn-dark{
+    color: #fff;
+}
+
+.btn{
+    border: 1px solid transparent;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    text-align: center;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    user-select: none;
+}
+
+.mt-3{
+    margin-top: 1rem !important;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    width: 100%;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.modal {
+    display: none;
+    height: 100%;
+    left: 0;
+    outline: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+.modal>.modal-dialog {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.modal-dialog {
+    margin: .5rem;
+    pointer-events: none;
+    position: relative;
+    width: auto;
+}
+
+.modal>.modal-dialog>.modal-content {
+    border: 0;
+}
+
+.modal-content {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    outline: 0;
+    pointer-events: auto;
+    position: relative;
+    width: 100%;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-header {
+    align-items: center;
+    border-bottom: 0;
+    padding: 24px 30px 20px;
+}
+
+.modal-header {
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-header>.modal-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.modal-title {
+    line-height: 1.5;
+}
+
+.modal>.modal-dialog>.modal-content button.close {
+    font-weight: 400;
+}
+
+.modal-header .close {
+    margin: -1rem -1rem -1rem auto;
+    padding: 1rem;
+}
+
+button.close {
+    background-color: transparent;
+    border: 0;
+}
+
+
+.close{
+    color: #000;
+    float: right;
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: .5;
+    text-shadow: 0 1px 0 #fff;
+}
+
+
+.modal>.modal-dialog>.modal-content>.modal-body {
+    border-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.modal-project .modal-body {
+    padding: 10px 40px;
+}
+
+.modal-body {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-footer {
+    border-top: 0;
+    padding: 30px;
+}
+
+.pb-4{
+    padding-bottom: 1.5rem !important;
+}
+
+.pt-2{
+    padding-top: .5rem !important;
+}
+
+.modal-footer {
+    align-items: center;
+    border-bottom-left-radius: calc(.3rem - 1px);
+    border-bottom-right-radius: calc(.3rem - 1px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* 체크박스 이미지 작동 */
+.mdi::before{
+    content: "\F012C";
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font: normal normal normal 24px / 1 Material Design Icons;
+    font-size: inherit;
+    line-height: inherit;
+    text-rendering: auto;
+} 
+
+#auto-checkbox{
+    display: none;
+}
+
+#check-icon.active{
+    display: block;
+}
+
+#check-icon{
+    display: none;
+}
+
+/* 모달창 css */
+.boot-alert {
+    background-color: rgba(0, 0, 0, .7);
+    bottom: 0;
+    display: block;
+    left: 0;
+    padding: 1em;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+    z-index: 200000;
+}
+
+.boot-alert:before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.boot-alert .alert-inner.raise {
+    animation: raise .1s ease-in-out;
+}
+
+.boot-alert .alert-inner {
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 500px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.header {
+    background-color: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 2rem 2rem 0;
+    text-align: left;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+h3.alert-title {
+    color: #37394e;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    display: block;
+    line-height: 1.2;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.boot-alert .alert-inner>.body {
+    background-color: #fff;
+    box-shadow: none;
+    color: #828797;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: -1px;
+    outline: none;
+    padding: 1.5rem 2rem;
+    text-align: left;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+.boot-alert .alert-inner>.footer {
+    background-color: #eff0f6;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top: 1px solid #fff;
+    box-shadow: none;
+    outline: none;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    text-align: right;
+    width: 100%;
+}
+
+.boot-alert{
+    white-space: nowrap;
+}
+
+.boot-alert .alert-inner>.footer a.alert-button {
+    border: 0;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 120px;
+    padding: .75rem 2rem;
+    text-align: center;
+}
+
+.boot-alert .alert-inner>.footer a.success-btn {
+    background-color: #507cf3;
+    color: #fff;
+}

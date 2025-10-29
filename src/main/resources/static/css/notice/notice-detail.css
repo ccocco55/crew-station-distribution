@@ -1,0 +1,101 @@
+/* Base — 잘못된 `.html`, `body.html` 선택자 제거하고 정상 태그 사용 */
+html {
+    font-family: 'Pretendard Variable', sans-serif;
+    letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    color: #070707;
+    background: #fff;
+}
+body {
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Reset (필요 최소만) */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6,
+input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0; padding: 0;
+}
+
+/* Nav (공통) — notice.css와 동일하게 유지 */
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+.myhome-nav__owner ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.page-navigation__item { display: inline-block; }
+.page-navigation__item > a {
+    padding: 0 10px;
+    font-weight: 700;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+}
+.myhome-nav__owner a { text-decoration: none; color: #222; font-weight: 600; }
+.myhome-nav__owner a:hover { color: #007bff; }
+
+.page-navigation {
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Detail layout */
+.notice-detail__wrap {
+    margin: 60px auto;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 780px;
+    box-sizing: border-box;
+}
+.notice-detail__title {
+    margin: 0 0 16px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #292929;
+}
+.notice-detail__date {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #828c94;
+}
+.notice-detail__content {
+    margin: 30px 0 40px;
+    padding: 15px 15px 0;
+    border-top: 1px solid #dbdbdb;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    line-height: 28px;
+    color: #000;
+}
+.notice-detail__back {
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 700;
+    background-color: #0aa5ff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color .1s;
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="../../../static/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../static/css/font.css">
+    <link rel="stylesheet" href="../../../static/css/mypage/my-diary/main.css">
+    <link rel="stylesheet" href="/css/fixed/web/header.css">
+    <link rel="stylesheet" href="/css/fixed/web/footer.css">
+</head>
+<body>
+<header th:replace="~{fixed/web/header :: header}"></header>
+
+    <div class="all">
+        <div class="myhome-nav">
+            <nav class="page-navigation">
+                <ul>
+                    <li class="page-navigation__item">
+                        <a href="" class="active">
+                            나의 다이어리
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 크루 구하기
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 크루 목록
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 활동
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 구매 내역
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 판매 내역
+                        </a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a href="">
+                            나의 문의
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="main-wrap">
+                <div class="main-profile">
+                    <div class="sticky-container">
+                        <div class="sticky-child">
+                            <div class="profile">
+                                <div class="share">
+                                    <button class="share-button">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+                                            <path d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="profile-main">
+                                    <div class="img-wrap">
+                                        <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=240&h=240&c=c" alt="">
+                                    </div>
+                                    <div class="profile-info">
+                                        <div class="name">CREW1</div>
+                                        <div class="profile-info-sub">
+                                            <div class="info-sub">
+                                                <dl class="numbers">
+                                                    <a href="">
+                                                        <span class="post">게시물 수</span>
+                                                        <span class="post-number"></span>
+                                                    </a>
+                                                    <span class="b-bar">|</span>
+                                                    <a href="">
+                                                        <span class="post">캐미지수</span>
+                                                        <span class="post-number">10</span>
+                                                    </a>
+                                                </dl>
+                                                <div class="setting">
+                                                    <a href="" class="setting-a">설정</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar"></div>
+                                <div class="chatting">
+                                    <a href="" class="open-chatting">개인 채팅</a>
+                                </div>
+                            </div>
+                            <!-- 본인 아닐때 지우기 -->
+                            <div class="add-button-wrap">
+                                <button class="add-button">
+                                    <span class="add-button-text">여정 추가하기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blank"></div>
+                <div class="t-list">
+                    <div class="sticky-container">
+                        <div style="position: relative;">
+                            <div class="nav-wrap">
+                                <nav>
+                                    <button class="nav-button active">
+                                        <div class="p-wrap">
+                                            <p class="tag-name">내 다이어리(26)</p>
+                                        </div>
+                                    </button>
+                                    <button class="nav-button">
+                                        <div class="p-wrap">
+                                            <p class="tag-name">내 크루 다이어리(16)</p>
+                                        </div>
+                                    </button>
+                                </nav>
+                                <hr class="nav-hr">
+                            </div>
+                        </div>
+                        <div style="position: relative;">
+                            <!-- 관리자 아닐때 지우기 -->
+                            <div class="nav-footer">
+                                <div class="update">
+                                    <span class="total">
+                                        <span class="check-number">0 </span>
+                                        / 
+                                        <span class="total-number"> 5</span>
+                                    </span>
+                                    <div class="button-wrap">
+                                        <button class="update-button">
+                                            편집
+                                        </button>
+                                        <div class="update-div">
+                                            <button class="remove" disabled>여정 지우기</button>
+                                            <button class="cancle">취소</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="t-list-container">
+                        <section>
+                            <!-- 여행별 모아보기 -->
+                            <a href="" class="travel">
+                                <div class="check"></div>
+                                <div class="more">
+                                    <div class="travel-title">25년 8월 유럽여행 (60)</div>
+                                    <div class="more-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="#828C94" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.773 1.572a.75.75 0 0 1 1.059-.062l6.246 5.552a1.25 1.25 0 0 1 0 1.868l-6.246 5.553a.75.75 0 1 1-.997-1.122l6.036-5.365-6.036-5.365a.75.75 0 0 1-.062-1.06" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="history-container">
+                                    <div class="together-date">
+                                        <span>25.08.15</span>
+                                        <span>25.08.19</span>
+                                    </div>
+                                    <div class="trip-path-wrap">
+                                        <div class="trip-path">
+                                            <div class="marker-circle last"></div>
+                                            <div class="marker">
+                                                <div class="marker-circle first"></div>
+                                                <div class="marker-country">영국</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">프랑스</div>
+                                            </div>    
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">이탈리아</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">독일</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">헝가리</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">체코</div>
+                                            </div>    
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">스위스</div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="checkbox">
+                                    <div class="checkbox-inner">
+                                        <div class="checkbox-in">
+                                            <span class="checkbox-span"></span>
+                                            <input type="checkbox" class="checkbox-input">
+                                        </div>
+                                    </div>
+                                </label>
+                            </a>
+                            <a href="" class="travel">
+                                <div class="check"></div>
+                                <div class="more">
+                                    <div class="travel-title">24년 1월 남미여행 (3)</div>
+                                    <div class="more-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="#828C94" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.773 1.572a.75.75 0 0 1 1.059-.062l6.246 5.552a1.25 1.25 0 0 1 0 1.868l-6.246 5.553a.75.75 0 1 1-.997-1.122l6.036-5.365-6.036-5.365a.75.75 0 0 1-.062-1.06" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="history-container">
+                                    <div class="together-date">
+                                        <span>24.01.02</span>
+                                        <span>24.01.19</span>
+                                    </div>
+                                    <div class="trip-path-wrap">
+                                        <div class="trip-path">
+                                            <div class="marker-circle last"></div>
+                                            <div class="marker">
+                                                <div class="marker-circle first"></div>
+                                                <div class="marker-country">브라질</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">칠레</div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="checkbox">
+                                    <div class="checkbox-inner">
+                                        <div class="checkbox-in">
+                                            <span class="checkbox-span"></span>
+                                            <input type="checkbox" class="checkbox-input">
+                                        </div>
+                                    </div>
+                                </label>
+                            </a>
+                            <a href="" class="travel">
+                                <div class="check"></div>
+                                <div class="more">
+                                    <div class="travel-title">21년 12월 동남아여행 (20)</div>
+                                    <div class="more-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="#828C94" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.773 1.572a.75.75 0 0 1 1.059-.062l6.246 5.552a1.25 1.25 0 0 1 0 1.868l-6.246 5.553a.75.75 0 1 1-.997-1.122l6.036-5.365-6.036-5.365a.75.75 0 0 1-.062-1.06" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="history-container">
+                                    <div class="together-date">
+                                        <span>21.12.25</span>
+                                        <span>21.12.31</span>
+                                    </div>
+                                    <div class="trip-path-wrap">
+                                        <div class="trip-path">
+                                            <div class="marker-circle last"></div>
+                                            <div class="marker">
+                                                <div class="marker-circle first"></div>
+                                                <div class="marker-country">태국</div>
+                                            </div>
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">필리핀</div>
+                                            </div>    
+                                            <div class="marker">    
+                                                <div class="marker-circle"></div>
+                                                <div class="marker-country">베트남</div>
+                                            </div>     
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="checkbox">
+                                    <div class="checkbox-inner">
+                                        <div class="checkbox-in">
+                                            <span class="checkbox-span"></span>
+                                            <input type="checkbox" class="checkbox-input">
+                                        </div>
+                                    </div>
+                                </label>
+                            </a>
+                            <!-- 여행별 모아보기 끝 -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="add-modal" style="display:none;">
+            <div class="add-modal-container">
+                <button class="add-close-button">
+                <span class="close-button-span"></span>
+                </button>
+                <div class="title-container">
+                    <div class="input-title">
+                        <form class="input-title-container" action="">
+                            <div class="input-title-wrapper">
+                                <input placeholder="여정 이름" class="input-title-wrap">
+                            </div>
+                            <div class="path-container">
+                                <div class="line fill">
+                                    <input type="text" placeholder="나라 이름을 입력해주세요." class="input-tag-wrap"> 
+                                    <ul id="countryDropdown" class="write-content-select-dropdown" style="display: block;"></ul>
+                                    <div>
+                                        출발일자
+                                        <input type="text" placeholder="ex) 2025.09.12" class="date-input">
+                                    </div>
+                                </div>
+                                <div class="line fill">
+                                    <input type="text" placeholder="나라 이름을 입력해주세요." class="input-tag-wrap">
+                                    <ul id="countryDropdown" class="write-content-select-dropdown" style="display: block;"></ul>
+                                    <div>
+                                        도착일자
+                                        <input type="text" placeholder="ex) 2025.09.12" class="date-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="path-add-button">+</button>
+                            <button class="modal-add-button">여정 추가하기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="toast hide" style="display: none;">
+        <div class="toast-wrap">
+            <p class="toast-text">클립보드에 복사되었습니다.</p>
+        </div>
+    </div>
+<footer th:replace="~{fixed/web/footer :: footer}"></footer>
+</body>
+<script src="/js/fixed/web/header/module/service.js"></script>
+<script src="/js/fixed/web/header/event.js"></script>
+<script src="../../../static/js/mypage/my-diary/main/event.js"></script>
+</html>

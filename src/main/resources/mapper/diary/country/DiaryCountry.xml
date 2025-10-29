@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.diary.country.DiaryCountryMapper">
+    <insert id="insert">
+        insert into tbl_diary_country(post_id, country_id)
+        values (#{postId},#{countryId})
+    </insert>
+    <select id="selectCountryByPostId">
+        select tc.id,country_name
+        from tbl_diary_country tdc join tbl_country tc on  tdc.country_id = tc.id
+        and tdc.post_id = #{postId}
+    </select>
+
+    <delete id="delete">
+        delete from tbl_diary_country
+        where country_id =#{countryId}
+    </delete>
+</mapper>

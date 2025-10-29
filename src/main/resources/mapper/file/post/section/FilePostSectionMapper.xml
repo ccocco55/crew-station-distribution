@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.file.post.section.FilePostSectionMapper">
+    <insert id="insert">
+        insert into tbl_post_section_file(file_id, post_section_id, image_type)
+        values (#{fileId},#{postSectionId},#{imageType})
+    </insert>
+
+    <delete id="delete">
+        delete from tbl_post_section_file
+        where post_section_id = #{sectionId}
+    </delete>
+
+    <delete id="deleteByFileId">
+        delete from tbl_post_section_file
+        where file_id = #{fileId}
+    </delete>
+    <select id="selectPostSectionFileIdBySectionId">
+        select id, file_path, file_id, post_section_id
+        from view_file_post_section_file
+        where post_section_id = #{sectionId}
+    </select>
+
+    <update id="updateImageType">
+        update tbl_post_section_file
+        set image_type = #{imageType}
+        where post_section_id= #{postSectionId}
+    </update>
+
+    <update id="updateImageTypeByFileId">
+        update tbl_post_section_file
+        set image_type = #{imageType}
+        where file_id= #{fileId}
+    </update>
+</mapper>

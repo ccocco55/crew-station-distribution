@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.accompany.AccompanyMapper">
+    <sql id="accompanySearch">
+        <where>
+            <if test="search.keyword != null and search.keyword != ''">
+                (
+                tps.post_content ILIKE '%' || #{search.keyword} || '%'
+                OR vpc.post_title ILIKE '%' || #{search.keyword} || '%'
+                OR tm.member_name  ILIKE '%' || #{search.keyword} || '%'
+                OR c.crew_name     ILIKE '%' || #{search.keyword} || '%'
+                OR vpc.country_name ILIKE '%' || #{search.keyword} || '%'
+                )
+            </if>
+        </where>
+    </sql>
+
+    <select id="getAccompanies">
+        select vpc.post_title,
+               vpc.created_datetime,
+               vpc.updated_datetime,
+               vpc.country_name,
+               vpc.country_start_date,
+               vpc.country_end_date,
+               vpc.post_id,
+               vpc.post_title,
+               vpc.accompany_status,
+               vpc.post_id,
+                vpc.member_id,
+                tm.social_img_url,
+                vfpsf.file_origin_name,
+                vfpsf.file_path,
+                vfpsf.file_id,
+                c.crew_name
+        from view_post_accompany_accompany_path_country vpc
+        join tbl_member tm on vpc.member_id = tm.id
+        join tbl_post_section tps
+                on tps.post_id = vpc.post_id
+        join view_file_post_section_file vfpsf
+                on vfpsf.post_section_id = tps.id
+        left join tbl_crew_file cf
+                on cf.file_id = vfpsf.id
+        left join tbl_crew c
+                on c.id = cf.crew_id
+
+        order by vpc.created_datetime desc
+        limit #{limit}
+
+    </select>
+
+    <select id="countAccompanies">
+        select count(vpc.post_id)
+        from view_post_accompany_accompany_path_country vpc
+        join tbl_member tm
+            on vpc.member_id = tm.id
+        join tbl_post_section tps
+            on tps.post_id = vpc.post_id
+        join view_file_post_section_file vfpsf
+            on vfpsf.post_section_id = tps.id
+        left join tbl_crew_file cf
+            on cf.file_id = vfpsf.id
+        left join tbl_crew c
+            on c.id = cf.crew_id
+        <include refid="accompanySearch"/>
+    </select>
+
+    <select id="findAccompanies">
+        select
+        vpc.post_id            as postId,
+        vpc.member_id          as memberId,
+        vpc.post_title         as postTitle,
+        vpc.accompany_status   as accompanyStatus,
+        vpc.created_datetime   as createdDatetime,
+        vpc.updated_datetime   as updatedDatetime,
+        vpc.country_name       as countryName,
+        vpc.country_start_date as countryStartDate,
+        vpc.country_end_date   as countryEndDate,
+        tps.post_content as postContent,
+        tm.social_img_url      as socialImgUrl,
+        tm.member_name as memberName,
+        vfpsf.file_origin_name as fileName,
+        vfpsf.file_path        as filePath,
+        vfpsf.file_id          as fileId,
+        c.crew_name            as crewName,
+        (
+            select count(*)
+            from view_file_post_section_file vf
+            join tbl_post_section tps on vf.post_section_id = tps.id
+            where tps.post_id = vpc.post_id
+        ) as fileCount
+
+        from view_post_accompany_accompany_path_country vpc
+        join tbl_member tm
+            on vpc.member_id = tm.id
+        join tbl_post_section tps
+            on tps.post_id = vpc.post_id
+        join view_file_post_section_file vfpsf
+            on vfpsf.post_section_id = tps.id
+        left join tbl_crew_file cf
+            on cf.file_id = vfpsf.id
+        left join tbl_crew c
+            on c.id = cf.crew_id
+        <include refid="accompanySearch"/>
+        order by ${search.orderType}
+        limit #{criteria.rowCount} offset #{criteria.offset}
+
+    </select>
+</mapper>

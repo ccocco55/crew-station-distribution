@@ -1,0 +1,579 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+    font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+    src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+    format("embedded-opentype"),
+    url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+    format("woff2"),
+    url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+    format("woff"),
+    url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+    format("truetype"),
+    url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+    format("svg");}
+    html{
+        font-family:'Pretendard Variable',sans-serif;
+        letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;}
+
+
+/* 네비 */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+
+
+/* 나의 다이어리 */
+.main {
+    width: 100%;
+    max-width: 1136px;
+    margin: 0px auto;
+}
+
+.header {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 16px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.share-button {
+    top: 16px;
+    position: relative;
+    flex-shrink: 0;
+    height: 0px;
+    margin-left: 16px;
+    transform: translateY(-50%);
+}
+
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+
+.share-button-style {
+    margin: 0px 0px 0px 6px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+    vertical-align: middle;
+    transform: translateY(-50%);
+}
+
+.share-button-style:hover {
+    background-color: rgb(247, 249, 250);
+}
+
+.share-icon {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.share-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: "\ef03";
+    font-size: 18px;
+    line-height: 1;
+}
+
+.share-text {
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.profile-wrap {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    
+    font-size: 20px;
+    line-height: 28px;
+    display: block;
+    margin-top: 8px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+}
+
+.m-sticky-container {
+    position: sticky;
+    top: 81px;
+    transition: top 0.1s;
+    z-index: 1;
+}
+
+.nav-wrap {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0px -5px;
+    padding: 0px 16px;
+    background: rgb(255, 255, 255);
+    justify-content: center
+}
+
+.nav-a {
+    margin: 0px 5px;
+}
+
+.nav-button {
+    margin: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 6px;
+}
+
+.p-wrap {
+    font-weight: 700;
+    padding: 4px;
+    margin: -4px;
+}
+
+.nav-button.active .p-wrap::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #647FBC;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.tag-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+}
+
+.active.nav-button .tag-name{
+    color: #647FBC;
+}
+
+.nav-hr {
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    border: none;
+    background-color: rgb(234, 237, 239);
+    margin-bottom: 20px;
+}
+
+/* 좋아요 목록 */
+
+div.diary-card-feed{
+    padding-top: 0px;
+    transform: translateY(0px);
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-right: -10px;
+    margin-left: -10px;
+    
+}
+
+div.card-feed-item-wrap{
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    box-sizing: border-box;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+article.card-collection-item{
+    padding-bottom: 40px;
+}
+
+div.card-writer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    min-height: 36px;
+    margin: 0 0 16px;
+    padding: 0 0 0 48px;
+}
+div.card-item-writer-content{
+    font-style: normal;
+    font-weight: 400;
+    flex: 0 0 auto;
+    margin-top: -5px;
+    font-size: 15px;
+    line-height: 19px;
+}
+
+
+div.card-item-writer-header{
+    display: flex;
+}
+a.card-writer-link{
+    flex: 0 1 auto;
+    transition: opacity .1s;
+    display: inline-block;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+img.card-writer-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    background-color: #ededed;
+}
+
+span.writer-name{
+    color: #424242;
+    font-weight: 500;
+}
+
+div.card-collection-item-content{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+a.card-content-link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+div.card-item-description{
+    order: 1;
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 22px;
+    transition: opacity .1s;
+}
+div.card-item-description-content{
+    max-height: 66px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    -webkit-line-clamp : 3;
+    line-clamp: 3;
+}
+
+
+div.card-collection-item-img{
+    flex: 0 0 auto;
+}
+div.card-item-img{
+    padding-bottom: 100%;
+    border-radius: 6px;
+    position: relative;
+    width: 100%;
+    background-color: #ededed;
+    overflow: hidden;
+}
+
+div.card-item-img img.image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    transition: transform .2s;
+    border: 0;
+}
+
+span.card-item-img-icon{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+div.card-item-img-icon .icon{
+    width: 18px;
+    height: 18px;
+}
+div.card-item-action-list{
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: -12px;
+}
+
+button.card-item-action-btn{
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 13px 0 16px;
+    background: none;
+    border: none;
+    text-align: center;
+    transition: opacity .1s;
+    z-index: 2;
+}
+
+button.card-item-action-btn svg.icon--stroke{
+    fill: #FF6E6E;
+    stroke: #424242;
+    stroke-width: 0.1px;
+    transition: fill .1s, stroke .1s;
+    vertical-align : -7px;
+}
+button.card-item-action-btn span.count{
+    margin-left: 6px;
+    font-size: 12px;
+    color: #424242;
+}
+
+button.card-item-action-btn svg.icon-stroke{
+    fill: #424242;
+    vertical-align: -7px;
+}
+
+button.card-item-action-btn:hover svg{
+    opacity: 0.5;
+}
+
+
+
+div.card-collection-item-content:hover div.card-item-img > img{
+    transform: translate(-50%, -50%) scale(1.03);
+
+}
+
+div.card-collection-item-content:hover div.card-item-description  div.card-item-description-content span{
+    opacity: 0.5;
+}
+
+
+/* 토스트 */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 470px;
+    overflow: visible;
+    opacity: 0;
+    padding-bottom: 10px;
+    flex-direction: column;
+    transition: opacity 0.7s;
+}
+
+.toast-wrap {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 4px;
+    background-color: rgb(47, 52, 56);
+    color: rgb(206, 206, 206);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.toast-text {
+    flex: 1 0 0px;
+    min-width: 0px;
+    margin: 0px;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.toast.show {
+    opacity: 1;
+    transition: opacity 0.7s;
+}
+
+.toast.hide {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #647FBC;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading {
+    display: none;
+    position: fixed; /* 스크롤 상관없이 항상 가운데 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정확히 가운데로 이동 */
+    z-index: 9999;
+}
+
+.card-collection-item-content {
+    position: relative; /* 기준 요소 */
+}
+
+.card-content-link {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    z-index: 10; /* 다른 내용보다 위로 */
+    cursor: pointer;
+}

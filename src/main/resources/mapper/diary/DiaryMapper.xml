@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.diary.DiaryMapper">
+    <sql id="diarySearch">
+        <where>
+            <if test="search.category!= null and search.category !=''">
+                and tc.crew_name is ${search.category}
+            </if>
+            <if test="search.keyword != null and search.keyword != ''">
+                and (tps.post_content like '%' || #{search.keyword} || '%'
+                or vpd.post_title like '%' || #{search.keyword} || '%'
+                or tm.member_name like '%' || #{search.keyword} || '%'
+                or tc.crew_name like '%' || #{search.keyword} || '%')
+            </if>
+        </where>
+    </sql>
+    <select id="selectDiaryList">
+        select vpd.id as post_id,
+        vpd.created_datetime,
+        vpd.updated_datetime,
+        vpd.post_read_count,
+        vpd.diary_like_count,
+        vpd.diary_reply_count,
+        vfps.file_path as diary_file_path,
+        tm.member_name,
+        tm.id as member_id,
+        tm.member_description,
+        tm.social_img_url,
+        tps.post_content,
+        vfmf.file_path as member_file_path,
+        tc.crew_name,
+        tc.id as crew_id
+        from tbl_member tm
+        join view_post_diary vpd on tm.id = vpd.member_id
+        join tbl_post_section tps
+        on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+        join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+        left join view_file_member_file vfmf on vfmf.member_id = tm.id
+        left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+        left join tbl_crew tc on tcd.crew_id = tc.id
+
+        where vpd.diary_secret = 'public'
+        order by vpd.created_datetime desc
+        limit 4;
+    </select>
+
+    <!-- 내가 좋아요 한 일기 -->
+    <select id="findDiariesLikedByMemberId" resultType="com.example.crewstation.dto.diary.LikedDiaryDTO">
+        SELECT d.post_id AS postId,
+               p.post_title,
+               m.id            AS memberId,
+               m.member_name   AS memberName,
+               m.social_img_url AS memberProfileImage,
+
+               f.file_path AS mainImage,
+
+               (SELECT ps.post_content
+                FROM tbl_post_section ps
+                WHERE ps.post_id = p.id
+                ORDER BY ps.id ASC
+                LIMIT 1) AS content,
+
+               d.diary_like_count,
+               d.diary_reply_count,
+
+               1 AS liked
+        FROM tbl_like l
+                 JOIN tbl_post p ON l.post_id = p.id
+                 JOIN tbl_diary d ON d.post_id = p.id
+                 JOIN tbl_member m ON p.member_id = m.id
+                 LEFT JOIN (
+            SELECT ps.post_id, COALESCE(main.file_id, sub.first_file_id) AS first_file_id
+            FROM tbl_post_section ps
+                     LEFT JOIN (
+                SELECT psf.post_section_id, MIN(f.id) AS file_id
+                FROM tbl_post_section_file psf
+                         JOIN tbl_file f ON psf.file_id = f.id
+                WHERE psf.image_type = 'main'
+                GROUP BY psf.post_section_id
+            ) main ON ps.id = main.post_section_id
+                     LEFT JOIN (
+                SELECT psf.post_section_id, MIN(f.id) AS first_file_id
+                FROM tbl_post_section_file psf
+                         JOIN tbl_file f ON psf.file_id = f.id
+                WHERE psf.image_type = 'sub'
+                GROUP BY psf.post_section_id
+            ) sub ON ps.id = sub.post_section_id
+        ) sec_file ON p.id = sec_file.post_id
+                 LEFT JOIN tbl_file f ON sec_file.first_file_id = f.id
+        WHERE l.member_id = #{memberId}
+        ORDER BY l.id DESC
+        LIMIT #{criteria.size} OFFSET #{criteria.offset}
+    </select>
+
+    <!-- 좋아요 취소 -->
+    <delete id="deleteLike">
+        DELETE FROM tbl_like
+        WHERE member_id = #{memberId}
+          AND post_id = #{diaryId}
+    </delete>
+
+    <!-- 내가 좋아요 한 일기 개수 -->
+    <select id="countDiariesLikedByMemberId" parameterType="long" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_like
+        WHERE member_id = #{memberId}
+    </select>
+
+    <select id="findLikeId" resultType="long">
+        SELECT id FROM tbl_like WHERE member_id = #{memberId} AND post_id = #{diaryId}
+    </select>
+
+    <delete id="deleteLikeAlarmByLikeId">
+        DELETE FROM tbl_like_alarm WHERE like_id = #{likeId}
+    </delete>
+
+    <!-- 내가 댓글 단 일기 조회 -->
+    <select id="selectReplyDiariesByMemberId" resultType="com.example.crewstation.dto.diary.ReplyDiaryDTO">
+        SELECT
+            p.id                   AS postId,
+            p.post_title           AS postTitle,
+            (
+                SELECT ps.post_content
+                FROM tbl_post_section ps
+                WHERE ps.post_id = p.id
+                ORDER BY ps.id ASC
+                LIMIT 1
+            ) AS content,
+            (
+                SELECT f.file_path
+                FROM tbl_post_section_file psf
+                         JOIN tbl_file f ON psf.file_id = f.id
+                WHERE psf.post_section_id IN (
+                    SELECT id FROM tbl_post_section WHERE post_id = p.id
+                )
+                  AND psf.image_type = 'main'
+                LIMIT 1
+            ) AS mainImage,
+            r.reply_content        AS replyContent,
+            r.created_datetime     AS createdDatetime
+        FROM tbl_reply r
+                 JOIN tbl_diary d ON r.diary_id = d.post_id
+                 JOIN tbl_post p  ON d.post_id = p.id
+        WHERE r.member_id = #{memberId}
+        GROUP BY p.id, r.reply_content, r.created_datetime
+        ORDER BY r.created_datetime DESC
+        LIMIT #{criteria.size} OFFSET #{criteria.offset}
+    </select>
+
+    <select id="countReplyDiariesByMemberId" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_reply r
+        WHERE r.member_id = #{memberId}
+    </select>
+
+
+
+    <select id="selectAllByKeyword">
+        select vpd.id as post_id,
+        vpd.created_datetime,
+        vpd.updated_datetime,
+        vpd.post_read_count,
+        vpd.diary_like_count,
+        vpd.diary_reply_count,
+        vfps.file_path as diary_file_path,
+        tm.member_name,
+
+        tm.id as member_id,
+        tm.member_description,
+        tm.social_img_url,
+        tps.post_content,
+        vfmf.file_path as member_file_path,
+        tc.crew_name,
+        tc.id as crew_id
+        from tbl_member tm
+        join view_post_diary vpd on tm.id = vpd.member_id
+        join tbl_post_section tps
+        on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+        join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+        left join view_file_member_file vfmf on vfmf.member_id = tm.id
+        left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+        left join tbl_crew tc on tcd.crew_id = tc.id
+        <include refid="diarySearch"/>
+        order by ${search.orderType} desc
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectCountAllByKeyword">
+        select count(vpd.id)
+        from tbl_member tm
+        join view_post_diary vpd on tm.id = vpd.member_id
+        join tbl_post_section tps
+        on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+        join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+        left join view_file_member_file vfmf on vfmf.member_id = tm.id
+        left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+        left join tbl_crew tc on tcd.crew_id = tc.id
+        <include refid="diarySearch"/>
+    </select>
+
+
+    <update id="updateLikeCount">
+        update  tbl_diary
+        set diary_like_count = diary_like_count + #{diff}
+        where post_id = #{postId}
+    </update>
+
+    <select id="searchDiaryCount">
+        select count(tps.post_id)
+        from tbl_member tm
+                 join view_post_diary vpd on tm.id = vpd.member_id
+                 join tbl_post_section tps
+                      on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+                 join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+                 left join view_file_member_file vfmf on vfmf.member_id = tm.id
+                 left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+                 left join tbl_crew tc on tcd.crew_id = tc.id
+    </select>
+
+
+    <insert id="insert">
+        insert into tbl_diary(post_id, diary_secret)
+        values (#{postId}, #{diarySecret})
+    </insert>
+
+
+    <select id="selectByPostId">
+        select tm.id  as member_id,
+               tm.member_name,
+               tm.social_img_url,
+               vpd.id as post_id,
+               vpd.post_title,
+               vpd.post_read_count,
+               vpd.created_datetime,
+               vpd.updated_datetime,
+               vpd.diary_secret,
+               vpd.diary_like_count,
+               vpd.diary_reply_count,
+               vfmf.file_path as member_file_path,
+               tc.crew_name,
+               tc.id as crew_id
+        from tbl_member tm
+                 join view_post_diary vpd on tm.id = vpd.member_id and vpd.id = #{postId} and vpd.diary_secret = 'public'
+                 left join view_file_member_file vfmf on tm.id = vfmf.member_id
+        left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+        left join tbl_crew tc on tcd.crew_id = tc.id
+    </select>
+
+    <update id="updateSecret">
+        update tbl_diary
+        set diary_secret = #{secret}
+        where post_id = #{postId}
+    </update>
+
+    <update id="updateReplyCount">
+        update tbl_diary
+        set diary_reply_count = diary_reply_count + #{count}
+        where post_id = #{postId}
+    </update>
+
+    <select id="selectDiaryAllByMemberId">
+        select vpd.id as post_id,
+               vpd.created_datetime,
+               vpd.updated_datetime,
+               vpd.post_read_count,
+               vpd.diary_like_count,
+               vpd.diary_reply_count,
+               vfps.file_path as diary_file_path,
+               tm.member_name,
+               tm.id as member_id,
+               tm.member_description,
+               tm.social_img_url,
+               vpd.post_title,
+               tps.post_content,
+               vfmf.file_path as member_file_path,
+               tc.crew_name,
+               tc.id as crew_id
+        from tbl_member tm
+                 join view_post_diary vpd on tm.id = vpd.member_id
+                 join tbl_post_section tps
+                      on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+                 join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+                 left join view_file_member_file vfmf on vfmf.member_id = tm.id
+                 left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+                 left join tbl_crew tc on tcd.crew_id = tc.id
+        where tm.id=#{memberId} and vpd.diary_secret = 'public'
+        order by vpd.created_datetime desc
+    </select>
+    <select id="selectCountDiaryAllByMemberId">
+        select COUNT(*)
+        from tbl_member tm
+                 join view_post_diary vpd on tm.id = vpd.member_id
+                 join tbl_post_section tps
+                      on vpd.id = tps.post_id and vpd.post_status = 'active' and vpd.diary_secret = 'public'
+                 join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+                 left join view_file_member_file vfmf on vfmf.member_id = tm.id
+                 left join tbl_crew_diary tcd on tcd.diary_id = vpd.id
+                 left join tbl_crew tc on tcd.crew_id = tc.id
+        where tm.id=#{memberId} and vpd.diary_secret = 'public'
+    </select>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.gift.GiftMapper">
+    <sql id="giftSearch">
+        <where>
+        <if test="search.keyword != null and search.keyword != ''">
+            and (
+            vpp.purchase_country like '%' || #{search.keyword} || '%'
+            or vpp.post_title like '%' || #{search.keyword} || '%'
+            )
+        </if>
+        </where>
+    </sql>
+    <select id="getGift">
+        select vpp.id as postId,
+        vpp.post_title as postTitle,
+        vpp.member_id as memberId,
+        vpp.purchase_country as purchaseCountry,
+        vpp.purchase_limit_time as purchaseLimitTime,
+        vpp.purchase_product_count as purchaseProductCount,
+        vpp.purchase_product_price as purchaseProductPrice,
+        vpp.purchase_delivery_method as purchaseDeliveryMethod,
+        vpp.created_datetime as createdDatetime,
+        vpp.updated_datetime as updatedDatetime,
+
+        vfps.file_path,
+        vfps.file_name,
+        tm.member_name as memberName,
+        tm.chemistry_score as chemistryScore,
+        tm.social_img_url as socialImgUrl,
+        vfmf.file_path as member_file_path
+        from tbl_member tm
+        join view_post_purchase vpp
+            on tm.id = vpp.member_id
+        join tbl_post_section tps
+            on vpp.id = tps.post_id
+                        and vpp.post_status = 'active'
+        join view_file_post_section_file vfps
+            on tps.id = vfps.post_section_id
+                        and vfps.image_type = 'main'
+        left join view_file_member_file vfmf on vfmf.member_id = tm.id
+        where vpp.created_datetime + (vpp.purchase_limit_time || 'hour')::interval > now()
+        order by vpp.created_datetime desc , vpp.id desc
+        limit #{limit}
+    </select>
+
+    <select id="countGifts">
+        select count(vpp.id)
+        from tbl_member tm
+                 join view_post_purchase vpp
+                      on tm.id = vpp.member_id
+                 join tbl_post_section tps on vpp.id = tps.post_id and vpp.post_status = 'active'
+                 join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+
+        <include refid="giftSearch"/>
+    </select>
+
+    <select id="findGifts" resultType="com.example.crewstation.dto.gift.GiftDTO">
+        select
+        vpp.id                       as postId,
+        vpp.post_title               as postTitle,
+        vpp.member_id                as memberId,
+        vpp.purchase_country         as purchaseCountry,
+        vpp.purchase_delivery_method as purchaseDeliveryMethod,
+        vpp.purchase_limit_time      as purchaseLimitTime,
+        vpp.purchase_product_count   as purchaseProductCount,
+        vpp.purchase_product_price   as purchaseProductPrice,
+        vpp.created_datetime         as createdDatetime,
+        vpp.updated_datetime         as updatedDatetime,
+        vfps.file_path               as filePath,
+        vfps.file_name               as fileName,
+        tm.member_name               as memberName,
+        tm.chemistry_score           as chemistryScore,
+        tm.social_img_url            as socialImgUrl
+        from tbl_member tm
+        join view_post_purchase vpp on tm.id = vpp.member_id
+        join tbl_post_section tps   on vpp.id = tps.post_id and vpp.post_status = 'active'
+        join view_file_post_section_file vfps on tps.id = vfps.post_section_id and vfps.image_type = 'main'
+        <include refid="giftSearch"/>
+        order by ${search.orderType}
+        limit #{criteria.rowCount} offset #{criteria.offset}
+    </select>
+
+</mapper>

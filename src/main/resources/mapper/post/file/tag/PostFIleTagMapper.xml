@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.post.file.tag.PostFileTagMapper">
+    <insert id="insert">
+        insert into tbl_post_file_tag(tag_left, tag_top, member_id, post_section_file_id)
+        VALUES (#{tagLeft}, #{tagTop}, #{memberId}, #{postSectionFileId})
+    </insert>
+
+    <select id="selectByFileId">
+        select tpft.id, tag_left, tag_top, tpft.member_id, post_section_file_id, member_name, vfmf.file_path,tm.social_img_url
+        from tbl_post_file_tag tpft
+                 join tbl_member tm on tpft.member_id = tm.id
+                 left join view_file_member_file vfmf on tm.id = vfmf.member_id
+        where post_section_file_id = #{fileId}
+    </select>
+    <delete id="deleteAllByFileId">
+        delete from tbl_post_file_tag
+        where post_section_file_id = #{fildId}
+    </delete>
+
+    <delete id="deleteById">
+        delete from tbl_post_file_tag
+        where id = #{id};
+    </delete>
+</mapper>

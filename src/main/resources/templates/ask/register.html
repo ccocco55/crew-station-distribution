@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrewStation</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="shortcut icon" href="/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/ask/ask.css">
+</head>
+<body>
+    <div class="notice-list">
+        <div class="myhome-nav">
+            <div>
+                <a href="/">
+                    <img class="gift-shop-write-header-icon" src="/images/crew-station-favicon.png">
+                </a>
+            </div>
+            <!-- 올리기 버튼 -->
+            <div class="postbutton">
+                    <button type="submit" class="css-postup" form="askForm">
+                        <span class="css-tygob0 emrmz0c1">올리기</span>
+                    </button>
+            </div>
+        </div>
+    </div>
+    <div class="css-title1">
+        <div class="css-title2">
+            <div class="css-title3">
+                <!-- 폼에 id 추가 -->
+                <form id="askForm" action="/ask/register" method="post">
+                    <!-- 제목 name 추가 -->
+                    <input class="title-input" type="text" name="inquiryTitle"
+                           placeholder="제목을 입력해주세요." maxlength="60" value="" required>
+                    <!-- (임시) memberId 히든: DB 제약 있으면 필요합니다 -->
+                    <input type="hidden" name="memberId" th:value="${memberId}">
+                </form>
+                <div class="indicator">0 /60 </div>
+            </div>
+        </div>
+    </div>
+    <div class="post1">
+        <div class="post2">
+            <div class="post3">
+                <div class="post4">
+                    <textarea class="css-1iifh8u" name="inquiryContent" form="askForm"
+                              placeholder="문의내용을 입력해주세요."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/ask/event.js"></script>
+</html>

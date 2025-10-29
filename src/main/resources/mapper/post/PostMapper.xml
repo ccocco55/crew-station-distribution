@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.post.PostMapper">
+    <insert id="insertPostReport">
+        insert into tbl_post_report (report_id, post_id)
+        values (#{reportId},#{postId})
+    </insert>
+
+    <select id="existsActivePost">
+        select count(id) > 0
+        from tbl_post
+        where post_status ='active' and id=#{postId}
+    </select>
+
+    <insert id="insert" keyProperty="postId" useGeneratedKeys="true">
+        insert into tbl_post(post_title,member_id)
+        values (#{postTitle},#{memberId})
+    </insert>
+
+    <update id="update">
+        update tbl_post
+        set post_title = #{postTitle},updated_datetime = now()
+        where id = #{id}
+    </update>
+
+    <update id="updatePostStatus">
+        update tbl_post
+        set post_status = 'inactive'
+        where id =#{id}
+    </update>
+
+    <select id="selectPostMainImageById">
+        SELECT ps.id AS postSectionId,
+               ps.post_id AS postId,
+               vf.file_id AS fileId,
+               vf.file_origin_name AS fileOriginName,
+               vf.file_path AS filePath,
+               vf.file_name AS fileName,
+               vf.image_type AS imageType
+        FROM tbl_post_section ps
+                 LEFT JOIN view_file_post_section_file vf
+                           ON ps.id = vf.post_section_id
+        WHERE ps.post_id = #{postId}
+          AND vf.image_type = 'main'
+    </select>
+
+    <update id="updateReadCount">
+        update tbl_post
+        set post_read_count = post_read_count + 1
+        where id = #{postId}
+    </update>
+</mapper>

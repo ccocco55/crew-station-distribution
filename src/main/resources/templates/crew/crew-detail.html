@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Station</title>
+    <link rel="shortcut icon" href="/static/images/crew-station-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/crew/crew-detail.css">
+</head>
+<body>
+<div class="all">
+    <div class="myhome-nav">
+
+    </div>
+    <div class="main">
+        <div class="main-wrap">
+            <div class="main-profile">
+                <div class="profile">
+                    <div class="share">
+                        <button class="share-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+                                <path d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="profile-main">
+                        <div class="img-wrap">
+                            <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=240&h=240&c=c" alt="">
+                        </div>
+                        <div class="profile-info">
+                            <div class="name">CREW1</div>
+                            <div class="profile-info-sub">
+                                <div class="info-sub">
+                                    <dl class="numbers">
+                                        <a href="">
+                                            <span class="post">크루원</span>
+                                            <span class="post-number">26</span>
+                                        </a>
+                                        <span class="b-bar">|</span>
+                                        <a href="">
+                                            <span class="post">다이어리</span>
+                                            <span class="post-number">16</span>
+                                        </a>
+                                    </dl>
+                                    <span class="crew-info">다 같이 재밌게 놀아봐요~!
+현재 인원 26명
+20-30대 환영해요
+                                        </span>
+                                    <!-- 관리자만 보이게 -->
+                                    <div class="setting">
+                                        <a href="" class="setting-a">설정</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar"></div>
+                    <div class="chatting">
+                        <!-- 미가입 -->
+                        <a href="" class="open-chatting">가입 신청하기</a>
+                        <!-- 가입 -->
+                        <!-- <a href="" class="open-chatting">크루 탈퇴하기</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="blank"></div>
+            <div class="t-list">
+                <div class="nav-wrap">
+                    <nav>
+                        <!-- 관리자만 -->
+                        <button class="nav-button">
+                            <div class="p-wrap">
+                                <p class="tag-name">크루원 신청(1)</p>
+                            </div>
+                        </button>
+                        <button class="nav-button active">
+                            <div class="p-wrap">
+                                <p class="tag-name">크루원(26)</p>
+                            </div>
+                        </button>
+                        <button class="nav-button">
+                            <div class="p-wrap">
+                                <p class="tag-name">크루 다이어리(16)</p>
+                            </div>
+                        </button>
+                    </nav>
+                    <hr class="nav-hr">
+                </div>
+                <div style="position: relative;">
+                    <!-- 관리자 아닐때 지우기 -->
+                    <div class="nav-footer">
+                        <div class="update">
+                                    <span class="total">
+                                        <span class="check-number">0 </span>
+                                        /
+                                        <span class="total-number"> 5</span>
+                                    </span>
+                            <div class="button-wrap">
+                                <button class="update-button">
+                                    편집
+                                </button>
+                                <div class="update-div">
+                                    <button class="remove" disabled>크루에서 내보내기</button>
+                                    <button class="cancle">취소</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="crew-member-container">
+                    <div class="crew-member" style="margin-top: 10px;">
+                        <!-- 관리자에게만 가입요청 -->
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper appliction">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                        <button class="refuse">거절</button>
+                                        <button class="apply">승인</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper appliction">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                        <button class="refuse">거절</button>
+                                        <button class="apply">승인</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper appliction">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                        <button class="refuse">거절</button>
+                                        <button class="apply">승인</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="crew-member active" style="margin-top: 10px;">
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                    </div>
+                                    <label class="checkbox">
+                                        <div class="checkbox-inner">
+                                            <div class="checkbox-in">
+                                                <span class="checkbox-span"></span>
+                                                <input type="checkbox" class="checkbox-input">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                    </div>
+                                    <label class="checkbox">
+                                        <div class="checkbox-inner">
+                                            <div class="checkbox-in">
+                                                <span class="checkbox-span"></span>
+                                                <input type="checkbox" class="checkbox-input">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="crew-profile">
+                            <a href="">
+                                <div class="profile-wrapper">
+                                    <div class="check"></div>
+                                    <div class="profile-wrap">
+                                        <img src="/static/images/company-info-images/1.jpeg" alt="">
+                                        <div class="member-info">
+                                            <span class="member-name">crew2</span>
+                                            <span class="member-c"><span class="number">캐미지수</span> 10</span>
+                                        </div>
+                                    </div>
+                                    <label class="checkbox">
+                                        <div class="checkbox-inner">
+                                            <div class="checkbox-in">
+                                                <span class="checkbox-span"></span>
+                                                <input type="checkbox" class="checkbox-input">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="crew-member">
+                        <div class="diary-card-feed">
+                            <div class="card-feed-item-wrap">
+                                <article class="card-collection-item">
+                                    <div class="card-writer">
+                                        <div class="card-item-writer-content">
+                                            <div class="card-item-writer-header">
+                                                <a class="card-writer-link">
+                                                    <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/users/profile_images/164752734173442882.jpeg?w=36&h=36&c=c&webp=1" alt="" class="card-writer-img">
+                                                    <span class="writer-name">
+                                                        bebeyul
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-collection-item-content">
+                                        <a class="card-content-link"></a>
+                                        <div class="card-item-description">
+                                            <div class="card-item-description-content">
+                                                <span class="card-item-detail-content">
+                                                    111111111111111111
+
+                                                    #아이방 #아이방인테리어 #오브제 #인테리어소품 #철제수납장 #수납장 #서랍장 #옷장 #모듈옷장 #행거 #모듈행거 #타공판 #타공판인테리어 #타공판책상 #책상 #책상꾸미기 #스페셜크리에이터
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-collection-item-img">
+                                            <div class="card-item-img">
+                                                <img src="https://prs.ohousecdn.com/apne2/content/community/v1-388571834613888.jpg?w=480&h=480&c=c&q=80&webp=1" alt="" class="image">
+                                                <span class="card-item-img-icon">
+                                                    <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path><path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path></g></svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-item-action-list">
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon-stroke" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="card-feed-item-wrap">
+                                <article class="card-collection-item">
+                                    <div class="card-writer">
+                                        <div class="card-item-writer-content">
+                                            <div class="card-item-writer-header">
+                                                <a class="card-writer-link">
+                                                    <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/users/profile_images/164752734173442882.jpeg?w=36&h=36&c=c&webp=1" alt="" class="card-writer-img">
+                                                    <span class="writer-name">
+                                                        bebeyul
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-collection-item-content">
+                                        <a class="card-content-link"></a>
+                                        <div class="card-item-description">
+                                            <div class="card-item-description-content">
+                                                <span class="card-item-detail-content">
+                                                    2222222222222222222
+
+                                                    #아이방 #아이방인테리어 #오브제 #인테리어소품 #철제수납장 #수납장 #서랍장 #옷장 #모듈옷장 #행거 #모듈행거 #타공판 #타공판인테리어 #타공판책상 #책상 #책상꾸미기 #스페셜크리에이터
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-collection-item-img">
+                                            <div class="card-item-img">
+                                                <img src="https://prs.ohousecdn.com/apne2/content/community/v1-388571834613888.jpg?w=480&h=480&c=c&q=80&webp=1" alt="" class="image">
+                                                <span class="card-item-img-icon">
+                                                    <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path><path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path></g></svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-item-action-list">
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon-stroke" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="card-feed-item-wrap">
+                                <article class="card-collection-item">
+                                    <div class="card-writer">
+                                        <div class="card-item-writer-content">
+                                            <div class="card-item-writer-header">
+                                                <a class="card-writer-link">
+                                                    <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/users/profile_images/164752734173442882.jpeg?w=36&h=36&c=c&webp=1" alt="" class="card-writer-img">
+                                                    <span class="writer-name">
+                                                        bebeyul
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-collection-item-content">
+                                        <a class="card-content-link"></a>
+                                        <div class="card-item-description">
+                                            <div class="card-item-description-content">
+                                                <span class="card-item-detail-content">
+                                                    333333333333333333333333333
+
+                                                    #아이방 #아이방인테리어 #오브제 #인테리어소품 #철제수납장 #수납장 #서랍장 #옷장 #모듈옷장 #행거 #모듈행거 #타공판 #타공판인테리어 #타공판책상 #책상 #책상꾸미기 #스페셜크리에이터
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-collection-item-img">
+                                            <div class="card-item-img">
+                                                <img src="https://prs.ohousecdn.com/apne2/content/community/v1-388571834613888.jpg?w=480&h=480&c=c&q=80&webp=1" alt="" class="image">
+                                                <span class="card-item-img-icon">
+                                                    <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path><path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path></g></svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-item-action-list">
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon-stroke" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="card-feed-item-wrap">
+                                <article class="card-collection-item">
+                                    <div class="card-writer">
+                                        <div class="card-item-writer-content">
+                                            <div class="card-item-writer-header">
+                                                <a class="card-writer-link">
+                                                    <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/users/profile_images/164752734173442882.jpeg?w=36&h=36&c=c&webp=1" alt="" class="card-writer-img">
+                                                    <span class="writer-name">
+                                                        bebeyul
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-collection-item-content">
+                                        <a class="card-content-link"></a>
+                                        <div class="card-item-description">
+                                            <div class="card-item-description-content">
+                                                <span class="card-item-detail-content">
+                                                    444444444444444444444444444
+
+                                                    #아이방 #아이방인테리어 #오브제 #인테리어소품 #철제수납장 #수납장 #서랍장 #옷장 #모듈옷장 #행거 #모듈행거 #타공판 #타공판인테리어 #타공판책상 #책상 #책상꾸미기 #스페셜크리에이터
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-collection-item-img">
+                                            <div class="card-item-img">
+                                                <img src="https://prs.ohousecdn.com/apne2/content/community/v1-388571834613888.jpg?w=480&h=480&c=c&q=80&webp=1" alt="" class="image">
+                                                <span class="card-item-img-icon">
+                                                    <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path><path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path></g></svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-item-action-list">
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon-stroke" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="card-feed-item-wrap">
+                                <article class="card-collection-item">
+                                    <div class="card-writer">
+                                        <div class="card-item-writer-content">
+                                            <div class="card-item-writer-header">
+                                                <a class="card-writer-link">
+                                                    <img src="https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/users/profile_images/164752734173442882.jpeg?w=36&h=36&c=c&webp=1" alt="" class="card-writer-img">
+                                                    <span class="writer-name">
+                                                        bebeyul
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-collection-item-content">
+                                        <a class="card-content-link"></a>
+                                        <div class="card-item-description">
+                                            <div class="card-item-description-content">
+                                                <span class="card-item-detail-content">
+                                                    5555555555555555555555555
+                                                    #아이방 #아이방인테리어 #오브제 #인테리어소품 #철제수납장 #수납장 #서랍장 #옷장 #모듈옷장 #행거 #모듈행거 #타공판 #타공판인테리어 #타공판책상 #책상 #책상꾸미기 #스페셜크리에이터
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-collection-item-img">
+                                            <div class="card-item-img">
+                                                <img src="https://prs.ohousecdn.com/apne2/content/community/v1-388571834613888.jpg?w=480&h=480&c=c&q=80&webp=1" alt="" class="image">
+                                                <span class="card-item-img-icon">
+                                                    <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><path stroke="#000" stroke-opacity=".14" stroke-width=".75" d="M14.27 3.85H15a2.62 2.62 0 0 1 2.62 2.63V15A2.62 2.62 0 0 1 15 17.63H6.49A2.62 2.62 0 0 1 3.85 15v-.73h7.8a2.63 2.63 0 0 0 2.62-2.62v-7.8zM.37 3A2.62 2.62 0 0 1 3 .37h8.52A2.62 2.62 0 0 1 14.15 3v8.52a2.62 2.62 0 0 1-2.63 2.63H3a2.62 2.62 0 0 1-2.63-2.63V3z"></path><path fill="#FFF" fill-opacity=".74" d="M14.64 4.22H15c1.25 0 2.26 1 2.26 2.26V15c0 1.24-1 2.25-2.25 2.25H6.48c-1.25 0-2.26-1-2.26-2.25v-.35h7.43a3 3 0 0 0 3-3V4.22zM.75 3C.75 1.76 1.75.75 3 .75h8.52c1.25 0 2.26 1 2.26 2.25v8.52c0 1.25-1 2.26-2.26 2.26H3c-1.24 0-2.25-1-2.25-2.26V3z"></path></g></svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-item-action-list">
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon--stroke" aria-label="좋아요" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M23.22 7.95c.4 4.94-2.92 9.71-10.92 13.85a.47.47 0 0 1-.42 0C3.88 17.66.56 12.9.96 7.93 1.54 2.48 8.28.3 12.1 4.7c3.8-4.4 10.55-2.22 11.13 3.25z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                            <button class="card-item-action-btn">
+                                                <svg class="icon icon-stroke" aria-label="댓글 달기" width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" fill-rule="nonzero" d="M13.665 18.434l.53-.066C19.69 17.679 23 14.348 23 10c0-4.942-4.235-8.5-11-8.5S1 5.058 1 10c0 4.348 3.31 7.68 8.804 8.368l.531.066L12 21.764l1.665-3.33zm-3.985.926C3.493 18.585 0 14.69 0 10 0 4.753 4.373.5 12 .5S24 4.753 24 10c0 4.69-3.493 8.585-9.68 9.36l-1.647 3.293c-.374.75-.974.744-1.346 0L9.68 19.36z"></path></svg>
+                                                <span class="count">234</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast hide" style="display: none;">
+        <div class="toast-wrap">
+            <p class="toast-text">클립보드에 복사되었습니다.</p>
+        </div>
+    </div>
+</body>
+<script src="/static/js/crew/crew-detail/event.js"></script>
+</html>
